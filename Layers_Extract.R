@@ -71,7 +71,10 @@ mapview(planbound_sf_attr,
 
 # Save output as SHP files
 planbound_shp <- as_Spatial(st_zm(planbound_sf_attr))
-raster::shapefile(planbound_shp, paste(path,"planning_boundaries", sep=""))
+raster::shapefile(planbound_shp, 
+                  paste(path,
+                        "land_boundary/planning_boundary/planning_boundaries", 
+                        sep=""))
 
 
 ############################
@@ -119,7 +122,10 @@ mapview(subzone_sf_attr)
 
 # Save output as SHP files
 subzone_shp <- as_Spatial(st_zm(subzone_sf_attr))
-raster::shapefile(subzone_shp, paste(path,"subzone_boundaries", sep=""))
+raster::shapefile(subzone_shp, 
+                  paste(path,
+                        "land_boundary/subzone_boundary/subzone_boundaries", 
+                        sep=""))
 
 
 #########################################################################
@@ -141,7 +147,10 @@ qtm(island)
 
 # Save output as SHP files
 island_shp <- as_Spatial(st_zm(st_as_sf(island)))
-raster::shapefile(island_shp, paste(path,"island_intersect", sep=""))
+raster::shapefile(island_shp, 
+                  paste(path,
+                        "land_boundary/intersection_boundary/island_intersect", 
+                        sep=""))
 
 
 ###########################
@@ -193,5 +202,8 @@ mapview(fitness_sf_attr)
 
 # Save output as SHP files
 fitness_shp <- as_Spatial(st_zm(fitness_sf_attr))
-raster::shapefile(fitness_shp, paste(path,"fitness_facilities", sep=""))
+raster::shapefile(fitness_shp, 
+                  paste(path,
+                        "fitness_facility/fitness_facilities", 
+                        sep=""))
 
