@@ -259,6 +259,31 @@ raster::shapefile(sportsfac_shp,
                         sep=""), overwrite=TRUE)
 
 
+# Function: Get the centroid in the polygon
+st_centroid_within_poly <- function (poly) {
+  
+  # check if centroid is in polygon
+  centroid <- poly %>% st_centroid() 
+  in_poly <- st_within(centroid, poly, sparse = F)[[1]] 
+  
+  # if it is, return that centroid
+  if (in_poly) return(centroid) 
+  
+  # if not, calculate a point on the surface and return that
+  centroid_in_poly <- st_point_on_surface(poly) 
+  return(centroid_in_poly)
+}
+
+sportsfac_as_point = st_centroid_within_poly(sportsfac_sf_attr)
+qtm(sportsfac_as_point)
+
+# Save output as SHP files
+sportsfac_point_shp <- as_Spatial(st_zm(sportsfac_as_point))
+raster::shapefile(sportsfac_point_shp, 
+                  paste(path,
+                        "sports_facilities_points/sports_facilities_points", 
+                        sep=""), overwrite=TRUE)
+
 ################
 ##### GYMS #####
 ################

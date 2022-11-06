@@ -19,38 +19,14 @@ library(ggpubr)
 path = "data/"
 plot_path = "plots/"
 
-
-tmap_mode("view")
-test <- read_sf(dsn = paste(path, "land_boundary/intersection_boundary/", sep = ""), 
-                   layer = "island_intersect")
-
-qtm(test)
-
 # Read data
 fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
                    layer = "fitness_facilities")
-sportsfac <- read_sf(dsn = paste(path, "sports_facilities/", sep = ""), 
-                     layer = "sports_facilities")
+sportsfac <- read_sf(dsn = paste(path, "sports_facilities_points/", sep = ""), 
+                     layer = "sports_facilities_points")
 gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
                layer = "gym_facilities")
 
-
-# Function: Get the centroid in the polygon
-st_centroid_within_poly <- function (poly) {
-  
-  # check if centroid is in polygon
-  centroid <- poly %>% st_centroid() 
-  in_poly <- st_within(centroid, poly, sparse = F)[[1]] 
-  
-  # if it is, return that centroid
-  if (in_poly) return(centroid) 
-  
-  # if not, calculate a point on the surface and return that
-  centroid_in_poly <- st_point_on_surface(poly) 
-  return(centroid_in_poly)
-}
-
-sportsfac_point = st_centroid_within_poly(sportsfac)
 
 ###################################
 ##### FREQUENCY OF FACILITIES #####
@@ -84,13 +60,13 @@ fitness_scatter = ggplot(fitness_points, aes(x=X, y=Y)) +
 fitness_scatter
 
 # Sports Facility
-sportsfac_coord <- sportsfac_point %>% 
+sportsfac_coord <- sportsfac %>% 
   as.data.frame() %>%
   dplyr::select(geometry)
 
-sportsfac_points = st_coordinates(st_as_sf(sportsfac_coord)) %>% as.data.frame()
-sportsfac_points$facility_type = "sports_facility"
-sportsfac_scatter = ggplot(sportsfac_points, aes(x=X, y=Y)) + 
+sportsfac = st_coordinates(st_as_sf(sportsfac_coord)) %>% as.data.frame()
+sportsfac$facility_type = "sports_facility"
+sportsfac_scatter = ggplot(sportsfac, aes(x=X, y=Y)) + 
   geom_point(color="#E69F00") +
   theme(plot.margin = margin(t = 20, r = 20, b = 20, l = 20, unit = "pt"))
 sportsfac_scatter
@@ -130,3 +106,4 @@ ggsave(path = plot_path, filename = "sports_facilities_dispersion.png", plot = s
 ggsave(path = plot_path, filename = "gym_facility_dispersion.png", plot = gym_scatter)
 ggsave(path = plot_path, filename = "all_facility_dispersion.png", plot = all_facility_scatter)
 ggsave(path = plot_path, filename = "combined_facility_dispersion.png", plot = combined_facility_scatter)
+
