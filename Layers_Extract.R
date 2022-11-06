@@ -166,7 +166,7 @@ fitness_sf %>%
 
 # See Map
 mapviewOptions(fgb = FALSE)
-mapview(fitness_sf)
+mapview(fitness_sf) # Point Data
 
 # Get attributes for each observation
 attributes <- lapply(X = 1:nrow(fitness_sf), 
@@ -204,6 +204,111 @@ mapview(fitness_sf_attr)
 fitness_shp <- as_Spatial(st_zm(fitness_sf_attr))
 raster::shapefile(fitness_shp, 
                   paste(path,
-                        "fitness_facility/fitness_facilities", 
+                        "fitness_facilities/fitness_facilities", 
                         sep=""))
 
+#############################
+##### SPORTS FACILITIES #####
+#############################
+sportsfac_file_path = 'original_data/sportsg-sport-facilities/sportsg-sport-facilities-kml.kml'
+sportsfac_kml <- file.path(getwd(), paste(path, sportsfac_file_path, sep=""))
+sportsfac_sf <- read_sf(sportsfac_kml)
+
+# Watch the data
+sportsfac_sf %>%
+  glimpse() 
+
+# See Map
+mapviewOptions(fgb = FALSE)
+mapview(sportsfac_sf) # Polygon Data
+
+# Get attributes for each observation
+attributes <- lapply(X = 1:nrow(sportsfac_sf), 
+                     FUN = function(x) {
+                       
+                       sportsfac_sf %>% 
+                         slice(x) %>%
+                         pull(Description) %>%
+                         read_html() %>%
+                         html_node("table") %>%
+                         html_table(header = TRUE, trim = TRUE, dec = ".", fill = TRUE) %>%
+                         as_tibble(.name_repair = ~ make.names(c("Attribute", "Value"))) %>% 
+                         pivot_wider(names_from = Attribute, values_from = Value)
+                       
+                     })
+
+# Bind attributes to each observation as new columns
+sportsfac_sf_attr <- 
+  sportsfac_sf %>%
+  bind_cols(bind_rows(attributes)) %>%
+  dplyr::select(-Description)
+
+sportsfac_sf_attr
+# Watch new data
+sportsfac_sf_attr %>%
+  glimpse()
+
+# New map layers
+mapview(sportsfac_sf_attr)
+
+# Save output as SHP files
+sportsfac_shp <- as_Spatial(st_zm(sportsfac_sf_attr))
+raster::shapefile(sportsfac_shp, 
+                  paste(path,
+                        "sports_facilities/sports_facilities", 
+                        sep=""))
+
+
+################
+##### GYMS #####
+################
+gym_file_path = 'original_data/gymssg/gyms-sg-kml.kml'
+gym_kml <- file.path(getwd(), paste(path, gym_file_path, sep=""))
+gym_sf <- read_sf(gym_kml)
+
+# Watch the data
+gym_sf %>%
+  glimpse()
+
+# See Map
+mapviewOptions(fgb = FALSE)
+mapview(gym_sf) # Point Data
+
+# Get attributes for each observation
+attributes <- lapply(X = 1:nrow(gym_sf), 
+                     FUN = function(x) {
+                       
+                       gym_sf %>% 
+                         slice(x) %>%
+                         pull(Description) %>%
+                         read_html() %>%
+                         html_node("table") %>%
+                         html_table(header = TRUE, trim = TRUE, dec = ".", fill = TRUE) %>%
+                         as_tibble(.name_repair = ~ make.names(c("Attribute", "Value"))) %>% 
+                         pivot_wider(names_from = Attribute, values_from = Value)
+                       
+                     })
+
+gym_longlat <- data.frame(st_coordinates(gym_sf)) %>%
+  rename("Longitude" = "X", "Latitude" = "Y")
+
+# Bind attributes to each observation as new columns
+gym_sf_attr <- 
+  gym_sf %>%
+  bind_cols(bind_rows(attributes)) %>%
+  bind_cols(bind_rows(gym_longlat)) %>%
+  dplyr::select(-Description)
+
+# Watch new data
+gym_sf_attr %>%
+  glimpse()
+
+# New map layers
+mapview(gym_sf_attr)
+
+# Save output as SHP files
+gym_shp <- as_Spatial(st_zm(gym_sf_attr))
+raster::shapefile(gym_shp, 
+                  paste(path,
+                        "gym_facilities/gym_facilities", 
+                        sep=""))
