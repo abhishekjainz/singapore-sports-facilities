@@ -1,0 +1,54 @@
+# Metadata for SportSG Sport Facilities
+---
+Identifier: 'a4ce4212-89cc-4823-9115-a52edc4343f7'
+Name: 'sportsg-sport-facilities'
+Title: 'SportSG Sport Facilities'
+Description: 'This layer displays the location and key information of the sport facilities
+  managed by SportSG (without DUS facilities).'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'Active Health'
+  - 'ActiveSG'
+  - 'Court'
+  - 'Field'
+  - 'Gym'
+  - 'Indoor Sports Hall'
+  - 'SSC'
+  - 'Singapore Sports Council'
+  - 'Sport Singapore'
+  - 'SportSG'
+  - 'Sports'
+  - 'Sports Centre'
+  - 'Sports Facilities'
+  - 'Sports Facility'
+  - 'Stadium'
+  - 'Swimming'
+  - 'onemap'
+  - 'sport'
+  - 'sports'
+  - 'themes'
+Publisher:
+  Name: 'Sport Singapore'
+  Admin 1:
+    Name: 'Lim Boon Lian'
+    Department: 'SPORT SINGAPORE'
+    Email: 'lim_boon_lian@sport.gov.sg'
+Sources:
+  - 'Sport Singapore'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2020-01-08T00:07:27.029533'
+Resources:
+  -
+    Identifier: '32a35960-0bf0-4850-a974-638039279510'
+    Title: 'SportSG Sport Facilities (KML)'
+    Url: 'https://geo.data.gov.sg/sportsg-sport-facilities/2019/12/17/kml/sportsg-sport-facilities.kml'
+    Format: 'KML'
+    Last Updated: '2019-12-16T16:00:00'
+  -
+    Identifier: 'df7698b8-ec88-4508-a2de-63b4d19cb13c'
+    Title: 'SportSG Sport Facilities (GEOJSON)'
+    Url: 'https://geo.data.gov.sg/sportsg-sport-facilities/2019/12/17/geojson/sportsg-sport-facilities.geojson'
+    Format: 'GeoJSON'
+    Last Updated: '2019-12-16T16:00:00'
