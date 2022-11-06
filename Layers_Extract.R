@@ -24,7 +24,7 @@ path = "data/"
 ##################################
 ##### PLANNING AREA BOUNDARY #####
 ##################################
-planbound_file_path = "master-plan-2019-planning-area-boundary-no-sea/planning-boundary-area.kml"
+planbound_file_path = "original_data/master-plan-2019-planning-area-boundary-no-sea/planning-boundary-area.kml"
 planbound_kml <- file.path(getwd(), paste(path, planbound_file_path, sep=""))
 planbound_sf <- read_sf(planbound_kml)
 
@@ -80,7 +80,7 @@ raster::shapefile(planbound_shp,
 ############################
 ##### SUBZONE BOUNDARY #####
 ############################
-subzone_file_path = 'master-plan-2019-subzone-boundary-no-sea/master-plan-2019-subzone-boundary-no-sea-kml.kml'
+subzone_file_path = 'original_data/master-plan-2019-subzone-boundary-no-sea/master-plan-2019-subzone-boundary-no-sea-kml.kml'
 subzone_kml <- file.path(getwd(), paste(path, subzone_file_path, sep=""))
 subzone_sf <- read_sf(subzone_kml)
 
@@ -156,7 +156,7 @@ raster::shapefile(island_shp,
 ###########################
 ##### FITNESS CORNERS #####
 ###########################
-fitness_file_path = 'nparks-playfitness-equipment/nparks-play-fitness-equipment-kml.kml'
+fitness_file_path = 'original_data/nparks-playfitness-equipment/nparks-play-fitness-equipment-kml.kml'
 fitness_kml <- file.path(getwd(), paste(path, fitness_file_path, sep=""))
 fitness_sf <- read_sf(fitness_kml)
 
