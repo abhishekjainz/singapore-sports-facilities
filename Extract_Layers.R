@@ -205,7 +205,7 @@ fitness_shp <- as_Spatial(st_zm(fitness_sf_attr))
 raster::shapefile(fitness_shp, 
                   paste(path,
                         "fitness_facilities/fitness_facilities", 
-                        sep=""))
+                        sep=""), overwrite=TRUE)
 
 #############################
 ##### SPORTS FACILITIES #####
@@ -256,7 +256,7 @@ sportsfac_shp <- as_Spatial(st_zm(sportsfac_sf_attr))
 raster::shapefile(sportsfac_shp, 
                   paste(path,
                         "sports_facilities/sports_facilities", 
-                        sep=""))
+                        sep=""), overwrite=TRUE)
 
 
 ################
@@ -311,4 +311,5 @@ gym_shp <- as_Spatial(st_zm(gym_sf_attr))
 raster::shapefile(gym_shp, 
                   paste(path,
                         "gym_facilities/gym_facilities", 
-                        sep=""))
+                        sep=""), overwrite=TRUE)
+
