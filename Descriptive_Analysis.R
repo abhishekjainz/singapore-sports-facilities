@@ -27,6 +27,10 @@ sportsfac <- read_sf(dsn = paste(path, "sports_facilities_points/", sep = ""),
 gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
                layer = "gym_facilities")
 
+fitness_summary <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
+                           layer = "fitness_summarised_points")
+
+qtm(fitness_summary) + qtm(fitness) # Compare full and new fitness layer
 
 ###################################
 ##### FREQUENCY OF FACILITIES #####
@@ -35,7 +39,7 @@ gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""),
 freq_table <- data.frame(facility_type = c("fitness_corners", 
                                            "sports_facilities", 
                                            "gyms"),
-                         frequency = c(nrow(fitness %>% as.data.frame()), 
+                         frequency = c(nrow(fitness_summary %>% as.data.frame()), 
                                        nrow(sportsfac_point %>% as.data.frame()), 
                                        nrow(gym %>% as.data.frame())))
 
@@ -47,7 +51,7 @@ freq_table
 ####################################
 
 # Fitness Corners
-fitness_coord <- fitness %>% 
+fitness_coord <- fitness_summary %>% 
   as.data.frame() %>%
   dplyr::select(geometry)
 
@@ -84,7 +88,7 @@ gym_scatter = ggplot(gym_points, aes(x=X, y=Y)) +
 gym_scatter
 
 # All Facilities
-all_facility <- rbind(fitness_points, sportsfac_points, gym_points)
+all_facility <- rbind(fitness_points, sportsfac, gym_points)
 all_facility_scatter = ggplot(all_facility, aes(x=X, y=Y, color=facility_type)) + 
   geom_point() + scale_colour_manual(values = c("#009E73", "#E69F00", "#0072B2")) +
   geom_smooth(method='lm') + theme(legend.position="bottom") +

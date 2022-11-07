@@ -337,4 +337,3 @@ raster::shapefile(gym_shp,
                   paste(path,
                         "gym_facilities/gym_facilities", 
                         sep=""), overwrite=TRUE)
-
