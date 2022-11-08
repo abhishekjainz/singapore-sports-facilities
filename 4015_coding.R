@@ -14,6 +14,7 @@ library(rgeos)
 library(GISTools)
 library(leaflet)
 library(spatstat)
+library(knitr)
 
 install.packages("remotes") 
 remotes::install_github("mtennekes/oldtmaptools")
@@ -597,3 +598,36 @@ p_ff
 ###############################################################################
 ########################## poisson point process model ########################
 ###############################################################################
+
+hdb_cord.dec = SpatialPoints(cbind(hdb_file$LONGITUDE, hdb_file$LATITUDE), proj4string = CRS("+proj=longlat"))
+
+hdb_cord.UTM <- spTransform(hdb_cord.dec, CRS("+init=epsg:32748"))
+
+hdb_ppp = as.ppp.SpatialPoints(hdb_cord.UTM)
+
+hdb_pop = as.im(hdb_ppp)
+
+#sports facilities and hdb:referencing population
+PPM1 <- ppm(sc_ppp ~ hdb_pop )
+PPM1
+
+PPM0 <- ppm(sc_ppp ~ 1) 
+PPM0
+
+sstable = anova(PPM0, PPM1, test="LRT")
+
+kable(sstable, digits = 3)
+#Pr(>Chi)| = 0.272, actually suggest that the location of sports facilities are related to population density
+
+
+#sports facilities and hdb:referencing population
+
+PPM4 <- ppm(ff_ppp ~ hdb_pop)
+PPM4
+
+anova(PPM4, test="Chi") #P = 0.4258
+
+PPM6 <- ppm(gym_ppp ~ hdb_pop)
+PPM6
+
+anova(PPM6, test="Chi") #P = 0.02633
