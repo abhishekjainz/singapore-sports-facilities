@@ -385,7 +385,6 @@ mrt_ff_2k =  ff_in_mrt_2k/total_ff * 100
 mrt_ff_2k #80.77
 
 
-
 buff6 <- st_buffer(temp4, dist = 500)
 buff6 <- st_transform(buff6, crs = 4326)
 union6 <- st_union(buff6)
@@ -435,6 +434,13 @@ mrt_ff_500
 ###############################################################################
 ########################## Monte Carlo & ANN Analysis #########################
 ###############################################################################
+fitness_longlat <- data.frame(st_coordinates(fitness_facilities_sf)) %>%
+  rename("Longitude" = "X", "Latitude" = "Y")
+
+fitness_facilities_sf <- 
+  fitness_facilities_sf %>%
+  bind_cols(bind_rows(fitness_longlat))
+
 ##ANN
 #Fitness Facilities ANN
 ff_cord.dec = SpatialPoints(cbind(fitness_facilities_sf$Longitude, fitness_facilities_sf$Latitude), proj4string = CRS("+proj=longlat"))
@@ -502,8 +508,8 @@ title(main = "ANN Plot for Gym Points",
 )
 
 #ANN Plot for Fitness Facilities (all points)
-ff_ANN <- apply(nndist(ff_ppp, k=1:3108),2,FUN=mean)
-plot(ff_ANN ~ eval(1:3108), type="b", las=1, main = "", xlab="", ylab="",
+ff_ANN <- apply(nndist(ff_ppp, k=1:723),2,FUN=mean)
+plot(ff_ANN ~ eval(1:723), type="b", las=1, main = "", xlab="", ylab="",
      col.axis="blue")
 title(main = "ANN Plot for Fitness Facilities Points",
       xlab = "Neighbour Order", ylab = "ANN",
@@ -512,32 +518,21 @@ title(main = "ANN Plot for Fitness Facilities Points",
       col.lab ="darkblue"
 )
 
-#ANN Plot for Fitness Facilities (first 1000 points)
-ff_ANN2 <- apply(nndist(ff_ppp, k=1:1000),2,FUN=mean)
-plot(ff_ANN2 ~ eval(1:1000), type="b", las=1, main = "", xlab="", ylab="",
-     col.axis="blue")
-title(main = "ANN Plot for Fitness Facilities Points(First 1000)",
-      xlab = "Neighbour Order", ylab = "ANN",
-      cex.main = 1,   font.main= 3, col.main= "red",
-      cex.sub = 1, font.sub = 1, col.sub = "green",
-      col.lab ="darkblue"
-)
-
-
 ##Monte Carlo
 #creating the boundaries
 island_boundary <- as(st_geometry(island_sf$geometry), "Spatial")
 island_boundary_sp= spTransform(island_boundary, CRS("+init=epsg:32748"))
-island_sf_new = subset(island_sf, PLN_AREA_N != c("WESTERN WATER CATCHMENT", "LIM CHU KANG", "TUAS", "WESTERN ISLANDS"))
-island_sf_new2 = subset(island_sf_new, PLN_AREA_N != c("SOUTHERN ISLANDS", "STRAITS VIEW", "CHANGI BAY", "NORTH-EASTERN ISLANDS"))
+island_sf_new = island_sf[-c(44,53, 20, 51, 52, 45,11, 27,9, 46, 21, 42, 38),]
+
+island_boundary_new <- as(st_geometry(island_sf_new$geometry), "Spatial")
+island_boundary_sp_new= spTransform(island_boundary_new, CRS("+init=epsg:32748"))
 
 
-"SOUTHERN ISLANDS", "STRAITS VIEW", "CHANGI BAY", "NORTH-EASTERN ISLANDS", "CENTRAL WATER CATCHMENT", "SUNGEI KADUT", "MANDAI", "SIMPANG", "SELETAR"))
 #sports complex monte carlo
 n     <- 1000L               
 sc_ann.r <- vector(length = n) 
 for (i in 1:n){
-  rand.p   <- rpoint(n=total_sc, win=island_boundary_sp)  
+  rand.p   <- rpoint(n=total_sc, win=island_boundary_sp_new)  
   sc_ann.r[i] <- mean(nndist(rand.p, k=1))  
 }
 
@@ -547,12 +542,11 @@ plot(rand.p, pch=16, main=NULL, cols=rgb(0,0,0,0.5))
 hist(sc_ann.r, main=NULL, las=1, breaks=40, col="bisque", xlim=range(sc_ann.p, sc_ann.r))
 abline(v=sc_ann.p, col="blue")
 
-
 #gym monte carlo
 n2     <- 500L        #lowered the number of simulations to save run time        
 gym_ann.r <- vector(length = n2) 
 for (i in 1:n2){
-  gym_rand.p   <- rpoint(n=total_gym, win=island_boundary_sp)  
+  gym_rand.p   <- rpoint(n=total_gym, win=island_boundary_sp_new)  
   gym_ann.r[i] <- mean(nndist(gym_rand.p, k=1))  
 }
 
@@ -564,15 +558,42 @@ abline(v=gym_ann.p, col="blue")
 
 
 #fitness facilities monte carlo
-n3     <- 200L        #lowered the number of simulations even more to save run time        
+n3     <- 500L        #lowered the number of simulations to save run time        
 ff_ann.r <- vector(length = n3) 
 for (i in 1:n3){
-  ff_rand.p   <- rpoint(n=total_ff, win=island_boundary_sp)  
+  ff_rand.p   <- rpoint(n=total_ff, win=island_boundary_sp_new)  
   ff_ann.r[i] <- mean(nndist(ff_rand.p, k=1))  
 }
 
 #plotting on map
 plot(ff_rand.p, pch=16, main=NULL, cols=rgb(0,0,0,0.5))
 
-hist(ff_ann.r, main=NULL, las=1, breaks=100, col="bisque", xlim=range(ff_ann.p, 300))
+hist(ff_ann.r, main=NULL, las=1, breaks=100, col="bisque", xlim=range(ff_ann.p, ff_ann.r))
 abline(v=ff_ann.p, col="blue")
+
+
+###############################################################################
+########################## Hypothesis Testing #################################
+###############################################################################
+n_sc.greater <- sum(sc_ann.r > sc_ann.p)
+
+p_sc <- min(n_sc.greater + 1, n + 1 - n_sc.greater) / (n +1)
+p_sc
+#p-value = 0.02297702, <0.05, meaning significant that distribution is nt random
+
+n_gym.greater <- sum(gym_ann.r > gym_ann.p)
+
+p_gym <- min(n_gym.greater + 1, n2 + 1 - n_gym.greater) / (n2 +1)
+p_gym
+#p-value = 0.001996008, <0.05, meaning significant that distribution is nt random
+
+n_ff.greater <- sum(ff_ann.r > ff_ann.p)
+
+p_ff <- min(n_ff.greater + 1, n3 + 1 - n_ff.greater) / (n3 +1)
+p_ff
+#p-value = 0.001996008, <0.05, meaning significant that distribution is nt random
+
+
+###############################################################################
+########################## poisson point process model ########################
+###############################################################################
