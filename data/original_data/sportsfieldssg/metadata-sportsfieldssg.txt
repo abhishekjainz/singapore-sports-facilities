@@ -1,0 +1,35 @@
+# Metadata for SportsFields@SG
+---
+Identifier: '0f44344c-d49c-4a30-ae98-643648f6e206'
+Name: 'sportsfieldssg'
+Title: 'SportsFields@SG'
+Description: 'Sports Facilities in Singapore'
+Topics:
+  - 'Health'
+Keywords:
+  - 'OneMap'
+  - 'Sports Facilities in Singapore'
+Publisher:
+  Name: 'Health Promotion Board'
+  Admin 1:
+    Name: 'Jeffrey Ng'
+    Department: 'Health Promotion Board'
+    Email: 'aileen_koh@hpb.gov.sg'
+Sources:
+  - 'Health Promotion Board'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2017-03-30T03:58:42.587950'
+Resources:
+  -
+    Identifier: '253d73b7-0134-4240-b6f6-43bc6da85312'
+    Title: 'SportsFields@SG (KML)'
+    Url: 'https://geo.data.gov.sg/playsg/2014/04/17/kml/playsg.zip'
+    Format: 'KML'
+    Last Updated: '2014-04-16T16:00:00'
+  -
+    Identifier: 'f3021260-e892-48b2-972f-7393960bb1bb'
+    Title: 'SportsFields@SG (SHP)'
+    Url: 'https://geo.data.gov.sg/playsg/2014/04/17/shp/playsg.zip'
+    Format: 'SHP'
+    Last Updated: '2014-04-16T16:00:00'

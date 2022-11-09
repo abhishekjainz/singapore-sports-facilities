@@ -1,0 +1,48 @@
+# Metadata for DUS Schools Sports Facilities
+---
+Identifier: 'df37418f-4531-4714-b22d-629ae292f0f2'
+Name: 'dus-schools-sports-facilities'
+Title: 'DUS Schools Sports Facilities'
+Description: 'DUS School Sports Facilities'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'CF'
+  - 'DUS'
+  - 'FTP'
+  - 'ISH'
+  - 'SSC'
+  - 'Singapore sports council'
+  - 'chargeable fields'
+  - 'dual use scheme'
+  - 'free to free fields'
+  - 'indoor sports hall'
+  - 'onemap'
+  - 'schools'
+  - 'sports'
+  - 'sports facilities'
+  - 'themes'
+Publisher:
+  Name: 'Sport Singapore'
+  Admin 1:
+    Name: 'Monica Liu'
+    Department: 'Sport Singapore'
+    Email: 'monica_liu@ssc.gov.sg'
+Sources:
+  - 'Sport Singapore'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Annual'
+Last Updated: '2017-06-19T03:52:30.762194'
+Resources:
+  -
+    Identifier: '51aa80b2-eb1b-4e7e-8e4b-75e7dfec73cf'
+    Title: 'DUS Schools Sports Facilities (KML)'
+    Url: 'https://geo.data.gov.sg/dus-school-sports-facilities/2015/02/11/kml/dus-school-sports-facilities.zip'
+    Format: 'KML'
+    Last Updated: '2015-02-10T16:00:00'
+  -
+    Identifier: 'b5de371d-bef7-4963-a216-99453c6f3e0b'
+    Title: 'DUS Schools Sports Facilities (SHP)'
+    Url: 'https://geo.data.gov.sg/dus-school-sports-facilities/2015/02/11/shp/dus-school-sports-facilities.zip'
+    Format: 'SHP'
+    Last Updated: '2015-02-10T16:00:00'

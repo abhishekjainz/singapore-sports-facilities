@@ -1,0 +1,39 @@
+# Metadata for SportSG DUS Sport Facilities
+---
+Identifier: '1856e414-99a8-4e8a-8478-b0b19cbe7f32'
+Name: 'sportsg-dus-sport-facilities'
+Title: 'SportSG DUS Sport Facilities'
+Description: 'This layer displays the location and key information of the DUS sport
+  facilities managed by SportSG.'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'Court'
+  - 'Field'
+  - 'Free To Play'
+  - 'Indoor Sports Hall'
+  - 'SSC'
+  - 'School'
+  - 'Singapore Sports Council'
+  - 'Sport Singapore'
+  - 'SportSG'
+  - 'Sports'
+  - 'Sports Facility'
+Publisher:
+  Name: 'Sport Singapore'
+  Admin 1:
+    Name: 'Lim Boon Lian'
+    Department: 'SPORT SINGAPORE'
+    Email: 'lim_boon_lian@sport.gov.sg'
+Sources:
+  - 'Sport Singapore'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Annual'
+Last Updated: '2018-11-07T11:14:25.238260'
+Resources:
+  -
+    Identifier: 'cf1318bf-db77-4c55-acf1-1d9fb10b5698'
+    Title: 'SportSG DUS Sport Facilities (KML)'
+    Url: 'https://geo.data.gov.sg/sportsg-dus-sport-facilities/2017/08/07/kml/sportsg-dus-sport-facilities.kml'
+    Format: 'KML'
+    Last Updated: '2017-08-06T16:00:00'
