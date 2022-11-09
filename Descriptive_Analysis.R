@@ -22,8 +22,8 @@ plot_path = "plots/"
 # Read data
 fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
                    layer = "fitness_facilities")
-sportsfac <- read_sf(dsn = paste(path, "sports_facilities_points/", sep = ""), 
-                     layer = "sports_facilities_points")
+sportsfac <- read_sf(dsn = paste(path, "sports_facilities/", sep = ""), 
+                     layer = "sports_facilities")
 gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
                layer = "gym_facilities")
 
@@ -40,7 +40,7 @@ freq_table <- data.frame(facility_type = c("fitness_corners",
                                            "sports_facilities", 
                                            "gyms"),
                          frequency = c(nrow(fitness_summary %>% as.data.frame()), 
-                                       nrow(sportsfac_point %>% as.data.frame()), 
+                                       nrow(sportsfac %>% as.data.frame()), 
                                        nrow(gym %>% as.data.frame())))
 
 freq_table
