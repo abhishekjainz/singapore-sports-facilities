@@ -153,7 +153,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01) +
   tm_shape(union_hdb_1k) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(gym_sf) + tm_dots("blue", size = 0.1) 
+  tm_shape(gym_sf) + tm_dots("blue", size = 0.2) 
 
 
 gym_sf_as_sp <- as_Spatial(gym_sf)
@@ -206,7 +206,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01) +
   tm_shape(union_hdb_2k) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(gym_sf) + tm_dots("blue", size = 0.1) 
+  tm_shape(gym_sf) + tm_dots("blue", size = 0.2) 
 
 buff_hdb_2k_sf_as_sp <- as_Spatial(union_hdb_2k)
 gym_in_hdb_2k_count <- poly.counts(gym_sf_as_sp, buff_hdb_2k_sf_as_sp)
@@ -253,7 +253,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01) +
   tm_shape(union_hdb_500) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(gym_sf) + tm_dots("blue", size = 0.1) 
+  tm_shape(gym_sf) + tm_dots("blue", size = 0.2) 
 
 buff_hdb_500_sf_as_sp <- as_Spatial(union_hdb_500)
 gym_in_hdb_500_count <- poly.counts(gym_sf_as_sp, buff_hdb_500_sf_as_sp)
@@ -299,9 +299,9 @@ union4 <- st_union(buff4)
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union4) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2)
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2)
 
 #count the number of sports complex points in the MRT buffer polygon
 buffer_mrt_sf_as_sp <- as_Spatial(union4)
@@ -316,7 +316,7 @@ mrt_sc4 #81.09
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union4) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
 
@@ -329,7 +329,7 @@ mrt_gym5 #88.74
 #--------------------------------------------------------------
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.1) +
   tm_shape(union4) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
@@ -349,9 +349,9 @@ union5 <- st_union(buff5)
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union5) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2)
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2)
 
 #count the number of sports complex points in the MRT buffer polygon
 buffer_mrt_sf_as_sp_2k <- as_Spatial(union5)
@@ -365,7 +365,7 @@ mrt_sc_2k #99.58
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union5) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
 
@@ -377,7 +377,7 @@ mrt_gym_2k #99.12
 #--------------------------------------------------------------
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union5) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
@@ -396,9 +396,9 @@ union6 <- st_union(buff6)
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union6) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2)
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2)
 
 #count the number of sports complex points in the MRT buffer polygon
 buffer_mrt_sf_as_sp_500 <- as_Spatial(union6)
@@ -412,7 +412,7 @@ mrt_sc_500 #39.08
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union6) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
 
@@ -424,7 +424,7 @@ mrt_gym_500 #69.76
 #--------------------------------------------------------------
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
+  tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
   tm_shape(union6) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
@@ -460,23 +460,36 @@ ff_cord.UTM <- spTransform(ff_cord.dec, CRS("+init=epsg:32748"))
 ff_ppp = as.ppp.SpatialPoints(ff_cord.UTM)
 
 ff_ann.p <- mean(nndist(ff_ppp, k=1)) 
-ff_ann.p
+ff_ann.p #116.75
 
 
 ##Gyms ANN
-gym_cord.dec = SpatialPoints(cbind(gym_sf$Longitude, gym_sf$Latitude), proj4string = CRS("+proj=longlat"))
+
+gym_sf_ap <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
+                                layer = "gym_facilities")
+
+gym_longlat <- data.frame(st_coordinates(gym_sf_ap)) %>%
+  rename("Longitude" = "X", "Latitude" = "Y")
+
+
+gym_attr <- 
+  gym_sf_ap %>%
+  bind_cols(bind_rows(gym_longlat))
+
+gym_cord.dec = SpatialPoints(cbind(gym_attr$Longitude, gym_attr$Latitude), proj4string = CRS("+proj=longlat"))
 
 gym_cord.UTM <- spTransform(gym_cord.dec, CRS("+init=epsg:32748"))
 
 gym_ppp = as.ppp.SpatialPoints(gym_cord.UTM)
 
 gym_ann.p <- mean(nndist(gym_ppp, k=1)) 
-gym_ann.p
+gym_ann.p #284.88
 
 #Sports_Complex ANN
 #process the point data here
-sports_complex_sf_ap <- read_sf(dsn = paste(path, "sports_facilities_points/", sep = ""), 
-                             layer = "sports_facilities_points")
+sports_complex_sf_ap <- read_sf(dsn = paste(path, "sports_facilities/", sep = ""), 
+                             layer = "sports_facilities")
+
 sc_longlat <- data.frame(st_coordinates(sports_complex_sf_ap)) %>%
   rename("Longitude" = "X", "Latitude" = "Y")
 
@@ -491,11 +504,11 @@ sc_cord.UTM <- spTransform(sc_cord.dec, CRS("+init=epsg:32748"))
 sc_ppp = as.ppp.SpatialPoints(sc_cord.UTM)
 
 sc_ann.p <- mean(nndist(sc_ppp, k=1)) 
-sc_ann.p
+sc_ann.p #420.25
 
 #ANN Plot for Sports Complex
-sc_ANN <- apply(nndist(sc_ppp, k=1:35),2,FUN=mean)
-plot(sc_ANN ~ eval(1:35), type="b", las=1, main = "", xlab="", ylab="",
+sc_ANN <- apply(nndist(sc_ppp, k=1:nrow(sports_complex_sf_ap)),2,FUN=mean)
+plot(sc_ANN ~ eval(1:nrow(sports_complex_sf_ap)), type="b", las=1, main = "", palette = col_sports, xlab="", ylab="",
      col.axis="blue")
 title(main = "ANN Plot for Sports Complex Points",
       xlab = "Neighbour Order", ylab = "ANN",
@@ -506,8 +519,8 @@ title(main = "ANN Plot for Sports Complex Points",
 
 
 #ANN Plot for Gyms
-gym_ANN <- apply(nndist(gym_ppp, k=1:159),2,FUN=mean)
-plot(gym_ANN ~ eval(1:159), type="b", las=1, main = "", xlab="", ylab="",
+gym_ANN <- apply(nndist(gym_ppp, k=1:nrow(gym_sf_ap)),2,FUN=mean)
+plot(gym_ANN ~ eval(1:nrow(gym_sf_ap)), type="b", las=1, main = "", palette = col_gym, xlab="", ylab="",
      col.axis="blue")
 title(main = "ANN Plot for Gym Points",
       xlab = "Neighbour Order", ylab = "ANN",
@@ -538,7 +551,7 @@ island_boundary_sp_new= spTransform(island_boundary_new, CRS("+init=epsg:32748")
 
 
 #sports complex monte carlo
-n     <- 1000L               
+n     <- 500L               
 sc_ann.r <- vector(length = n) 
 for (i in 1:n){
   rand.p   <- rpoint(n=total_sc, win=island_boundary_sp_new)  
@@ -546,13 +559,13 @@ for (i in 1:n){
 }
 
 #plotting on map
-plot(rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
+plot(rand.p, pch=16, main=NULL, cols="red")
 
 hist(sc_ann.r, main=NULL, las=1, breaks=40, col="bisque", xlim=range(sc_ann.p, sc_ann.r))
 abline(v=sc_ann.p, col="blue")
 
 #gym monte carlo
-n2     <- 500L        #lowered the number of simulations to save run time        
+n2     <- 500L               
 gym_ann.r <- vector(length = n2) 
 for (i in 1:n2){
   gym_rand.p   <- rpoint(n=total_gym, win=island_boundary_sp_new)  
@@ -567,7 +580,7 @@ abline(v=gym_ann.p, col="blue")
 
 
 #fitness facilities monte carlo
-n3     <- 500L        #lowered the number of simulations to save run time        
+n3     <- 500L                
 ff_ann.r <- vector(length = n3) 
 for (i in 1:n3){
   ff_rand.p   <- rpoint(n=total_ff, win=island_boundary_sp_new)  
