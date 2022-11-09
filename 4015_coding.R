@@ -670,77 +670,67 @@ plot(K3, main=NULL, las=1)
 contour(K3, add=TRUE)
 
 
+##quadrat
+Q <- quadratcount(sc_ppp, nx= 20, ny=10)
+
+plot(sc_ppp, pch=20, cols="grey70", main=NULL)  # Plot points
+plot(Q, add=TRUE)  # Add quadrat grid
+
+# Compute the density for each quadrat
+Q.d <- intensity(Q)
+
+# Plot the density
+plot(intensity(Q, image=TRUE), main=NULL, las=1)  # Plot density raster
+plot(sc_ppp, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
+
+##quadrat
+Q2 <- quadratcount(gym_ppp1, nx= 20, ny=10)
+
+plot(gym_ppp1, pch=20, cols="grey70", main=NULL)  # Plot points
+plot(Q2, add=TRUE)  # Add quadrat grid
+
+# Compute the density for each quadrat
+Q2.d <- intensity(Q2)
+
+# Plot the density
+plot(intensity(Q2, image=TRUE), main=NULL, las=1)  # Plot density raster
+plot(gym_ppp, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
+
+##quadrat
+Q3 <- quadratcount(ff_ppp1, nx= 20, ny=10)
+
+plot(ff_ppp1, pch=20, cols="grey70", main=NULL)  # Plot points
+plot(Q3, add=TRUE)  # Add quadrat grid
+
+# Compute the density for each quadrat
+Q3.d <- intensity(Q3)
+
+# Plot the density
+plot(intensity(Q3, image=TRUE), main=NULL, las=1)  # Plot density raster
+plot(ff_ppp1, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
+
+
+###############################################################################
+############################### Interpolation #################################
+###############################################################################
+#temperature_rainfall_data
+tr_file_path = "temp_rain.csv"
+tr_csv <- file.path(getwd(), paste(path, tr_file_path, sep=""))
+tr_file = read.csv(tr_csv)
+
+names(tr_file)
+
+tr_sf = st_as_sf(tr_file, coords = c("Longitude", "Longitude"), crs = 4326)
+
+tm_shape(st_as_sf(island_sf)) +
+  tm_borders("black") + tm_fill('white') +
+  tm_shape(st_as_sf(tr_sf)) +
+  tm_dots(col="Temperature", palette = "RdBu", auto.palette.mapping = FALSE,
+          title="Sampled Temperature", size=0.7) +
+  tm_text("Temper", just="left", xmod=.5, size = 0.7) +
+  tm_legend(legend.outside=TRUE)
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-path = "data/"
-plot_path = "plots/"
-
-# Read data
-fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
-                   layer = "fitness_summarised_points")
-sportsfac <- read_sf(dsn = paste(path, "sports_facilities_points/", sep = ""), 
-                     layer = "sports_facilities_points")
-gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
-               layer = "gym_facilities")
-
-island <- read_sf(dsn = paste(path, "land_boundary/intersection_boundary", 
-                              sep = ""), layer = "island_intersect")
-
-q = as.data.frame(st_intersection(island_sf, fitness_facilities_sf))
-
-tmap_mode("view")
-qtm(island) + qtm(fitness)
-
-fitness_count <- as.data.frame(st_intersects(island, fitness)) 
-
-df <- fitness_count %>%
-  group_by(row.id) %>% 
-  summarise(total_fitness = n())
-
-area_id = df$row.id
-
-fitness_planarea <- list()
-
-for (i in area_id) {
-  fitness_planarea <- append(fitness_planarea, island$PLN_AREA_N[i])
-}
-
-
-
-island$Fitness_Density <- island$FITNESS_COUNT/island$TOTAL_AREA
-
-
-## Density Plot based on Land Area 
-plot_fitness_density <- tm_shape(st_as_sf(island)) +
-  tm_fill("Fitness_Density", title = "Fitness Equipment Density") + 
-  tm_borders('black') + 
-  tm_layout(
-    legend.title.size = 1,
-    legend.text.size = 0.8,
-    legend.position = c("right", "bottom"),
-    legend.width = -0.3,
-    legend.bg.color = "white",
-    legend.bg.alpha = 1)
-
-plot_fitness_density
-# Save output as PNG
-tmap_save(plot_fitness_density, 
-          filename = paste(path,"plots/fitness_density.png", sep=""))
