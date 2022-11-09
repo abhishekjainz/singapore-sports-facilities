@@ -720,17 +720,20 @@ tr_file = read.csv(tr_csv)
 
 names(tr_file)
 
-tr_sf = st_as_sf(tr_file, coords = c("Longitude", "Longitude"), crs = 4326)
+#island_boundary -> Spatial Polygon
+#need convert tr_sf to spatial points df
 
-tm_shape(st_as_sf(island_sf)) +
-  tm_borders("black") + tm_fill('white') +
-  tm_shape(st_as_sf(tr_sf)) +
-  tm_dots(col="Temperature", palette = "RdBu", auto.palette.mapping = FALSE,
+tr_cord.dec = SpatialPoints(cbind(tr_file$Longitude, tr_file$Latitude), proj4string = CRS("+proj=longlat"))
+
+tr_cord.UTM <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
+
+tr_cord.UTM@bbox <- island_boundary@bbox
+
+tr_cord.UTM$Temperature <- format(round(tr_file$Temperature, 2), nsmall = 2)
+
+tm_shape(island_boundary_sp) + tm_polygons() +
+  tm_shape(tr_cord.UTM) +
+  tm_dots(col="Temperature", palette = "YlOrRd",
           title="Sampled Temperature", size=0.7) +
-  tm_text("Temper", just="left", xmod=.5, size = 0.7) +
+  tm_text("Temperature", xmod=.5, size = 0.7) +
   tm_legend(legend.outside=TRUE)
-
-
-
-
-
