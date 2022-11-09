@@ -573,7 +573,7 @@ for (i in 1:n2){
 }
 
 #plotting on map
-plot(gym_rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
+plot(gym_rand.p, pch=16, main=NULL, cols="blue")
 
 hist(gym_ann.r, main=NULL, las=1, breaks=40, col="bisque", xlim=range(gym_ann.p, gym_ann.r))
 abline(v=gym_ann.p, col="blue")
@@ -588,7 +588,7 @@ for (i in 1:n3){
 }
 
 #plotting on map
-plot(ff_rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
+plot(ff_rand.p, pch=16, main=NULL, cols="green")
 
 hist(ff_ann.r, main=NULL, las=1, breaks=100, col="bisque", xlim=range(ff_ann.p, ff_ann.r))
 abline(v=ff_ann.p, col="blue")
@@ -601,7 +601,7 @@ n_sc.greater <- sum(sc_ann.r > sc_ann.p)
 
 p_sc <- min(n_sc.greater + 1, n + 1 - n_sc.greater) / (n +1)
 p_sc
-#p-value = 0.02297702, <0.05, meaning significant that distribution is nt random
+#p-value = 0.001996008, <0.05, meaning significant that distribution is nt random
 
 n_gym.greater <- sum(gym_ann.r > gym_ann.p)
 
@@ -628,6 +628,10 @@ hdb_ppp = as.ppp.SpatialPoints(hdb_cord.UTM)
 
 hdb_pop = as.im(hdb_ppp)
 
+
+kable(sstable, digits = 3)
+
+
 #sports facilities and hdb:referencing population
 PPM1 <- ppm(sc_ppp ~ hdb_pop )
 PPM1
@@ -635,24 +639,36 @@ PPM1
 PPM0 <- ppm(sc_ppp ~ 1) 
 PPM0
 
-sstable = anova(PPM0, PPM1, test="LRT")
+anova(PPM0, PPM1, test="LRT")
+#Pr(>Chi)| = <2.2e-16
+#suggesting that we are able to reject null hypothesis
+#which means that the sports facilities distribution is a function of hdb density
 
-kable(sstable, digits = 3)
-#Pr(>Chi)| = 0.272, actually suggest that the location of sports facilities are related to population density
 
-
-#sports facilities and hdb:referencing population
-
+#fitness facilities and hdb:referencing population
 PPM4 <- ppm(ff_ppp ~ hdb_pop)
 PPM4
 
-anova(PPM4, test="Chi") #P = 0.4258
+PPM3 <- ppm(ff_ppp ~ 1)
+PPM3
 
+anova(PPM3, PPM4, test="LRT")
+anova(PPM4, test="Chi") #P = 0.4258, 
+#suggesting that we are unable to reject null hypothesis
+#which means that the fitness facilities distribution is not a function of hdb density
+
+
+#gym facilities and hdb:referencing population
 PPM6 <- ppm(gym_ppp ~ hdb_pop)
 PPM6
 
-anova(PPM6, test="Chi") #P = 0.02633
+PPM5 <- ppm(gym_ppp ~ 1)
+PPM5
 
+anova(PPM5, PPM6, test="LRT")
+anova(PPM6, test="Chi") #P = 0.3711
+#suggesting that we are unable to reject null hypothesis
+#which means that the fitness facilities distribution is not a function of hdb density
 
 
 
@@ -668,8 +684,8 @@ plot(boundary)
 
 sc_ppp = sc_ppp[boundary]
 
-K1 <- density(sc_ppp) # Using the default bandwidth
-plot(K1, main=NULL, las=1, win=island_boundary_sp)
+K1 <- density(sc_ppp, palette = col_sports) # Using the default bandwidth
+plot(K1, main=NULL, las=1, win=island_boundary_sp, palette = col_sports)
 contour(K1, add=TRUE)
 
 
@@ -690,7 +706,7 @@ contour(K3, add=TRUE)
 
 
 ##quadrat
-Q <- quadratcount(sc_ppp, nx= 20, ny=10)
+Q <- quadratcount(sc_ppp, nx= 10, ny=7)
 
 plot(sc_ppp, pch=20, cols="grey70", main=NULL)  # Plot points
 plot(Q, add=TRUE)  # Add quadrat grid
@@ -747,23 +763,14 @@ tr_cord.UTM@bbox <- island_boundary@bbox
 
 tr_cord.UTM$Temperature <- format(round(tr_file$Temperature, 2), nsmall = 2)
 
+inv_RdBu = c("#2166AC", "#4393C3","#92C5DE", "#D1E5F0", "#FDDBC7", "#F4A582", "#D6604D", "#B2182B")
+
 tm_shape(island_boundary_sp) + tm_polygons() +
   tm_shape(tr_cord.UTM) +
-  tm_dots(col="Temperature", palette = "YlOrRd",
+  tm_dots(col="Temperature", palette = inv_RdBu,
           title="Sampled Temperature", size=0.7) +
   tm_text("Temperature", xmod=.5, size = 0.7) +
   tm_legend(show = FALSE)
-
-
-
-
-
-
-
-
-
-
-
 
 # Create an empty grid where n is the total number of cells
 tr_cord.UTM2 <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
@@ -788,7 +795,33 @@ r.m     <- mask(r, island_boundary_sp)
 
 # Plot
 tm_shape(r.m) + 
-  tm_raster(n=10,palette = "YlOrRd",
+  tm_raster(n=10,palette = inv_RdBu,
+            title="Predicted Temperature") + 
+  tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE)
+
+
+################################################################################
+# Define the 1st order polynomial equation
+f.1 <- as.formula(Temperature ~ X + Y) 
+
+# Add X and Y to tr_cord.UTM2
+tr_cord.UTM2$X <- coordinates(tr_cord.UTM2)[,1]
+tr_cord.UTM2$Y <- coordinates(tr_cord.UTM2)[,2]
+
+# Run the regression model
+lm.1 <- lm( f.1, data=tr_cord.UTM2)
+
+# Use the regression model output to interpolate the surface
+dat.1st <- SpatialGridDataFrame(grd, data.frame(var1.pred = predict(lm.1, newdata=grd))) 
+
+# Clip the interpolated raster to Texas
+r   <- raster(dat.1st)
+r.m <- mask(r, island_boundary_sp)
+
+# Plot the map
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = inv_RdBu,
             title="Predicted Temperature") + 
   tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
   tm_legend(legend.outside=TRUE)
@@ -796,27 +829,74 @@ tm_shape(r.m) +
 
 
 
+############################################################################
+
+rf_cord.UTM <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
+
+rf_cord.UTM@bbox <- island_boundary@bbox
+
+rf_cord.UTM$Rainfall <- format(round(tr_file$Rainfall, 2), nsmall = 2)
+
+tm_shape(island_boundary_sp) + tm_polygons() +
+  tm_shape(rf_cord.UTM) +
+  tm_dots(col="Rainfall", palette = inv_RdBu,
+          title="Sampled Rainfall", size=0.7) +
+  tm_text("Rainfall", xmod=.5, size = 0.7) +
+  tm_legend(show = FALSE)
+
+
+# Create an empty grid where n is the total number of cells
+rf_cord.UTM2 <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
+rf_cord.UTM2$Rainfall <- format(round(tr_file$Rainfall, 2), nsmall = 2)
+
+grd              <- as.data.frame(spsample(rf_cord.UTM2, "regular", n=50000))
+names(grd)       <- c("X", "Y")
+coordinates(grd) <- c("X", "Y")
+gridded(grd)     <- TRUE  # Create SpatialPixel object
+fullgrid(grd)    <- TRUE  # Create SpatialGrid object
+
+# Add P's projection information to the empty grid
+proj4string(rf_cord.UTM2) <- proj4string(rf_cord.UTM2) # Temp fix until new proj env is adopted
+proj4string(grd) <- proj4string(rf_cord.UTM2)
+
+# Interpolate the grid cells using a power value of 2 (idp=2.0)
+rf_cord.UTM.idw <- gstat::idw(Rainfall ~ 1, rf_cord.UTM2, newdata=grd, idp=2.0)
+
+# Convert to raster object then clip to SG
+r2       <- raster(rf_cord.UTM.idw)
+r.m2     <- mask(r2, island_boundary_sp)
+
+# Plot
+tm_shape(r.m2) + 
+  tm_raster(n=10,palette = "RdBu",
+            title="Predicted Rainfall") + 
+  tm_shape(rf_cord.UTM) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE)
 
 
 
 
+################################################################################
+# Define the 1st order polynomial equation
+f.2 <- as.formula(Rainfall ~ X + Y) 
 
+# Add X and Y to tr_cord.UTM2
+rf_cord.UTM2$X <- coordinates(rf_cord.UTM2)[,1]
+rf_cord.UTM2$Y <- coordinates(rf_cord.UTM2)[,2]
 
+# Run the regression model
+lm.2 <- lm( f.2, data=rf_cord.UTM2)
 
+# Use the regression model output to interpolate the surface
+dat.1st2 <- SpatialGridDataFrame(grd, data.frame(var1.pred = predict(lm.2, newdata=grd))) 
 
-#start of kriging
+# Clip the interpolated raster to Texas
+r3   <- raster(dat.1st2)
+r.m3 <- mask(r3, island_boundary_sp)
 
-f.1 <- as.formula(Temperature ~ X + Y) 
-var.smpl <- variogram(f.1, tr_cord.UTM, cloud = FALSE, cutoff=1000000, width=89900)
-
-
-
-
-
-
-
-
-
-
-
-
+# Plot the map
+tm_shape(r.m3) + 
+  tm_raster(n=10,palette = "RdBu",
+            title="Predicted Rainfall") + 
+  tm_shape(rfcord.UTM) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE)
