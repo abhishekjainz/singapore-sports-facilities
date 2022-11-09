@@ -628,6 +628,10 @@ hdb_ppp = as.ppp.SpatialPoints(hdb_cord.UTM)
 
 hdb_pop = as.im(hdb_ppp)
 
+
+kable(sstable, digits = 3)
+
+
 #sports facilities and hdb:referencing population
 PPM1 <- ppm(sc_ppp ~ hdb_pop )
 PPM1
@@ -635,24 +639,36 @@ PPM1
 PPM0 <- ppm(sc_ppp ~ 1) 
 PPM0
 
-sstable = anova(PPM0, PPM1, test="LRT")
+anova(PPM0, PPM1, test="LRT")
+#Pr(>Chi)| = <2.2e-16
+#suggesting that we are able to reject null hypothesis
+#which means that the sports facilities distribution is a function of hdb density
 
-kable(sstable, digits = 3)
-#Pr(>Chi)| = 0.272, actually suggest that the location of sports facilities are related to population density
 
-
-#sports facilities and hdb:referencing population
-
+#fitness facilities and hdb:referencing population
 PPM4 <- ppm(ff_ppp ~ hdb_pop)
 PPM4
 
-anova(PPM4, test="Chi") #P = 0.4258
+PPM3 <- ppm(ff_ppp ~ 1)
+PPM3
 
+anova(PPM3, PPM4, test="LRT")
+anova(PPM4, test="Chi") #P = 0.4258, 
+#suggesting that we are unable to reject null hypothesis
+#which means that the fitness facilities distribution is not a function of hdb density
+
+
+#gym facilities and hdb:referencing population
 PPM6 <- ppm(gym_ppp ~ hdb_pop)
 PPM6
 
-anova(PPM6, test="Chi") #P = 0.02633
+PPM5 <- ppm(gym_ppp ~ 1)
+PPM5
 
+anova(PPM5, PPM6, test="LRT")
+anova(PPM6, test="Chi") #P = 0.3711
+#suggesting that we are unable to reject null hypothesis
+#which means that the fitness facilities distribution is not a function of hdb density
 
 
 
