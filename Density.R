@@ -30,9 +30,9 @@ gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""),
 island <- read_sf(dsn = paste(path, "land_boundary/intersection_boundary", 
                               sep = ""), layer = "island_intersect")
 
-###########################
-##### FITNESS CORNERS #####
-###########################
+##############################
+##### FITNESS FACILITIES #####
+##############################
 fitness_intersection <- st_intersection(island, fitness)
 fitness_count <- as.data.frame(fitness_intersection %>% group_by(PLN_AREA_N) %>% count())[,1:2]
 names(fitness_count)[names(fitness_count) == 'n'] <- "FITNESS_COUNT"
@@ -44,7 +44,7 @@ fitness_count_with_area$Fitness_Density <- fitness_count_with_area$FITNESS_COUNT
 tmap_mode("plot")
 col_fitness <- c('#edf8e9','#c7e9c0','#a1d99b','#74c476','#41ab5d','#238b45','#005a32')
 plot_fitness_density <- tm_shape(st_as_sf(fitness_count_with_area)) +
-  tm_fill("Fitness_Density", title = "Fitness Corner Density", palette = col_fitness) + 
+  tm_fill("Fitness_Density", title = "Fitness Facilities Density", palette = col_fitness) + 
   tm_borders('black') +
   tm_layout(
     legend.title.size = 1,
@@ -78,7 +78,7 @@ sportsfac_count_with_area$Sportsfac_Density <- sportsfac_count_with_area$SPORTSF
 tmap_mode("plot")
 col_sports <- c('#f2f0f7','#cbc9e2','#9e9ac8','#6a51a3')
 plot_sportsfac_density <- tm_shape(st_as_sf(sportsfac_count_with_area)) +
-  tm_fill("Sportsfac_Density", title = "Sports Facility Density", palette = col_sports) + 
+  tm_fill("Sportsfac_Density", title = "Sports Facilities Density", palette = col_sports) + 
   tm_borders('black') +
   tm_layout(
     legend.title.size = 1,
@@ -112,7 +112,7 @@ gym_count_with_area$Gym_Density <- gym_count_with_area$GYM_COUNT/as.numeric(gym_
 tmap_mode("plot")
 col_gym <- c('#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c')
 plot_gym_density <- tm_shape(st_as_sf(gym_count_with_area)) +
-  tm_fill("Gym_Density", title = "Gym Equipment Density", palette = col_gym) + 
+  tm_fill("Gym_Density", title = "Gym Facilities Density", palette = col_gym) + 
   tm_borders('black') + 
   tm_layout(
     legend.title.size = 1,
