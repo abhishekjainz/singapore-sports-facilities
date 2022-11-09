@@ -706,7 +706,7 @@ contour(K3, add=TRUE)
 
 
 ##quadrat
-Q <- quadratcount(sc_ppp, nx= 20, ny=10)
+Q <- quadratcount(sc_ppp, nx= 10, ny=7)
 
 plot(sc_ppp, pch=20, cols="grey70", main=NULL)  # Plot points
 plot(Q, add=TRUE)  # Add quadrat grid
@@ -763,23 +763,14 @@ tr_cord.UTM@bbox <- island_boundary@bbox
 
 tr_cord.UTM$Temperature <- format(round(tr_file$Temperature, 2), nsmall = 2)
 
+inv_RdBu = c("#2166AC", "#4393C3","#92C5DE", "#D1E5F0", "#FDDBC7", "#F4A582", "#D6604D", "#B2182B")
+
 tm_shape(island_boundary_sp) + tm_polygons() +
   tm_shape(tr_cord.UTM) +
-  tm_dots(col="Temperature", palette = "YlOrRd",
+  tm_dots(col="Temperature", palette = inv_RdBu,
           title="Sampled Temperature", size=0.7) +
   tm_text("Temperature", xmod=.5, size = 0.7) +
   tm_legend(show = FALSE)
-
-
-
-
-
-
-
-
-
-
-
 
 # Create an empty grid where n is the total number of cells
 tr_cord.UTM2 <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
@@ -804,7 +795,33 @@ r.m     <- mask(r, island_boundary_sp)
 
 # Plot
 tm_shape(r.m) + 
-  tm_raster(n=10,palette = "YlOrRd",
+  tm_raster(n=10,palette = inv_RdBu,
+            title="Predicted Temperature") + 
+  tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE)
+
+
+################################################################################
+# Define the 1st order polynomial equation
+f.1 <- as.formula(Temperature ~ X + Y) 
+
+# Add X and Y to tr_cord.UTM2
+tr_cord.UTM2$X <- coordinates(tr_cord.UTM2)[,1]
+tr_cord.UTM2$Y <- coordinates(tr_cord.UTM2)[,2]
+
+# Run the regression model
+lm.1 <- lm( f.1, data=tr_cord.UTM2)
+
+# Use the regression model output to interpolate the surface
+dat.1st <- SpatialGridDataFrame(grd, data.frame(var1.pred = predict(lm.1, newdata=grd))) 
+
+# Clip the interpolated raster to Texas
+r   <- raster(dat.1st)
+r.m <- mask(r, island_boundary_sp)
+
+# Plot the map
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = inv_RdBu,
             title="Predicted Temperature") + 
   tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
   tm_legend(legend.outside=TRUE)
@@ -812,27 +829,74 @@ tm_shape(r.m) +
 
 
 
+############################################################################
+
+rf_cord.UTM <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
+
+rf_cord.UTM@bbox <- island_boundary@bbox
+
+rf_cord.UTM$Rainfall <- format(round(tr_file$Rainfall, 2), nsmall = 2)
+
+tm_shape(island_boundary_sp) + tm_polygons() +
+  tm_shape(rf_cord.UTM) +
+  tm_dots(col="Rainfall", palette = inv_RdBu,
+          title="Sampled Rainfall", size=0.7) +
+  tm_text("Rainfall", xmod=.5, size = 0.7) +
+  tm_legend(show = FALSE)
+
+
+# Create an empty grid where n is the total number of cells
+rf_cord.UTM2 <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
+rf_cord.UTM2$Rainfall <- format(round(tr_file$Rainfall, 2), nsmall = 2)
+
+grd              <- as.data.frame(spsample(rf_cord.UTM2, "regular", n=50000))
+names(grd)       <- c("X", "Y")
+coordinates(grd) <- c("X", "Y")
+gridded(grd)     <- TRUE  # Create SpatialPixel object
+fullgrid(grd)    <- TRUE  # Create SpatialGrid object
+
+# Add P's projection information to the empty grid
+proj4string(rf_cord.UTM2) <- proj4string(rf_cord.UTM2) # Temp fix until new proj env is adopted
+proj4string(grd) <- proj4string(rf_cord.UTM2)
+
+# Interpolate the grid cells using a power value of 2 (idp=2.0)
+rf_cord.UTM.idw <- gstat::idw(Rainfall ~ 1, rf_cord.UTM2, newdata=grd, idp=2.0)
+
+# Convert to raster object then clip to SG
+r2       <- raster(rf_cord.UTM.idw)
+r.m2     <- mask(r2, island_boundary_sp)
+
+# Plot
+tm_shape(r.m2) + 
+  tm_raster(n=10,palette = "RdBu",
+            title="Predicted Rainfall") + 
+  tm_shape(rf_cord.UTM) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE)
 
 
 
 
+################################################################################
+# Define the 1st order polynomial equation
+f.2 <- as.formula(Rainfall ~ X + Y) 
 
+# Add X and Y to tr_cord.UTM2
+rf_cord.UTM2$X <- coordinates(rf_cord.UTM2)[,1]
+rf_cord.UTM2$Y <- coordinates(rf_cord.UTM2)[,2]
 
+# Run the regression model
+lm.2 <- lm( f.2, data=rf_cord.UTM2)
 
+# Use the regression model output to interpolate the surface
+dat.1st2 <- SpatialGridDataFrame(grd, data.frame(var1.pred = predict(lm.2, newdata=grd))) 
 
-#start of kriging
+# Clip the interpolated raster to Texas
+r3   <- raster(dat.1st2)
+r.m3 <- mask(r3, island_boundary_sp)
 
-f.1 <- as.formula(Temperature ~ X + Y) 
-var.smpl <- variogram(f.1, tr_cord.UTM, cloud = FALSE, cutoff=1000000, width=89900)
-
-
-
-
-
-
-
-
-
-
-
-
+# Plot the map
+tm_shape(r.m3) + 
+  tm_raster(n=10,palette = "RdBu",
+            title="Predicted Rainfall") + 
+  tm_shape(rfcord.UTM) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE)
