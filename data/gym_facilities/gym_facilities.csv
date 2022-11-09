@@ -1,0 +1,454 @@
+ID,name,address_street_name,address_postal_code,description,Longitude,Latitude
+1,The Pit,Tras Street,078989,Operating Hours: 7.00am - 10.00am,103.8442021,1.278113883
+2,The Stable Mixed Martial Arts,Turf Club Road,287992,"Operating Hours: Monday, Wednesday, Friday:  12.00pm - 9.30pm Tuesday, Thursday: 12.00pm - 10.00pm Saturday: 10.00am - 5.30pm",103.7958982,1.334219598
+3,Bishan ClubFITT Gym,Bishan St. 4,579783,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6353 9238",103.8509221,1.355282628
+4,The Yoga Place,King George's Ave,208568,,103.862091,1.309921911
+5,Sky Fitness - Serangoon Gardens,Bughley Drive Blk B,559022,,103.8595711,1.360009664
+6,Slender Shapes - Serangoon Gardens Way,Serangoon Gardens Way,555981,Operating Hours: Monday - Friday 8.00am - 2.00pm 4.00pm - 9.00pm Saturday 9.00am - 4.00pm Sunday & PH: Closed,103.8648843,1.363899825
+7,Woodlands ClubFITT Gym,WoodlandsCentre,738597,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6362 9101",103.7803066,1.434895377
+8,Yio Chu Kang ClubFITT Gym,Ang Mo Kio Ave 9,569770,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6483 9370",103.8457679,1.382272431
+9,Yishun ClubFITT Gym,YishunAve 1,769130,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6851 8604",103.8311774,1.412018366
+10,Zattva Yoga Studio,Orchard Road,238841,,103.8411502,1.301257296
+11,Fitness First - One Raffles Quay,Raffles Quay,048583,"Facilities: Group Exercise studios  Kinesis studio, free-weight and strength equipment, cardio equipment Operating Hours: Monday ? Friday : 6.00am ? 10.00pm  Saturday : 8.00am ? 5.00pm  Sunday and Public Holidays : 10.00am ? 5.00pm  Tel: 6327 5550",103.8516771,1.280894789
+12,Fitness First - Paragon,,238859,"Facilities: Cardio equipment, weight machines, free weights, Group Exercise studio , cycling studio, Mind & Body studio Operating Hours: Monday ? Saturday : 6.30am ? 10.30pm  Sunday and Public Holidays : 8.00am ? 10.00pm  Tel: 6737 7889",103.8352403,1.303723224
+13,True Fitness - Great World City,Kim Seng Promenade,237994,Operating Hours: Mon ? Fri: 6am ? 10pm  Sat ? Sun: 7am ? 9pm  Public Holiday: 8am ? 8pm  Tel: 6235 9622,103.8317579,1.293802361
+14,California Fitness - Bugis,Victoria Street,188024,Facilities: - Group X Studio - Indoor Cycling Studio - Cardio Machines - Resistance Machines - Free Weights - Xpress Zone - Kick Fit Area - Steam & Sauna Operating Hours: Monday to Saturday: 6:00 am - 12:00 midnight Sunday and Public Holidays*: 8:00 am - 10:00 pm. Tel: 6337 257,103.855787,1.300142483
+15,Fitness First - AMK Hub,Ang Mo Kio Ave 3,569933,"Facilities: Mind and Body studio, Group Exercise studio, cardio equipment (including treadmills, bikes, steppers and the revolutionary Technogym CardioWave?), weight machines and free weights. Operating Hours: Monday ? Friday : 6.00am ? 10.00pm  Saturday, Sunday and Public Holi",103.8483992,1.369248907
+16,California Fitness - Velocity@Novena Square,Velocity @ Novena,307683,Facilities: - Group X Studio - Indoor Cycling Studio - Cardio Machines - Resistance Machines - Free Weights - Xpress Zone - Kick Fit Area - Steam & Sauna - Internet Kiosks Operating Hours: Monday to Friday: 6:00 am - 12:00 midnight Saturday: 6:00 am to 10:00 pm Sunday and Publ,103.8436568,1.320211016
+17,Fitness First - Alexandra (Mapletree Business City),Pasir Panjang Road,117439,"Facilities: 44m heated pool, Group Exercise studio, outdoor TRX? Suspension Training? area, boxing area, cardiovascular equipment (treadmills, rowers etc), a free weights area, resistance machines and a functional training area. Operating Hours: Monday ? Friday : 6.30am ? 10.00p",103.7990648,1.274827493
+18,Evolve MMA - POMO Mall,Selegie Road,188306,Operating Hours: Monday-Friday: 6:30am to 10:30pm Saturday-Sunday: 9:00am to 7:00pm Tel: 63370082/ 63370037,103.8492643,1.300108459
+19,Fitness First - Captial Tower,,068912,"Facilities: Heated swimming pool, group exercise studio, cycling studio, cardiovascular and resistance strength training equipment Operating Hours: Monday ? Friday : 6.00am ? 10.00pm  Saturday : 7.00am ? 7.00pm Sunday and Public Holidays : Closed Tel: 6536 5595",103.8475227,1.277711815
+20,Yoga Connections,A Changi Road,419903,,103.9140052,1.319230983
+21,California Fitness - Raffles,Raffles Place,048619,Facilities: - Energy Studio  - Mind Body Studio  - Indoor Cycling Studio  - Cardio Machines  - Resistance Machines  - Free Weights  - Xpress Zone  - Kick Fit Area  - Steam & Sauna Operating Hours: Monday to Friday: 6:00 am - 12:00 midnight Saturday: 6:00 am to 10:00 pm Sunday,103.850574,1.283483639
+22,True Fitness - Suntec City,Temasek Boulevard,038983,Operating Hours: Mon ? Thurs: 6am ? 11pm  Fri: 6am ? 10pm  Sat: 6am ? 9pm  Sun / Public Holiday: 8am ? 8pm  Tel: 6820 9000,103.8576755,1.294879051
+23,Union Yoga Ayurveda (Kembangan Branch),Kingston Terrace,418935,Open Daily 9am - 10pm,103.9128625,1.319883839
+24,Union Yoga Ayurveda (Beauty World Branch),51 Chun Tin Road,599625,Open Daily 9am - 10pm,103.7727168,1.341742201
+25,Rhythmic Yoga Works,Orchard Road,188091,,103.8569348,1.298001836
+26,Neue,1 Stadium place #02-07,397628,Open Daily 1000-2200 (close on public holiday),103.8727507,1.303843278
+27,Om Shiva Yoga - Chip Bee,Jalan Rumia,278000,,103.7975388,1.310993163
+29,OMG Yoga,Jurong Gateway Road,600134,Operating Hours: Monday & Friday: 10.00am - 6.00pm,103.7387083,1.333862464
+30,Philip Wain,Thomson Road,307591,Operating Hours: Monday - Friday:  7.00 am - 10.00 pm Saturday:  7.00 am - 8.00 pm Sunday:  9.00 am - 6.00 pm Public holidays:  10.00 am - 7.00 pm,103.8434632,1.317334643
+31,Pure Fitness - Knightsbridge (Asia Square),Marina View,238857,"Facilities: Kettlebells, bulgarian bags, medicine balls, 4 x 35m indoor running track, mixed martial arts zone, VO2 testing area,  group fitness studios, swimming pool, cardio equipment, resistance equipment, free weights Operating Hours: Monday - Saturday 6am - 12 midnight Sun",103.836202,1.303105268
+32,Krav Maga Singapore,North Canal Road,059295,,103.8470257,1.287127866
+33,Fitness First - Tampines,Tampines Central,529508,"Facilities: Cardio equipment (steppers, bikes, treadmills, rowers etc), Technogym resistance machines, free-weights, Group Exercise studio, Mind and Body studio and cycling studio  Operating Hours: Mon to Fri: 6.00am -10.00pm Sat : 7.00am - 7.00pm Sun & PH : 8.00am ? 6.00pm  T",103.9435869,1.353084857
+34,iPilates,Claymore Hill,229572,,103.8320381,1.307634926
+35,California Fitness - Orchard- Ngee Ann City,Ngee Ann City,238873,Facilities: - Energy Studio - Mind Body Studio - Indoor Cycling Studio - Cardio Machines - Resistance Machines - Free Weights - Xpress Zone - Kick Fit Area - Internet Kiosks Operating Hours: Monday to Saturday: 6:00 am - 12:00 midnight Sunday and Public Holidays*: 8:00 am to 10,103.8346761,1.302424179
+36,True Fitness - China Square Central,Cross Street,048423,Operating Hours: Mon ? Thurs: 6am ? 11pm  Fri: 6am ? 10pm Sat: 6am ? 9pm  Sun / Public Holiday: 8am ? 8pm Tel: 6438 3833,103.8468789,1.283515224
+37,Sky Pilates,Orchard Road,238881,,103.8307226,1.305087233
+38,Slender Shapes - Eunos,Kaki Bukit Place,415979,Operating Hours: Monday - Friday: 8.00am - 2.00pm 3.00pm - 9.00pm Saturday: 9.00am - 4.00pm Sunday & PH: Closed,103.9040541,1.334071889
+39,Core Fitness Physiotherapy & Pilates Centre  - Forum The Shopping Mall,Orchard Road,238884,Operating Hours: Mon ? Thu: 9 am to 9 pm Fri: 9 am to 7 pm  Sat: 9 am to 5 pm Sundays and Public Holidays: by appointments only,103.828509,1.306195799
+40,CrossFit Fire City,Kampong Bugis,338988,,103.86603,1.308518174
+41,CrossFit Singapore,Ubi Avenue 4,408830,,103.8917682,1.333549435
+42,Curves - Marine Parade,Marine Parade Central,160140,,103.8295243,1.278156144
+43,Elements Pilates,Tanglin Road,247918,,103.8250789,1.3052722
+44,Evolve MMA - Far East Square,China Street,049568,Operating Hours: Monday-Friday: 6:30am to 10:30pm Saturday-Sunday: 9:00am to 7:00pm Tel: 65364525/ 65364830,103.8478209,1.283057726
+45,Fitness First - Millenia Walk,Raffles Boulevard,039596,"Facilities: Multi-purpose studio, cycling studio, free weights, resistance machines, cardio machines   Operating Hours: Monday ? Friday : 6.00am ? 10.00pm  Saturday : 9.00am ? 9.00pm Sunday and Public Holidays : 10.00am ? 8.00pm  Tel: 6339 7555",103.859344,1.292965048
+46,Fitness First - One George Street,,049145,"Facilities: Heated swimming pool, cardio equipment, strength equipment, free weights area, stretch area, Group Exercise studio Operating Hours: Monday ? Friday : 6.00am ? 11.00pm  Saturday : 7.00am ? 7.00pm Sunday and Public Holidays : 10.00am ? 6.00pm  Tel: 6538 7666",103.8477719,1.285545617
+47,Amore Fitness - Heartland Mall,Hougang Street 21,530205,Operating Hours: Monday - Friday: 9.00 AM - 10.00 PM Saturday: 9:00 AM - 7:30 PM Sunday & Public Holiday: 9.00 AM - 7:30 PM,103.8850799,1.359496638
+48,Amore Fitness - Plaza Singapura,Orchard Road,238839,Operating Hours: Monday - Friday: 9.00 AM - 10.00 PM Saturday: 9.00 AM - 10.00 PM Sunday & Public Holiday: 9.00 AM - 10.00 PM,103.8450476,1.300747562
+49,Amore Fitness - Thomson Plaza,Upper Thomson Road,574408,Operating Hours: Monday: 9.00 AM - 10.00 PM Saturday: 9.00 AM - 9.00 PM Sunday & Public Holiday: 9.00 AM - 7.30 PM,103.8309198,1.354669019
+50,Bikram Yoga,North Bridge Road,179103,,103.8531199,1.293893588
+51,Bikram Yoga Harbourfront,,099253,,103.8186256,1.262063365
+52,Brazilian Jiu Jitzu Singapore,Sophia Road,228149,,103.8491763,1.301070547
+53,Pilates Bodyworks - Holland,Holland Drive,270036,,103.7925475,1.309182112
+54,Tirisula Yoga,B Arab Street,199777,Tel: 90098889/ 85715701,103.8591883,1.301479001
+55,Total Yoga - Clarke Quay,Carpenter Street,059917,,103.8477729,1.287902717
+56,Fitness First - Marina Bay Financial Centre,Marina Boulevard,018982,"Facilities: Multi-purpose studio, cycling studio, free weights, resistance machines, cardio machines   Operating Hours: Monday ? Friday : 6.00am ? 10.00pm  Saturday : 8.00am ? 5.00pm Sunday and Public Holidays : Closed Tel: 6536 2373",103.8542974,1.279105679
+57,Midview Body & Mind,Sin Ming Lane,573972,,103.8339307,1.358216566
+58,Pilates Inc - The Moving Body Group - Amoy Street,Amoy Street Level 1,069901,,103.8467337,1.280780479
+59,The Jungle,35B Boat Quay,049824,Operating Hours 8am to 9pm,103.849674,1.286255026
+60,TMP Fitness - Revenue House,55 Newton Road,307987,Operating Hours 7am to 10pm,103.8419753,1.319489595
+61,Amore Fitness - Bugis Junction,Victoria Street Bugis Junction,188021,Operating Hours: Monday - Friday: 9.00 AM - 10.00 PM Saturday: 9.00 AM - 9.00 PM Sunday and Public Holiday: 9.00 AM - 9.00 PM,103.855328,1.299067991
+62,Bukit Gombak ClubFITT Gym,Bukit Batok West Ave 5,659081,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6896 2197",103.7530238,1.357907047
+63,Choa Chu Kang ClubFITT Gym,Choa Chu Kang St 53,689236,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6767 1739",103.7479207,1.390666172
+64,Clementi ClubFITT Gym,Clementi Ave 3,129907,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 68729180/1",103.7648614,1.311014985
+65,Hougang ClubFITT Gym,Hougang Ave 4,538832,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6315 8674",103.8880717,1.370573488
+66,Jurong East ClubFITT Gym,Jurong East St. 31,609517,"Facilities: Standard Gymnasium Equipment and Exercise Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6896 3569",103.7288352,1.346215612
+67,Jurong West ClubFITT Gym,Jurong West St 93,648965,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6515 5256",103.6937689,1.338418065
+68,Pasir Ris ClubFITT Gym,Pasir Ris Central,519640,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday)",103.9518225,1.374448456
+69,Physical ABuse,Havelock Road 2HR,059763,"Operating Hours: Monday ? Friday : 7.00am ? 10.00pm  Saturday, Sunday and Public Holidays : 8.00am ? 8.00pm  Tel: 6536 5580",103.8449013,1.286728535
+70,Central Pilates,Winstedt Road,227977,,103.8419105,1.309924504
+71,Gold's Gym - IBP Jurong East,International Business Park,609930,Operating Hours: Monday - Friday: 7.30am - 9.00pm Saturday: 7.30am - 3.00pm,103.7469606,1.329690478
+72,Pure Fitness - Knightsbridge,Orchard Road,018960,"Facilities: Cycling and group fitness studios, cardio machines, resistance machines, free weights Operating Hours: Monday - Saturday 6am - 12 midnight Sunday & Public holidays 8am - 10pm Tel: 6100 3813",103.8511035,1.279007974
+73,Updog Studio,East Coast Parkway,449874,Operating Hours: Monday - Thursday: 8:30am - 9:30pm Friday: 8:30am - 8:00pm Saturday - Sunday: 7:30am - 5:30pm,103.899775,1.29747627
+74,Breathe Pilates - Novena,Sinaran Drive,307506,,103.8438921,1.320429679
+75,Delta ClubFITT Gym,Tiong Bahru Road,158790,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6471 9030",103.8197731,1.289077949
+76,Yogapoint Singapore,3rd Floor 31B Kreta Ayer Road,088998,Operating hours Mon - Fri 0615 - 2200 Weekend 0800 - 2100,103.8421605,1.280655691
+77,Amore Fitness - Woodlands Civic Centre,South Woodlands Drive,730900,Operating Hours: Monday-Friday: 9.00 AM - 10.00 PM Saturday: 9.00 AM - 7.30 PM Sunday & Public Holiday: 9.00 AM - 6.00 PM,103.7866196,1.435077894
+78,Ananda Marga Yoga Society of Singapore - MacPherson,A MacPherson Road,368150,,103.8810247,1.332010256
+79,Jal Yoga,Alexandra Road,119964,Operating Hours 7am to 9pm including Public Holiday,103.8029119,1.274419585
+80,One Wellness Fitness Club,New Bugis St,188440,Operating Hours: Monday - Friday:  7.00 am - 10.00 pm Saturday:  10.00 am - 7.00 pm Sunday:  10.00 am - 4.00 pm Tel: 6221 9663,103.8552479,1.300917993
+81,The Gym Nation,Bukit Panjang Road,679910,,103.7646596,1.381586794
+82,The Yoga Shala,Yan Kit Road,088266,,103.8419184,1.276525754
+84,True Fitness - Chevron House,Raffles Place,048622,Operating Hours: Mon ? Thurs: 6am ? 11pm  Fri: 6am ? 10pm  Sat: 6am ? 8pm  Sun / Public Holiday: 8am ? 6pm Tel: 6438 3000,103.8519273,1.28423792
+85,True Fitness - NTUC Income Tampines Junction,Tampines Avenue 5,529652,Operating Hours: Mon ? Thurs: 6am ? 11pm Fri: 6am ? 10pm Sat: 6am ? 9pm Sun / Public Holiday: 8am ? 8pm Tel: 6788 9555,103.9396358,1.354295104
+86,True Fitness - Parkway Parade,Marine Parade Road,449269,Operating Hours: Mon ? Fri: 7am ? 10pm  Sat / Sun / Public Holiday: 8am ? 9.30pm  Tel: 6348 2900,103.9051136,1.301191315
+87,True Fitness - VivoCity,Harbourfront Walk,098585,Operating Hours: Mon ? Fri: 7am ? 10.30pm  Sat - Sun: 7am ? 9pm  Public Holiday: 8am ? 8pm  Tel: 6278 3000,103.8218086,1.264394682
+88,True Yoga - Ocean Financial Centre,Collyer Quay,049315,Operating Hours: 7am to 11pm daily,103.8518389,1.282980726
+89,True Yoga - Pacific Plaza,Scotts Road,228210,Operating Hours: 7am to 11pm daily,103.8321264,1.306537224
+90,Viva Fit Singapore - Beach Road,Beach Rd,189688,,103.8563049,1.296959058
+91,Viva Fit Singapore - Raffles Place,Malacca Street,048979,,103.8507116,1.283942291
+92,Viva Fit Singapore - Tanjong Pagar,Tanjong Pagar Plaza,082001,,103.8423932,1.275596198
+93,WabiSabi Holistic Lifestyle,Eu Tong Sen St. The Central,059817,,103.846556,1.288862919
+94,Yaatra,A Neil Road,088852,,103.8417699,1.279179023
+95,Fitness First - One Raffles Place,Raffles Place,048616,"Facilities: Group Exercise studio, free weights area, jacuzzi, swimming pool, cardiovascular and resistance  training equipment Operating Hours: Monday ? Friday : 6.00am ? 10.00pm  Saturday : 7.00am ? 7.00pm Sunday and Public Holidays : Closed  Tel: 6534 4333",103.8509824,1.284339948
+96,Sengkang ClubFITT Gym,Anchorvale Road,544964,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6315 3577",103.8857843,1.395501588
+98,Toa Payoh ClubFITT Gym,Toa Payoh Lor 6,319392,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6256 7153",103.8499868,1.330600101
+99,Pilates Body Pilot - Biopolis,Biopolis Way,138667,,103.79146,1.304511278
+100,Pilates Bodyworks - Finlayson Green,Finlayson Green,049246,,103.8512866,1.282240869
+101,Pilates Fitness,Telok Blangah Road,098854,"Operating Hours: Monday ? Friday: 8.30am ? 9.30pm  Saturday: 9am ? 4pm  Closed on Sundays, Christmas, New Year and Chinese New Year. We are open on rest of the public holidays.",103.8129303,1.270295992
+102,Pilates Flow,2nd Avenue Junction,269748,,103.7994699,1.329825449
+103,Pilates Inc - The Moving Body Group - East Coast,East Coast Road,428766,,103.9033386,1.30438467
+104,Platinum Yoga,Marine Parade Central,449408,,103.905996,1.301887339
+105,PowerMoves Pilates - Bishan Park,Bishan Park II,569931,Operating Hours: Monday to Thursday: 8:30am to 1:30pm & 4:30pm to 9:30pm Friday:  8:30am to 1:30pm  Saturday:  8:30am to 5:30pm  Sunday:  9.30am to 1.30pm,103.8474932,1.362544348
+106,PowerMoves Pilates - Dempsey Hill,Dempsey Road,249683,Operating Hours: Monday to Thursday: 8:30am to 1:30pm & 4:30pm to 9:30pm Friday:  8:30am to 1:30pm  Saturday:  8:30am to 5:30pm  Sunday:  9.30am to 1.30pm,103.8085659,1.304849785
+109,Real Yoga,Orchard Road,238843,,103.8397589,1.301978047
+110,Reebok CrossFit Enduro,Syed Alwi Road,207629,,103.858169,1.306814726
+111,Singapore CrossFit Hub,Blk B,368241,,103.8877143,1.333788827
+112,Sivananda Yoga Vedanta Centre,Bukit Pasoh Rd,089835,Tel: 90679100/ 98386704,103.840532,1.279015452
+113,Sky Fitness - Harbourfront,HarbourFront Place,099254,,103.8186869,1.264486351
+114,Bedok ClubFITT Gym,Bedok North St 2,469645,"Facilities: Standard Gymnasium Equipment Operating Hours: 7.00 AM to 10.00 PM (Mon/Wed/Fri), 8.30 AM to 10.00 PM (Tue/Thur), 8.30 AM to 8.00 PM (Sat), (9.00 AM to 8.00 Pm (Sun), 9.00 AM to 5.00 PM (Public Holiday) Tel: 6244 5387",103.9383282,1.325857121
+115,Spaboutique,Nassim Road,258373,,103.8259325,1.307785752
+116,The Gym At Orchard,Orchard Road,238882,Operating Hours: Monday - Friday:  7am - 10pm  Saturday:  8am - 10pm  Sunday:  8am - 8pm,103.8299848,1.305506117
+117,The Pilates Place,Tras Street,078999,,103.8441337,1.277872965
+118,Fitness First - Fusionopolis,Fusionopolis Way,138632,"Facilities: Cardio equipment, weight machines, free weights, swimming pool, Group Exercise studio, Mind and Body studio. Operating Hours: Monday ? Friday : 6.00am ? 10.00pm  Saturday : 7.00am ? 7.00pm Sunday and Public Holidays : 8.00am ? 6.00pm Tel: 6438 4484",103.7874041,1.299294067
+119,Amore Fitness - City Square Mall,Kitchener Road,208539,Operating Hours: Monday-Friday:  8.00 AM - 10.00 PM Saturday: 9.00 AM - 9.30 PM Sunday & Public Holiday: 9.00 AM - 9.00 PM,103.8564871,1.311393494
+120,E's FITNESS PTE. LTD.,Cantonment Road,089752,Working Hours:  Monday - Friday 7am - 10pm Saturday 7am - 8pm Sunday 7am - 6pm Tel: 6222 6517,103.8403867,1.278709486
+121,YogaDivas - Nassim Road,Nassim Road,247974,Tel: 68870760/ 94571096,103.8145569,1.297924002
+122,Absolute Yoga - River Valley,River Valley Rd,248371,,103.8269408,1.293017861
+123,Yoga On Nassim,Nassim Road,269758,,103.7962645,1.331021885
+127,Balancing Rocks Yoga Studio,Beach Road,199551,,103.8604818,1.300977084
+128,Basic Essence,Bukit Timah Road,259760,,103.8142455,1.322573176
+129,Being In Yoga,Turf Club Road,287988,,103.7959415,1.335897289
+130,Breathe Pilates - East Coast,East Coast Road,428915,,103.9069337,1.307596485
+131,Slender Shapes - Upper Bukit Timah,Upper Bukit Timah Road,588172,Operating Hours: Monday - Friday: 8.00am - 2.00pm 3.00pm - 9.00pm Saturday: 9.00am - 4.00pm Sunday & PH: Closed,103.7762802,1.340940724
+132,Absolute Yoga - Telok Ayer,Telok Ayer Street,068611,,103.8476382,1.280413695
+133,Pilatique Pilates Studio,Gemmil Lane,069250,,103.8469344,1.282464023
+134,Canvass Art and Yoga Studio,A Binjai Park,589820,,103.7866163,1.335835645
+135,COMO Shambhala Urban Escape,,238876,,103.8284687,1.30717806
+136,Fitness First - The Cathay,Handy Road,229233,"Facilities: Cardio, strength and stretch areas and a Group Exercise studio Operating Hours: Monday ? Friday : 6.00am ? 10.30pm  Saturday: 6.30am ? 10.30pm Sunday and Public Holidays : 8.00am ? 10.00pm Tel: 6732 4111",103.8477898,1.299183747
+137,Focus Pilates - Orchard,Orchard Road,238862,,103.8348269,1.30394638
+139,Genesis Gym - CBD,Tras Street,079017,Operating Hours: Monday - Friday: 7.30am - 9.30pm Saturday: 8.30am - 1.00pm,103.8440509,1.27742661
+140,Genesis Gym - Mounbatten,,398007,Operating Hours: Monday - Friday: 7.30am - 9.30pm Saturday: 8.30am - 1.00pm,103.8812708,1.307465187
+141,Gold's Gym - Bukit Merah,Bukit Merah Central,159837,Operating Hours: Monday - Friday: 7.30am - 9.00pm Saturday: 7.30am - 3.00pm,103.8180782,1.282055406
+142,Green Yoga,A Upper Thomson Road,574363,"Operating Hours: Mon - Fri: 12pm to 10pm Sat, Sun & PH: 9am to 7pm",103.8350935,1.353069494
+143,H.om Yoga,Canton Street,049745,Operating Hours: Monday & Friday: 9.30am - 10.00pm Tuesday - Thursday: 7.00am - 10.30pm Saturday & Sunday: 9.30am - 7.00pm,103.8494319,1.286213257
+144,Impact Mixed Martial Arts,Shenton Way,068805,Operating Hours: Weekdays: 12.15pm - 9.45pm Saturday: 9.30am - 5.30pm Sunday: 11.00am - 5.30pm,103.8500715,1.278518938
+145,Impakt Singapore,Robinson Road,068909,,103.8480961,1.278169864
+146,Iyengar Yoga Centre Singapore - Goldhill Centre,Goldhill Plaza,308899,,103.8428894,1.317828683
+147,Iyengar Yoga Centre Singapore - Neil Road Centre,Neil Road,088875,,103.8406485,1.278287549
+148,Jagsport,King George's Ave,208574,,103.8624342,1.310151798
+149,Kapap Singapore,Keong Siak Road,089129,,103.8416687,1.280046254
+150,Kate Porter Yoga,Marine Parade Road,449290,,103.9319883,1.310040987
+151,Oasis Holistic,Selegie Road,180010,,103.8505372,1.303708795
+152,OhmSantih Yoga,Haji Lane,189203,,103.8593845,1.300504273
+153,Gold's Gym - Tanjong Pagar,A Tanjong Pagar Road,088507,Operating Hours: Monday - Friday: 7.30am - 9.00pm Saturday: 7.30am - 3.00pm,103.8436835,1.278435132
+154,Masters' Yoga Sadhan,Tanjong Pagar Road,088509,,103.8436737,1.278396965
+155,Fitness Factory -,,049870,Operating Hours: Monday - Friday: 7.00am - 9.00pm Saturday: 7.00am - 4.00pm Sunday and Public Holiday: 8.00am - 3.00pm,103.8491446,1.288481466
+157,Amore Fitness - Jurong Point 2,Jurong West Central 3,648886,Operating Hours: Monday - Friday: 9.00 AM - 10.00 PM  Saturday: 9.00 AM - 9.30 PM Sunday & Public Holiday: 9.00 AM - 9.00 PM,103.7064609,1.339830148
+158,Amore Fitness - Liang Court,River Valley Road,179030,Operating Hours: Monday - Friday: 10.30 AM - 9.30 PM Saturday: 10.30 AM - 9.00 PM Sunday & Public Holiday: 10.30 AM - 9.00 PM,103.8445863,1.291514786
+159,Amore Fitness - Tampines 1,Tampines Central 1,529536,Operating Hours: Monday-Friday: 8.00 AM - 10.00 PM Saturday: 9.00 AM - 9.30 PM Sunday & Public Holiday: 9.00 AM - 9.00 PM,103.9450195,1.354315564
+160,Onyx MMA,"10 Science Centre Rd, #01-02, Singapore 609079",609079,Muay Thai boxing gym,103.7384375,1.3306875
+161,Extreme Fitness,"1 W Coast Dr, #01-24, Singapore 128020",128020,Gym,103.7574375,1.3164375
+162,HomeTeamNS Fitness Workz Bukit Batok,"2 Bukit Batok West Ave 7, Singapore 659003",659003,Gym,103.7503125,1.3658125
+163,Anytime Fitness,"154 West Coast Rd West Coast Plaza, 01-68, #69, Singapore 120501",120501,Gym,103.7660625,1.3036875
+164,Anytime Fitness Clementi City,"3151 Commonwealth Ave W, #03-04 Grantral Mall, Singapore 129581",129581,Gym,103.7656875,1.3130625
+165,Anytime Fitness,"91, 05-01 Bukit Batok West Ave 2, Block C, Singapore 659206",659206,Gym,103.7498125,1.3526875
+166,Fitness First - Westgate,"3 Gateway Drive mall, #05-01 Westgate, Singapore 608532",608532,Gym,103.7429375,1.3343125
+167,Anytime Fitness Pasir Panjang,"44 Pasir Panjang Rd, Blk #A01, Singapore 118504",118504,Gym,103.7943125,1.2751875
+169,The Loft Gym,"141 Middle Rd, #01-02, Singapore 188976",188976,Gym,103.8521875,1.2994375
+171,Bukit Gombak ActiveSG Gym,"810 Bukit Batok West Ave. 5, Singapore 659088",659088,Gym,103.7521875,1.3596875
+172,Ritual Gym Holland Village,"17B Lor Liput, #02-01, Singapore 277747",277747,Gym,103.7950625,1.3104375
+173,Anytime Fitness Potong Pasir,"SG, Tai Thong Cres, 15, Singapore 347849",347849,Gym,103.8694375,1.3293125
+174,Platinum Fitness OUE – #1 Freelance PT Gym in Singapore,"6A Shenton Way, B1-04/05 OUE Downtown, Singapore 068815",068815,Gym,103.8485625,1.2771875
+175,Anytime Fitness Choa Chu Kang,"190 Choa Chu Kang Ave 1, Singapore 689466",689466,Gym,103.7453125,1.3769375
+176,WAO Fitness,"200 Turf Club Rd, Plot 9 Premier Pitch Indoors, Singapore 287994",287994,Gym,103.7941875,1.3358125
+178,Anytime Fitness Kim Seng CC,"570 Havelock Road 01-14/15 & #02-11/12, 13 Kim Seng Rd, Community Center, Singapore 169640",169640,Gym,103.8310625,1.2894375
+180,Fitness First - The Metropolis,"11 North Buona Vista Drive, #02-07 & #03-07, The Metropolis, Tower 2, Singapore 138589",138589,Gym,103.7919375,1.3055625
+181,Anytime Fitness Buangkok,"21 Hougang Street 51 02, #13A Green Shopping Mall, Singapore 538719",538719,Gym,103.8878125,1.3793125
+182,MAX OUT Fitness,"181 Orchard Rd, #06-25 Central, Orchard, Singapore 238896",238896,Gym,103.8398125,1.3005625
+183,Anytime Fitness Toa Payoh,"190 Lor 6 Toa Payoh, #02-516 Next to Pizza Hut, Singapore 310190",310190,Gym,103.8494375,1.3330625
+184,JR Fitness Singapore (City Hall),"1 Coleman Street B1-19 The Adelphi, Singapore 179803",179803,Fitness center,103.85125,1.29125
+185,Innervate Fitness,"398 Race Course Rd, Singapore 218651",218651,Gym,103.8574375,1.3151875
+186,"Anytime Fitness, Telok Blangah","Blk 78B, 02-15 Telok Blangah Street 32, Singapore 102078",102078,Gym,103.8084375,1.2736875
+187,Actualize CrossFit,"251 Jln Besar, Singapore 208924",208924,Gym,103.8580625,1.3099375
+188,Anytime Fitness Geylang Bahru,"1 Geylang Bahru Ln, #01-03 Kolam Ayer Community Club, Singapore 339631",339631,Gym,103.8696875,1.3243125
+189,Fitness First - Clementi,"321 Clementi Avenue 3 6th, #7th floor &, Singapore 129905",129905,Gym,103.7649375,1.3120625
+190,CHIMPCHAMP FITNESS (OG),"277 Orchard Rd, #02-12, Singapore 238858",238858,Fitness center,103.8390625,1.3008125
+191,EXTREMER GYM PTE. LTD.,"116 Yio Chu Kang Rd, Singapore 545582",545582,Gym,103.8744375,1.3585625
+192,Anytime Fitness,"170 Upper Bukit Timah Rd, Bukit Timah Shopping Centre, Singapore 588179",588179,Gym,103.7759375,1.3429375
+193,Amore Fitness & Define,"17 Petir Rd, #B1-18, Singapore 678278",678278,Gym,103.7626875,1.3785625
+194,IGYM@BISHAN,"272 Bishan Street 24, B1-228, Singapore 570272",570272,Gym,103.8426875,1.3563125
+196,Bespoke Fitness,"318A Tanglin Rd, The Guild International College, Singapore 247979",247979,Gym,103.8158125,1.2983125
+197,Anytime Fitness,"302 Tiong Bahru Rd, #01-129 Tiong Bahru Plaza, Tiong Bahru Rd, Singapore 168732",168732,Gym,103.8264375,1.2863125
+198,Anytime Fitness Taman Jurong,"1 Yung Sheng Rd, #01-02 Taman Jurong Community Club, Singapore 618495",618495,Gym,103.7215625,1.3351875
+199,Dennis gym Balestier,"279 Balestier Rd, b1-00, Singapore 329727",329727,Fitness center,103.8519375,1.3228125
+200,Anytime Fitness Marymount CC,"191 Sin Ming Avenue #03-01, Marymount Community Club, Singapore 575738",575738,Gym,103.8415625,1.3613125
+201,Anytime Fitness hillV2,"4 Hillview Rise, #02-18/19, Singapore 667979",667979,Gym,103.7641875,1.3630625
+202,THE GYM,"42 E Coast Rd, #01-01, Singapore 428762",428762,Gym,103.9029375,1.3043125
+203,The Gym Pod @ One North,"Ayer Rajah Crescent, Singapore 139957",139957,Gym,103.7871875,1.2976875
+204,SAFRA EnergyOne (SAFRA Toa Payoh),"295 Lor 6 Toa Payoh, Singapore 319388",319388,Gym,103.8544375,1.3299375
+205,Fit · Bloc,"87 Science Park Dr, #03-02 The Oasis, Singapore 118260",118260,Rock climbing gym,103.7904375,1.2878125
+206,ActiveSG Gym at Toa Payoh West CC,"Level 3 200 Lorong 2 Toa Payoh WEST COMMUNITY CLUB, Singapore 319642",319642,Gym,103.8451875,1.3351875
+207,Star Elite Fitness Personal Training Gym in Orchard,"8 Grange Rd, #03-01 Cineleisure Orchard, Singapore 239695",239695,Gym,103.8363125,1.3015625
+208,Anytime Fitness Hougang CC,"35 Hougang Ave 3, #02-01, Singapore 538840",538840,Gym,103.8925625,1.3646875
+209,Anytime Fitness Kovan,"JForte Sportainment Centre, 50 Hougang Ave 1, Level 2, Singapore 538885",538885,Gym,103.8880625,1.3603125
+212,Virgin Active Marina One,"7 Straits View, #02-01 Marina One East Tower, Singapore 018936",018936,Gym,103.8528125,1.2779375
+213,Anytime Fitness,"17 Cantonment Rd, Singapore 089740",089740,Gym,103.8401875,1.2791875
+214,F45 Training Rochor,"#02-02, The Concourse, 300 Beach Rd, Singapore 199555",199555,Gym,103.8626875,1.3010625
+215,Anytime Fitness MacPherson,"400 Paya Lebar Way, #03-05/06, MacPherson Community Club, Singapore 379131",379131,Gym,103.8846875,1.3233125
+216,CrossFit Morpheus,"812 Upper Bukit Timah Rd, Singapore 678146",678146,Gym,103.7630625,1.3733125
+219,The Strength Yard,"369 Joo Chiat Rd, Singapore 427614",427614,Gym,103.9034375,1.3081875
+221,Anytime Fitness,"10 Anson Rd, #03-41 International Plaza, Singapore 079903",079903,Gym,103.8459375,1.2760625
+222,Freedom Gym,"5 Shenton Way, #02-01 UIC Building, Singapore 068808",068808,Fitness center,103.8496875,1.2778125
+223,Extreme Fitness @ The Chevrons,"48 Boon Lay Way, #01-06 The Chevrons, Singapore 609961",609961,Gym,103.7483125,1.3310625
+224,Aileron Wellness,"52 W Coast Ferry Rd, Republic Of Singapore Yacht Club, Singapore 126887",126887,Gym,103.7634375,1.2929375
+225,VF Fitness,"298 Jln Besar, Singapore 208959",208959,Muay Thai boxing gym,103.8593125,1.3110625
+226,Gravity,"CapitaGreen #38-01, 138 Market St, Singapore 048946",048946,Fitness center,103.8500625,1.2818125
+229,Anytime Fitness Ang Mo Kio,"4190 Ang Mo Kio Ave 6, #01-02 Broadway Plaza, Singapore 569841",569841,Gym,103.8459375,1.3719375
+230,ActiveSG Gym at Ang Mo Kio Community Centre,"795 Ang Mo Kio Ave 1, Singapore 569976",569976,Gym,103.8404375,1.3669375
+231,Level,"137 Telok Ayer St, #01-03, Singapore 068602",068602,Personal trainer,103.8480625,1.2808125
+232,CrossFit Urban Edge,"12 Bukit Pasoh Rd, Singapore 089826",089826,Gym,103.8409375,1.2789375
+233,GRITYARD (Outram),"2 College Rd, Singapore 169850",169850,Gym,103.8356875,1.2824375
+234,Strength Avenue,"57B Boat Quay, Level 3, Singapore 049846",049846,Gym,103.8491875,1.2873125
+235,Genesis Gym,"Katong Shopping Centre, Annexe Block #04-01, 865 Mountbatten Rd, Singapore 437844",437844,Personal trainer,103.9015625,1.3044375
+236,PrimeFit Personal Training Gym,"55 Market St, #B1-01, Singapore 048941",048941,Personal trainer,103.8504375,1.2844375
+237,Fitness First @ Junction 10,"1 Woodlands Rd, #02-01, Singapore 677899",677899,Fitness center,103.7599375,1.3809375
+238,Anytime Fitness,"221 Boon Lay Pl, #03-106, Singapore 640221",640221,Gym,103.7120625,1.3460625
+239,Anytime Fitness Hougang Central,"1187 Upper Serangoon Road Hougang Central 2 B1, #01 The Midtown, Singapore 533971",533971,Gym,103.8953125,1.3704375
+240,IGYM@SERANGOON,"756 Upper Serangoon Rd, #02-02 Upper Serangoon Shopping Centre, Singapore 534626",534626,Gym,103.8788125,1.3535625
+241,Anytime Fitness Tampines West CC,"5 Tampines Avenue 3, #02-03, Tampines West Community Club, Singapore 529705",529705,Gym,103.9358125,1.3489375
+242,Contours Express Women's Gym Jurong East,"135 Jurong Gateway Rd, #04-319, Singapore 600135",600135,Gym,103.7390625,1.3336875
+243,Juggernaut Fight Club,"275 Beach Rd, #01-01, Singapore 199549",199549,Martial arts school,103.8603125,1.3008125
+244,GYMMBOXX Ci Yuan,"51 Hougang Ave 9, Ci Yuan Community Centre, Singapore 538776",538776,Gym,103.8829375,1.3751875
+245,Box Office Fitness (Singapore),"35 N Canal Rd, #03-01, Singapore 059291",059291,Boxing gym,103.8471875,1.2869375
+246,Enabling Village ActiveSG Gym,"20 Lengkok Bahru, #01-05 Enabling Village, Singapore 159053",159053,Gym,103.8148125,1.2871875
+247,Dynamic Fitness Gym,"48 Yio Chu Kang Rd, Singapore 545559",545559,Gym,103.8758125,1.3570625
+248,Gforce Fitness,"5 Toh Tuck Link, #2-00, Singapore 596224",596224,Gym,103.7570625,1.3305625
+249,GoFit Geylang,"22 Lor 18 Geylang, Singapore 398804",398804,Gym,103.8804375,1.3118125
+250,UFC Gym Singapore | Fitness Franchise | Martial Arts | Gym,"1 Raffles Link, B1-47, Singapore 039393",039393,Gym,103.8558125,1.2918125
+251,Singapore Calisthenics Academy,"11 Collyer Quay, LEVEL #20-00, Singapore 049317",049317,Gym,103.8523125,1.2835625
+252,F45 Training Macpherson West,"181, 185 MacPherson Rd, Singapore 348544",348544,Gym,103.8751875,1.3303125
+254,Platinum Fitness Tanglin – #1 Premium Members Gym in Singapore,"163 Tanglin Rd, #02-118/119/120 Tanglin Mall, Singapore 247933",247933,Gym,103.8238125,1.3050625
+255,Anytime Fitness,"638 Jurong West Street 61, #03-01 Pioneer Mall, Singapore 640638",640638,Gym,103.6970625,1.3416875
+256,GYMMBOXX Bishan,"51 Bishan Street 13, #04-01/02, Bishan Community Club, Singapore 579799",579799,Fitness center,103.8508125,1.3499375
+257,Core Collective Anson,"79 Anson Rd, #21-01, #22-01, Singapore 079906",079906,Wellness center,103.8456875,1.2743125
+258,TFX Fitness - Funan,"107 North Bridge Rd, #04-18, Singapore 179105",179105,Gym,103.8501875,1.2911875
+260,Anytime Fitness NEX,"23 Serangoon Central, #04-73/74/75 nex Serangoon Central Central Singapore, Singapore 556083",556083,Gym,103.8724375,1.3509375
+261,Fitness First Paya Lebar,"10 Eunos Road 8 #02-104 Singapore Post Centre, Singapore 408600",408600,Gym,103.8948125,1.3189375
+263,Athlete Lab Singapore,"71 Amoy St, Singapore 069890",069890,Gym,103.8465625,1.2803125
+264,Anytime Fitness Nanyang CC,"60 Jurong West Street 91, #01-08 Nanyang Community Club, Singapore 649040",649040,Gym,103.6925625,1.3424375
+265,BFT Outram,"331 New Bridge Rd, #01-04, Singapore 088764",088764,Gym,103.8403125,1.2800625
+266,Ark Move Woodleigh,"462 Upper Serangoon Rd, Singapore 534496",534496,Gym,103.8709375,1.3438125
+267,XYCO Studio,"22 Martin Rd, #02-02, Singapore 239058",239058,Gym,103.8384375,1.2918125
+268,F45 Training Jurong West,"7 Jurong West Ave 5, #02-05, Singapore 649486",649486,Gym,103.7034375,1.3488125
+269,Dennis Gym - Farrer Park,"159b kitchener Road Singapore 208530, Singapore 280530",280530,Gym,103.8568125,1.3101875
+271,EQUIP,"78 Rifle Range Rd, Singapore 588384",588384,Gym,103.7794375,1.3409375
+272,The Gym Pod @ Punggol Park,"Hougang Ave 10, Singapore 538768",538768,Gym,103.8973125,1.3775625
+273,Rev Fight Club,"46 South Bridge Rd, #02-02, Singapore 058679",058679,Gym,103.8481875,1.2878125
+274,SWEAT!,"4 Everton Park, #01-50, Singapore 080004",080004,Gym,103.8401875,1.2769375
+275,Anytime Fitness Sengkang Rivervale,"Rivervale Mall, 11 Rivervale Cres, #02-01, Singapore 545082",545082,Gym,103.9045625,1.3923125
+276,The Lab Fitness SG,"7 One-North Gtwy, #01-15, Singapore 138642",138642,Gym,103.7899375,1.3024375
+277,Amore Fitness & Define,"Sengkang West Avenue 02-38, 33 Sengkang West Ave, #33 The Seletar Mall, Singapore 797653",797653,Gym,103.8764375,1.3913125
+278,Trium Fitness,"12 Kallang Ave, #03-01, Singapore 339511",339511,Fitness center,103.8641875,1.3093125
+279,Amore Fitness & Define,"03-17, 63 Jurong West Central 3, #2 Jurong Point, Singapore 648331",648331,Gym,103.7054375,1.3393125
+280,Anytime Fitness D'Arena Jurong,"511 Upper Jurong Rd, #02-05 Anytime Fitness D'Arena, Singapore 638366",638366,Gym,103.6823125,1.3294375
+281,Sparkd | The Brain & Fitness Hub,"46 Kim Yam Road The Herencia Unit 04-23 & 24, Singapore 239351",239351,Gym,103.8386875,1.2928125
+282,The Ring Boxing Community (Kim Yam Road),"58 Kim Yam Rd, #01-01, Singapore 239359",239359,Boxing gym,103.8395625,1.2929375
+285,CruCycle,"68 Duxton Rd, #01-01, Singapore 089527",089527,Fitness center,103.8429375,1.2780625
+286,The Little Gym of Singapore East,"6 Raffles Blvd, 164 Marina Square, #03-163, Singapore 039594",039594,Gym,103.8565625,1.2920625
+287,Ark Move West Coast,"2 Clementi West Street 2, #03-01 West Coast Community Club, Singapore 129605",129605,Gym,103.7650625,1.3028125
+288,The Gym Pod @ Alexandra Technopark,"438A Alexandra Rd, Alexandra Technopark, Singapore 119967",119967,Gym,103.8008125,1.2778125
+289,Ultimate Performance Personal Trainers Singapore,"8 Cross Street Ground Floor, Singapore 048424",048424,Personal trainer,103.8490625,1.2826875
+290,BearyFun Gym @ Bukit Batok,"2 Bukit Batok Street 22, Singapore 659581",659581,Gymnastics center,103.7483125,1.3443125
+291,Dennis Gym Hq,"30 Tai Seng St, #08 04A, Singapore 534013",534013,Gym,103.8895625,1.3343125
+292,Cut Gym,"144 Neil Rd, Singapore 088873",088873,Gym,103.8406875,1.2783125
+293,Fortitude Martial Arts & Fitness,"320c King George's Ave, Singapore 208564",208564,Martial arts school,103.8619375,1.3096875
+294,Urban Active Fitness,"105 Cecil St, #13-01 The Octagon, Singapore 069534",069534,Personal trainer,103.8491875,1.2806875
+295,Anytime Fitness Tanjong Katong,"174/176 E Coast Rd, Singapore 428880",428880,Gym,103.9063125,1.3066875
+296,9Round East Coast Road,"131 E Coast Rd, #02-01, Singapore 428816",428816,Gym,103.9049375,1.3061875
+297,oompf! fitness,"130 E Coast Rd, Singapore 428815",428815,Personal trainer,103.9053125,1.3060625
+298,"BFIT | Physio, Sports & Fitness (Katong, East Coast)","66 E Coast Rd, Unit 05-01 The Flow @ East Coast, Singapore 428778",428778,Physical therapist,103.9036875,1.3048125
+299,Anytime Fitness Kembangan,"398 Changi Rd, #01-03, Singapore 419845",419845,Gym,103.9114375,1.3186875
+300,Anytime Fitness Marine Parade Central,"86 Marine Parade Central, #01-670, Singapore 440086",440086,Gym,103.9069375,1.3018125
+301,Inspire Fitness Asia,"462B Joo Chiat Rd, Singapore 427674",427674,Muay Thai boxing gym,103.9045625,1.3061875
+302,Tribody Fitness,"50 Joo Chiat Pl, Singapore 427774",427774,Gym,103.9014375,1.3134375
+303,The Kampung Gym,"47 Guillemard Rd, Singapore 399703",399703,Gym,103.8784375,1.3096875
+304,Ritual Gym East Coast,"451 Joo Chiat Rd, #03-12, Singapore 427664",427664,Gym,103.9045625,1.3069375
+305,Gymmboxx JCube,"2 Jurong East Central 1, #03-04 to 06 JCube, Singapore 609731",609731,Gym,103.7404375,1.3330625
+306,Higher Performance SG,"188-6 Tanjong Katong Rd, Singapore 436990",436990,Gym,103.8944375,1.3091875
+307,Anytime Fitness,"11 Tanjong Katong Rd, Singapore 437157",437157,Gym,103.8944375,1.3143125
+308,Genesis Gym,"354, #01-06 Alexandra Rd, Alexis Condominium, Singapore 159948",159948,Personal trainer,103.8076875,1.2915625
+310,Hercules Fitness Gym,"176 Joo Chiat Rd, #02-01, Singapore 427447",427447,Gym,103.9000625,1.3125625
+311,Tesseract Fitness (IFBB) Pte Ltd,"492 Changi Rd, Singapore 419900",419900,Gym,103.9138125,1.3191875
+312,Sync Cycle East Coast,"282 E Coast Rd, Singapore 428946",428946,Fitness center,103.9090625,1.3081875
+313,BXG Boxing & Fitness,"356 Tanjong Katong Rd, Singapore 437119",437119,Muay Thai boxing gym,103.8966875,1.3034375
+314,Cecil Street Anytime Fitness,"139 Cecil St, #04-01, Singapore 069539",069539,Gym,103.8484375,1.2795625
+315,Spartans Boxing Club Joo Chiat,"393 Joo Chiat Rd, Singapore 427625",427625,Boxing gym,103.9038125,1.3078125
+316,24XFITNESS Bugis,"112 Middle Rd, #02-00 Midland House, Singapore 188970",188970,Gym,103.8538125,1.2990625
+317,D'Fitness,"20B E Coast Rd, Level B, Singapore 428747",428747,Personal trainer,103.9024375,1.3040625
+319,F45 Tanjong Katong,"216 Tanjong Katong Rd, Singapore 437009",437009,Gym,103.8953125,1.3073125
+320,Anytime Fitness Serangoon Garden,"53 Serangoon Garden Way, Singapore 555949",555949,Gym,103.8658125,1.3633125
+321,Anytime Fitness Upper Cross Street,"531 Upper Cross Street #01-07, Hong Lim Complex, Singapore 050531",050531,Gym,103.8459375,1.2840625
+323,Ritual Gym Raffles Place,"11 N Canal Rd, #03-01, Singapore 048824",048824,Gym,103.84875,1.28625
+324,Barry’s Singapore Raffles Place,"18 Robinson Rd, #03-03, Singapore 048547",048547,Gym,103.8505625,1.2816875
+325,Field Assembly Clarke Quay,"39 Carpenter Street, Levels 1, 3 & 4, Singapore 059918",059918,Gym,103.8478125,1.2879375
+326,Encore Muay Thai Fitness,"452a Joo Chiat Rd, Singapore 427665",427665,Muay Thai boxing gym,103.9044375,1.3064375
+328,BoOm Singapore,"62 Cecil St, B1-00 TPI Building, Singapore 049710",049710,Gym,103.8495625,1.2820625
+329,Contours Express Women's Gym Serangoon,"253 Serangoon Central Dr, #02-227, Singapore 550253",550253,Gym,103.8709375,1.3540625
+330,MSFIT Personal Training Clarke Quay,"19 Hongkong St, #01-01, Singapore 059662",059662,Gym,103.8471875,1.2878125
+331,Gold's Gym Personal Training - Tanjong Katong,"218 Tanjong Katong Rd, Singapore 437010",437010,Personal trainer,103.8953125,1.3071875
+332,F45 Training Siglap,"52 Burnfoot Terrace, Frankel Estate, Singapore 459838",459838,Gym,103.9228125,1.3128125
+334,Gold's Gym Personal Training - Joo Chiat,"428 Joo Chiat Rd, Singapore 427645",427645,Personal trainer,103.9040625,1.3066875
+336,Anytime Fitness Greenwich V,"1 Seletar Rd, #02-05/06 Greenwich V, Singapore 807011",807011,Gym,103.8695625,1.3875625
+337,R10T,"140 Robinson Rd, Level 3, Singapore 068907",068907,Gym,103.8483125,1.2784375
+338,Anytime Fitness Bedok Central,"445 Bedok North Street 1, #03-01 Djitsun Mall, Singapore 469661",469661,Gym,103.9294375,1.3260625
+341,Anytime Fitness Bukit Panjang,"8 Pending Rd, #03-01, Singapore 678295",678295,Gym,103.7708125,1.3763125
+342,The PIT,"123 Devonshire Rd, Singapore 239883",239883,Personal trainer,103.8363125,1.2998125
+344,The System Gym,"23 Kampong Bahru Rd, #01-01, Singapore 169349",169349,Gym,103.8366875,1.2771875
+345,Core Collective Dempsey,"27a Loewen Rd, #27A, 30B/C 27a, Singapore 248839",248839,Wellness center,103.8119375,1.3035625
+346,Reshape Sports,"3 Lor Liput, #02-03, Singapore 277725",277725,Gym,103.7951875,1.3106875
+347,F45 Training Downtown East Singapore,"1 Pasir Ris Cl, #02-343 E! Avenue, Singapore 519599",519599,Fitness center,103.9555625,1.3778125
+348,Anytime Fitness,"9 Tampines Street 32, #02-01 Tampines Mart, Singapore 529286",529286,Gym,103.9601875,1.3543125
+349,Lab Studios East Coast,"135/137 E Coast Rd, #03-01 directly above Zaffron Kitchen, Singapore 428820",428820,Yoga studio,103.9050625,1.3061875
+350,24ACEFIT,"320 Serangoon Road 18-13 Centrium Square, Singapore 218108",218108,Fitness center,103.8548125,1.3108125
+351,Mobilus Chinatown,"90, Block C Eu Tong Sen St, #01-11, Singapore 059811",059811,Gym,103.8415625,1.2831875
+352,Gold's Gym Personal Training,"67 Frankel Ave, Singapore 458194",458194,Personal trainer,103.9188125,1.3156875
+353,1Fiesta Jurong East,"131 Jurong Gateway Rd, #03-257, Singapore 600131",600131,Fitness center,103.7401875,1.3345625
+354,1nfinite Academy,"17b Circular Rd, #3rd floor, Singapore 049373",049373,Muay Thai boxing gym,103.8489375,1.2874375
+355,Anytime Fitness,"3 Simei Street 6, #03-25/26, Eastpoint Mall, Singapore 528833",528833,Gym,103.9530625,1.3428125
+356,Anytime Fitness Queensway,"Queensway Shopping Centre Queensway 03-51 1, Singapore 149053",149053,Gym,103.8035625,1.2873125
+357,Anytime Fitness Jalan Besar,"Rehau Building 1, 01-00 King George's Ave, Singapore 208557",208557,Gym,103.8586875,1.3070625
+358,Anytime Fitness Upper Thomson,"246R Upper Thomson Rd, #01-01, Singapore 574370",574370,Gym,103.8341875,1.3539375
+359,Anytime Fitness Hwi Yoh CC,"23 Serangoon North Ave 4, #01-01 Hwi Yoh Community Centre, Singapore 555857",555857,Gym,103.8736875,1.3744375
+360,Fitness Bravo,"762 North Bridge Rd, Singapore 198730",198730,Gym,103.8596875,1.3033125
+362,Elevate 360,"8A Maju Ave, Garden Estate, Singapore 556686",556686,Gym,103.8656875,1.3648125
+364,Centum Fitness Lab,"18 Sin Ming Ln, #06-07 Midview City, Singapore 573960",573960,Fitness center,103.8344375,1.3593125
+365,Anytime Fitness Tampines (formerly known as Tampines North),"506 Tampines Central 1, #03-361, Singapore 520506",520506,Gym,103.9458125,1.3559375
+366,Anytime Fitness New Tech Park,"151 Lor Chuan, #01-12, NTP+ 556741",556741,Gym,103.8616875,1.3513125
+367,Move to Live,"8A Biomedical Grove, #01-20, Singapore 138648",138648,Gym,103.7935625,1.3020625
+368,Mobilus Clarke Quay,"20 Upper Circular Rd, #B1-10/16 The Riverwalk, Singapore 058416",058416,Gym,103.8483125,1.2889375
+369,F45 Training Upper Thomson,"183 Upper Thomson Rd, #B1-02/03 183, Longhaus 574429",574429,Gym,103.8355625,1.3509375
+370,Singa Gym,"1 Tampines North Dr. 1, #01-19, Singapore 528559",528559,Gym,103.9338125,1.3718125
+371,Anytime Fitness ACE The Place CC,"120 Woodlands Ave 1, #02-01 ACE The Place Community Club, Singapore 739069",739069,Gym,103.7920625,1.4275625
+372,The Fesique Lab,"42D N Canal Rd, Singapore 059298",059298,Gym,103.8468125,1.2871875
+373,Vigeo: SG Personal Trainer | Training Studio And Gym at Dhoby Ghaut,"6 Fort Canning Rd, YWCA Fort Canning, Singapore 179494",179494,Personal trainer,103.8449375,1.2975625
+374,Fight G,"41 N Canal Rd, Singapore 059297",059297,Boxing gym,103.8469375,1.2870625
+375,Anytime Fitness Woodgrove,"30, Woodlands Avenue, Woodgrove Dr, #01-20/21/22 The Woodgrove, Singapore 739065",739065,Gym,103.7809375,1.4293125
+376,The Gym Pod @ 462 Crawford Lane,"462 Crawford Ln, #01-49, Singapore 190462",190462,Gym,103.8610625,1.3044375
+377,Body Fit Training One North,"1 Fusionopolis Walk, #01-03 Solaris, Singapore 138628",138628,Gym,103.7903125,1.2980625
+378,Breathe Pilates - Galaxis,"1, 1-04 Fusionopolis Pl, Singapore 138522",138522,Pilates studio,103.7883125,1.3000625
+379,The Faculty of Calisthenics and Yoga,"723A North Bridge Rd, Singapore 198691",198691,Gym,103.8588125,1.3028125
+380,THE LIONS DEN,"36 Robinson Road B1, #02, Singapore 068877",068877,Gym,103.8499375,1.2813125
+381,Anytime Fitness,"20 Choa Chu Kang Street 52, #03-01, Singapore 689286",689286,Gym,103.7446875,1.3949375
+382,Anytime Fitness Choa Chu Kang Centre,"309 Choa Chu Kang Ave 4, #03-01, Singapore 680309",680309,Gym,103.7456875,1.3851875
+383,GymKraft,"1 Stadium Pl, #01-69/70 Wave Mall, Singapore 397638",397638,Gymnastics center,103.8735625,1.3025625
+384,Anytime Fitness NorthShore plaza,"408 Northshore Drive, #01-20/21, Northshore Dr, I 22/23, Singapore 820408",820408,Gym,103.9021875,1.4169375
+385,A GYM,"11 Northshore Dr, Singapore 828670",828670,Fitness center,103.8994375,1.4150625
+386,Anytime Fitness,"1 North Point Dr, #02 - 175 / 178, Singapore 768019",768019,Gym,103.8368125,1.4284375
+387,Naksu Muay Thai Gym,"324b King George's Ave, Singapore 208566",208566,Muay Thai boxing gym,103.8619375,1.3099375
+388,University Sports Centre (USC),"2 Sports Drive 1, National University of Singapore, Singapore 117561",117561,Gym,103.7753125,1.2998125
+389,Gold's Gym,"36 Hongkong St, #01-01, Singapore 059675",059675,Personal trainer,103.8473125,1.2874375
+390,F45 Training Bukit Batok Central,"2 Bukit Batok Street 23, #01-03, Connection 659554",659554,Gym,103.7533125,1.3439375
+391,Eminent Gym,"43 C Beach Rd, Singapore 189681",189681,Sports club,103.8558125,1.2963125
+392,Anytime Fitness,"598 Yishun Ring Rd, B1-26/27 Wisteria Mall, Singapore 768698",768698,Gym,103.8409375,1.4185625
+393,Anytime Fitness Punggol Oasis,"681 Punggol Dr., #01-16 Oasis Terraces, Singapore 820681",820681,Gym,103.9131875,1.4030625
+394,WeBarre,"1 Zubir Said Drive, #02-01, School of the Arts, Singapore 227968",227968,Gym,103.8489375,1.2994375
+395,Woodlands ActiveSG Sports Centre,"2 Woodlands Street 12, Singapore 738599",738599,Sports complex,103.7798125,1.4340625
+396,Anytime Fitness Galaxy CC,"31 Woodlands Ave 6, #05-01/02 Galaxy Community Club, Singapore 738991",738991,Gym,103.8026875,1.4390625
+397,Anytime Fitness Sembawang,"604 Sembawang Road, #02-11/12/14, Sembawang Shopping Centre, Singapore 758459",758459,Gym,103.8250625,1.4420625
+398,Kinetics Climbing,"511 Serangoon Rd, Singapore 218153",218153,Rock climbing gym,103.8573125,1.3146875
+400,ZINGA FITNESS,"11 Bedok North Street 1, #01-14 HEARTBEAT@BEDOK, Singapore 469662",469662,Gym,103.9323125,1.3271875
+401,Ground Up Climbing,"60 Tessensohn Road CSC@Tessensohn (Level 2, Singapore 217664",217664,Rock climbing gym,103.8561875,1.3158125
+402,F45 Training Serangoon Garden South,"11 Lichfield Rd, Singapore 556831",556831,Gym,103.8700625,1.3643125
+403,Gold's Gym,"43 South Bridge Rd, Singapore 058677",058677,Personal trainer,103.8485625,1.2874375
+404,Woodlands ActiveSG Gym,"3 Woodlands Street 13, Singapore 738600",738600,Gym,103.7795625,1.4345625
+405,Muay Art Fitness,"48 Woodleigh Park, Singapore 357844",357844,Gym,103.8675625,1.3425625
+406,Tribal Fitness Gym,"35b Pagoda St, Singapore 059194",059194,Gym,103.8448125,1.2830625
+407,F45 Training Boat Quay,"73/75 South Bridge Rd, Singapore 058705",058705,Gym,103.8480625,1.2866875
+408,Rising Personal Training,"466 River Valley Rd, Singapore 248351",248351,Gym,103.8268125,1.2936875
+409,Athletic Inc,"68 South Bridge Rd, #02-01, Singapore 058698",058698,Gym,103.8480625,1.2873125
+410,UFIT CBD Hub - Club Street,"21 Club St, #01-01, Singapore 069410",069410,Gym,103.8466875,1.2824375
+411,Apeiro Personal Training Singapore,"100 Orchard Rd, #02-01 Concorde Hotel, Singapore 238840",238840,Gym,103.8424375,1.3006875
+412,Van Lee Fitness,"Pagoda Street 30A, Level 2, Singapore 059189",059189,Gym,103.8446875,1.2833125
+414,Fitness First - Market Street (Raffles Place),"63 Market Street #02-01 & #03-01 Bank of Singapore Centre, Singapore 048942",048942,Gym,103.8505625,1.2844375
+416,Aurora Spin Studio at South Beach Quarter,"36 Beach Rd, #02-01/02-02, Singapore 189766",189766,Fitness center,103.8561875,1.2958125
+417,Hybrid Fitness,"321 Orchard Rd, Orchard Shopping Centre, #04-01/02/05/06/07, Singapore 238866",238866,Gym,103.8379375,1.3014375
+418,Active Zone - Women Only Kickboxing Fitness,"47 Beach Road, #03-03 Kheng Chiu Building, Singapore 189683",189683,Kickboxing school,103.8559375,1.2963125
+419,Banyan Tree Fitness Club,"10 Bayfront Ave, Singapore 018956",018956,Gym,103.8606875,1.2835625
+420,Gold's Gym,"118a Tg Pagar Rd, Singapore 088531",088531,Gym,103.8435625,1.2778125
+421,Fitness First @ 100AM,"100 Tras St, #04 - 16B, Singapore 079027",079027,Gym,103.8436875,1.2750625
+422,TECHNIQ TRAINING,"43 Carpenter St, #03-01 Greatwood Building, Singapore 059922",059922,Gym,103.8480625,1.2878125
+423,Pom Pi Pi Functional Fitness & Personal Training,"69 Circular Rd, #02-01, Singapore 049423",049423,Gym,103.8490625,1.2864375
+424,Energia Fitness Club,"30 Merchant Road #04-11/12 Riverside Point, Singapore 058282",058282,Gym,103.8441875,1.2893125
+425,FaMA - Fitness and Martial Arts,"30 Prinsep St, #03-01, Singapore 188647",188647,Martial arts school,103.8493125,1.2990625
+426,Habit SG,"33a Hongkong St, Level 2, Singapore 059672",059672,Gym,103.8471875,1.2874375
+427,Anytime Fitness Boon Keng,"294A Lavender St., Singapore 338807",338807,Gym,103.8599375,1.3148125
+428,Division Athletics,"78 Shenton Way, B1-01, Singapore 079120",079120,Gym,103.8453125,1.2731875
+430,Ritual Gym Tiong Bahru,"66 Eng Watt St, #01-06, Singapore 160066",160066,Gym,103.8328125,1.2835625
+431,Virgin Active Duo Galleria,"7 Fraser St, #01-09 Duo Galleria, Singapore 189356",189356,Gym,103.8585625,1.3000625
+432,1nfinity Gym,"125 Bukit Merah Lane 1, #01-172 beside Monica Florist, Singapore 150125",150125,Gym,103.8030625,1.2859375
+433,Ministry of Fitness,"06-01 Telok Ayer Street Annex B (Above Amoy Food Centre, Mnd Building, Singapore 069111",069111,Gym,103.8466875,1.2788125
+434,Flex Fitness,"292 River Valley Rd, Singapore 238333",238333,Personal trainer,103.8416875,1.2953125
+435,Pulse Lab,"1 Aliwal St, Level 3 unit 1B, Singapore 199894",199894,Gym,103.8613125,1.3018125
+436,Anytime Fitness Bedok South Bedok CC,"850 New Upper Changi Rd, #02-22, Singapore 467352",467352,Gym,103.9360625,1.3243125
+438,Anytime Fitness Balestier,"288 Balestier Road Balestier, Central, Singapore 329731",329731,Gym,103.8528125,1.3228125
+439,One Wellness Fitness Club,"247A / 247B Victoria Street, Bugis, Singapore 188033",188033,Fitness center,103.8553125,1.3004375
+440,V FIT Singapore,"14 Mohamed Sultan Rd, Singapore 238963",238963,Gym,103.8416875,1.2936875
+441,Ascend Fitness,"Basement 1, 1 Orchard Rd, YMCA, Singapore 238824",238824,Gym,103.8480625,1.2975625
+442,Rasa Fitness & Dance Academy,"3 Coleman Street Peninsula Shopping Centre, #02-19, Singapore 179804",179804,Gym,103.8500625,1.2920625
+445,Senior Gym | Fitness Classes by NTUC Health @ ActiveSG Gym - Serangoon Central,"264 Serangoon Central, #01-207, Singapore 550264",550264,Gym,103.8720625,1.3524375
+447,Foxgloves Fight Gym,"9 Purvis St, #05-02, Singapore 188588",188588,Boxing gym,103.8551875,1.2966875
+448,F45 Training Tanjong Pagar,"11 Keppel Rd, #01-02/03 ABI Plaza, Singapore 089057",089057,Gym,103.8428125,1.2731875
+449,Virgin Active Tanjong Pagar,"7 Wallich St, #06-01, Singapore 078881",078881,Gym,103.8458125,1.2768125
+450,The Gym Pod @ 163 Bukit Merah Central,"Blk 163 Bukit Merah Central, #03-3601, Singapore 150163",150163,Gym,103.8169375,1.2836875
+451,FITLUC,"21A Keong Saik Rd., Singapore 089128",089128,Personal trainer,103.8413125,1.2798125
+452,REVOLT @ The Sail - Exclusive Personal Training Gym,"2 Marina Blvd, #02-01 The Sail, Singapore 018987",018987,Gym,103.8528125,1.2813125
+453,STILL Boxing,"6A Shenton Way, #B1-06 OUE Downtown Gallery, Singapore 068809",068809,Boxing gym,103.8493125,1.2783125
+454,Anytime Fitness Tampines Central,"866A Tampines Street 83, #03-10 Central Community Complex, Singapore 521866",521866,Gym,103.9344375,1.3553125
+455,Green Curve SG EcoGym,"104 Amoy St, #03-01 MailBox 104 B, Singapore 069924",069924,Gym,103.8473125,1.2816875
+456,Gold's Gym,"222 River Valley Rd, Singapore 238280",238280,Personal trainer,103.8425625,1.2938125
+457,F45 River Valley,"372 River Valley Rd, Singapore 248280",248280,Gym,103.8305625,1.2959375
+459,Gold's Gym Personal Training - Bugis,"21 Bali Ln, Singapore 189857",189857,Personal trainer,103.8586875,1.3009375
+460,Elevate Performance Gym,"3 Neil Rd, Singapore 088805",088805,Gym,103.8436875,1.2801875
+461,ActiveSG Hockey Village Gym @ Boon Lay,"88 Boon Lay Pl, Singapore 649883",649883,Gym,103.7115625,1.3476875
+463,NTU Sports and Recreation Centre (SRC) Hall D,"639798, 50 Nanyang Ave, Singapore 639798",639798,Gym,103.6876875,1.3491875
+464,Woodlands Sports Hall,"2 Woodlands Street 12, Singapore 738620",738620,Gym,103.7796875,1.4343125
+465,Nee Soon Sports Centre,"32 Yishun Central 1, Singapore 760932",760932,Gym,103.8386875,1.4275625
+467,Tampines Gymnasium,"495 Tampines Ave 5, Singapore 529649",529649,Gym,103.9400625,1.3535625
+468,MRC Boxing Barn,"55 Boat Quay, Singapore 049844",049844,Boxing gym,103.8493125,1.2873125
+469,Tampines ActiveSG Gym,"1 Tampines Walk, #07-31, Singapore 528523",528523,Gym,103.9408125,1.3536875
+470,Spartans Boxing Club Buona Vista,"30 South Buona Vista Rd, Singapore 118160",118160,Boxing gym,103.7869375,1.2805625
+471,Onyx MMA East,"1A Tampines Street 92, #02-69 SAFRA, Singapore 528882",528882,Muay Thai boxing gym,103.9416875,1.3446875
+472,Fitness First - Changi (UE Biz Hub),"6 Changi Business Park Avenue 1, North Tower, #02-21 UE BizHub East, Singapore 486017",486017,Gym,103.9641875,1.3350625
+473,Legends Fight Sport Tampines | Top Boxing Gym Singapore,"6 Tampines Street 92, #01-16 Yoha Tampines, Singapore 528893",528893,Boxing gym,103.9418125,1.3433125
+474,Alpha Gymnastics Pte Ltd,"750 Chai Chee Rd, #01-13B ESR BizPark @ Chai Chee, Singapore 469000",469000,Gymnastics center,103.9224375,1.3235625
+475,Onyx MMA North,"60 Yishun Ave 4, Level 2 Beside EnergyOne Gym, Singapore 769027",769027,Muay Thai boxing gym,103.8409375,1.4241875
+477,SlingShot Lab,"11c Lor Telok, Singapore 049024",049024,Gym,103.8485625,1.2866875
+478,The Ring Boxing Community (Orchard),"1 Claymore Dr, #01-01A, Singapore 229594",229594,Boxing gym,103.8293125,1.3078125
+479,Bianka Panova Academy,"2 Bukit Merah Central, #02-03, Singapore 159835",159835,Gymnastics center,103.8138125,1.2848125
+480,"True Fitness (Djitsun Mall, Ang Mo Kio)","5 Ang Mo Kio Central 2, #04-01 Djitsun Mall, Singapore 569663",569663,Gym,103.8478125,1.3728125
+481,International Yoga Centre Singapore,"57 Oxley Rd, Singapore 238642",238642,Yoga studio,103.8408125,1.2965625
+482,Yoga Shala Singapore,"Punggol E, Singapore 821657",821657,Yoga studio,103.9216875,1.3995625
+483,Yoga Inc East Coast Park,"920 ECP, #01-11, Singapore 449875",449875,Yoga studio,103.9069375,1.2996875
+484,On Good Ground,"458B Joo Chiat Rd, Singapore 427671",427671,Yoga studio,103.9045625,1.3061875
+486,Mudita Yoga SG,"761A North Bridge Rd, Singapore 198729",198729,Yoga studio,103.8594375,1.3034375
+487,Iyengar Yoga Center of Central Singapore,"25A Bukit Pasoh Rd, Singapore 089839",089839,Yoga studio,103.8405625,1.2791875
+488,Grasio Sports Silat School - Pioneer Zone '5' RC,"667D Jurong West Street 65, Singapore 644667",644667,Martial arts school,103.7020625,1.3416875
+490,Zen Academy,"61 Sims Dr, #01-131, Singapore 380061",380061,Martial arts school,103.8786875,1.3166875
+491,Grasio Sports Silat School - Bishan North CC,"233 Bishan Street 22, Singapore 570233",570233,Martial arts school,103.8453125,1.3586875
+492,WKOSS Central Dojo (Honbu Dojo),"576c Serangoon Rd, Singapore 218190",218190,Karate club,103.8579375,1.3146875
+494,Swing Studio,"116 Changi Rd, Singapore 419718",419718,Pilates studio,103.9011875,1.3165625
+495,East Side Pilates,"30 E Coast Rd, #03-19, Singapore 428751",428751,Pilates studio,103.9029375,1.3038125
+496,Body n'Sync Singapore,"14 robinson rd far east finance bldg #02-03, Singapore 048545",048545,Pilates studio,103.8508125,1.2821875
+497,MY FITNESS PILATES,"Telok Kurau Rd, Singapore 423881",423881,Pilates studio,103.9105625,1.3120625
+498,The Core Reformery,"420 North Bridge Road #05-20 North Bridge Centre, Singapore 188727",188727,Pilates studio,103.8549375,1.2971875
+499,Singapore Taekwon-do Academy @ Mandarin Gardens Marine Parade East Coast,"Mandarin Gardens Clubhouse, Marine Parade Siglap, E Coast Rd, Singapore 448908",448908,Taekwondo school,103.9250625,1.3078125
+500,Jumping Singapore,"Far East Plaza, 14 Scotts Rd, #01-100, Singapore 228213",228213,Fitness center,103.8334375,1.3069375
+501,Singapore Taekwon-do Academy @ Cherie Hearts,"Bedok Central, New Upper Changi Rd, Singapore 460219",460219,Taekwondo school,103.9330625,1.3246875
+502,Singapore Taekwon-do Academy @ Aquarius Bedok Tampines Simei East Coast,"Aquarius Bedok Clubhouse, Bedok Reservoir View Tampines, Singapore 478928",478928,Taekwondo school,103.9356875,1.3378125
+503,Singapore Taekwon-do Academy @ Yishun Northpoint #03-38 Little Arts Academy,"Northpoint City Mall, Level 03-38 North Wing, at, Little Arts Academy Studio, Singapore 769098",769098,Taekwondo school,103.8360625,1.4294375
+504,Grandmaster B S Huan Taekwon-do International @ Yishun Northpoint City Singapore Taekwondo Academy,"Northpoint City Mall #03-38, North Wing, Yishun Central, Little Arts Academy, Singapore 769099",769099,Taekwondo school,103.8355625,1.4291875
+505,SwoleFit Garage,"Mega @ Woodlands, Singapore 737856",737856,Fitness center,103.8068125,1.4385625
+506,Revolution Bugis,"520 North Bridge Rd, #03–01, Singapore 188742",188742,Fitness center,103.8560625,1.2986875
+507,Elite Coach Sports Academy | Farrer Park,"291 serangoon road 03-00 City Square MRT Exit, A, #50m, Singapore 218107",218107,Fitness center,103.8548125,1.3113125
