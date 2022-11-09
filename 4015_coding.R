@@ -573,7 +573,7 @@ for (i in 1:n2){
 }
 
 #plotting on map
-plot(gym_rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
+plot(gym_rand.p, pch=16, main=NULL, cols="blue")
 
 hist(gym_ann.r, main=NULL, las=1, breaks=40, col="bisque", xlim=range(gym_ann.p, gym_ann.r))
 abline(v=gym_ann.p, col="blue")
@@ -588,7 +588,7 @@ for (i in 1:n3){
 }
 
 #plotting on map
-plot(ff_rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
+plot(ff_rand.p, pch=16, main=NULL, cols="green")
 
 hist(ff_ann.r, main=NULL, las=1, breaks=100, col="bisque", xlim=range(ff_ann.p, ff_ann.r))
 abline(v=ff_ann.p, col="blue")
@@ -601,7 +601,7 @@ n_sc.greater <- sum(sc_ann.r > sc_ann.p)
 
 p_sc <- min(n_sc.greater + 1, n + 1 - n_sc.greater) / (n +1)
 p_sc
-#p-value = 0.02297702, <0.05, meaning significant that distribution is nt random
+#p-value = 0.001996008, <0.05, meaning significant that distribution is nt random
 
 n_gym.greater <- sum(gym_ann.r > gym_ann.p)
 
@@ -668,8 +668,8 @@ plot(boundary)
 
 sc_ppp = sc_ppp[boundary]
 
-K1 <- density(sc_ppp) # Using the default bandwidth
-plot(K1, main=NULL, las=1, win=island_boundary_sp)
+K1 <- density(sc_ppp, palette = col_sports) # Using the default bandwidth
+plot(K1, main=NULL, las=1, win=island_boundary_sp, palette = col_sports)
 contour(K1, add=TRUE)
 
 
