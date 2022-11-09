@@ -210,9 +210,25 @@ raster::shapefile(fitness_shp,
 #############################
 ##### SPORTS FACILITIES #####
 #############################
+# Layers with KML only
 sportsfac_file_path = 'original_data/sportsg-sport-facilities/sportsg-sport-facilities-kml.kml'
+dus_sportsfac_path = 'original_data/sportsg-dus-sport-facilities/sportsg-dus-sport-facilities-kml.kml'
+
 sportsfac_kml <- file.path(getwd(), paste(path, sportsfac_file_path, sep=""))
 sportsfac_sf <- read_sf(sportsfac_kml)
+
+dus_sportsfac_kml <- file.path(getwd(), paste(path, dus_sportsfac_path, sep=""))
+dus_sportsfac_sf <- read_sf(dus_sportsfac_kml)
+dus_sportsfac_sf
+
+# Layers with SHP files
+sportsfield_path = 'original_data/sportsfieldssg/sportsfields-sg-shp/'
+dusschool_sportsfac_path = 'original_data/dus-schools-sports-facilities/dus-schools-sports-facilities-shp/'
+
+sportsfield_sf <- read_sf(dsn = paste(path, sportsfield_path, sep=""), 
+                     layer = "PLAYSG")
+dusschool_sportsfac_sf <- read_sf(dsn = paste(path, dusschool_sportsfac_path, sep=""), 
+                               layer = "DUS_School_Sports_Facilities")
 
 # Watch the data
 sportsfac_sf %>%
@@ -237,13 +253,35 @@ attributes <- lapply(X = 1:nrow(sportsfac_sf),
                        
                      })
 
+attributes <- lapply(X = 1:nrow(dus_sportsfac_sf), 
+                     FUN = function(x) {
+                       
+                       dus_sportsfac_sf %>% 
+                         slice(x) %>%
+                         pull(Description) %>%
+                         read_html() %>%
+                         html_node("table") %>%
+                         html_table(header = TRUE, trim = TRUE, dec = ".", fill = TRUE) %>%
+                         as_tibble(.name_repair = ~ make.names(c("Attribute", "Value"))) %>% 
+                         pivot_wider(names_from = Attribute, values_from = Value)
+                       
+                     })
+
+dus_sportsfac_longlat <- data.frame(st_coordinates(dus_sportsfac_sf)) %>%
+  rename("Longitude" = "X", "Latitude" = "Y")
+
 # Bind attributes to each observation as new columns
 sportsfac_sf_attr <- 
   sportsfac_sf %>%
   bind_cols(bind_rows(attributes)) %>%
   dplyr::select(-Description)
 
-sportsfac_sf_attr
+dus_sportsfac_sf_attr <- 
+  dus_sportsfac_sf %>%
+  bind_cols(bind_rows(attributes)) %>%
+  bind_cols(bind_rows(dus_sportsfac_longlat)) %>%
+  dplyr::select(-Description)
+
 # Watch new data
 sportsfac_sf_attr %>%
   glimpse()
@@ -251,12 +289,22 @@ sportsfac_sf_attr %>%
 # New map layers
 mapview(sportsfac_sf_attr)
 
+tm_shape(dus_sportsfac_sf_attr) + tm_dots("black", size = 0.01) +
+  tm_shape(dusschool_sportsfac_sf) + tm_dots("red", size = 0.01) +
+  tm_shape(sportsfac_as_point) + tm_dots("blue", size = 0.01)
+
 # Save output as SHP files
 sportsfac_shp <- as_Spatial(st_zm(sportsfac_sf_attr))
 raster::shapefile(sportsfac_shp, 
                   paste(path,
                         "sports_facilities/sports_facilities", 
                         sep=""), overwrite=TRUE)
+
+dus_sportsfac_shp <- as_Spatial(st_zm(dus_sportsfac_sf_attr))
+raster::shapefile(dus_sportsfac_shp, 
+                  paste(path,
+                        "dus_sports_facilities/dus_sports_facilities", 
+                        sep=""))
 
 
 # Function: Get the centroid in the polygon
@@ -274,15 +322,58 @@ st_centroid_within_poly <- function (poly) {
   return(centroid_in_poly)
 }
 
+st_coordinates(sportsfac_as_point)
+
 sportsfac_as_point = st_centroid_within_poly(sportsfac_sf_attr)
 qtm(sportsfac_as_point)
 
+sportsfac_longlat <- data.frame(st_coordinates(sportsfac_as_point)) %>%
+  rename("Longitude" = "X", "Latitude" = "Y")
+
+sportsfac_as_point_attr <- 
+  sportsfac_as_point %>%
+  bind_cols(bind_rows(sportsfac_longlat))
+
+
 # Save output as SHP files
-sportsfac_point_shp <- as_Spatial(st_zm(sportsfac_as_point))
+sportsfac_point_shp <- as_Spatial(st_zm(sportsfac_as_point_attr))
 raster::shapefile(sportsfac_point_shp, 
                   paste(path,
                         "sports_facilities_points/sports_facilities_points", 
                         sep=""), overwrite=TRUE)
+
+
+export <- dus_sportsfac_sf_attr %>%
+  st_drop_geometry()
+
+export2 <- dusschool_sportsfac_sf %>%
+  st_drop_geometry()
+
+export3 <- sportsfac_as_point_attr %>%
+  st_drop_geometry()
+
+export4 <- sportsfield_sf %>%
+  st_drop_geometry()
+
+
+write.csv(export, paste(path,"dus_sports_facilities/dus_sports_facilities.csv",sep = ""))
+write.csv(export2, paste(path,"dus_school_sports_facilities/dus_school_sports_facilities.csv",sep = ""))
+write.csv(export3, paste(path,"sports_facilities/sports_facilities_points.csv",sep = ""))
+write.csv(export4, paste(path,"sports_field_facilities/sports_field_facilities.csv",sep = ""))
+
+
+# Re-import combined Sports Facilities data and export as SHP
+full_sportsfac <- read.csv(file = paste(path, "sports_facilities/sports_facilities.csv", sep=""))
+
+projcrs <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
+
+full_sportsfac_sf <- st_as_sf(x=full_sportsfac, coords = c("Longitude", "Latitude"), crs = projcrs)
+
+full_sportsfac_shp <- as_Spatial(st_zm(full_sportsfac_sf))
+raster::shapefile(full_sportsfac_shp, 
+                  paste(path,
+                        "sports_facilities/sports_facilities", 
+                        sep=""))
 
 ################
 ##### GYMS #####
@@ -337,3 +428,39 @@ raster::shapefile(gym_shp,
                   paste(path,
                         "gym_facilities/gym_facilities", 
                         sep=""), overwrite=TRUE)
+
+export5 <- gym_sf_attr %>%
+  st_drop_geometry()
+
+write.csv(export5, paste(path,"gym_facilities/gym_facilities.csv",sep = ""))
+
+
+### NEW GYM INFO
+gyms_addon <- read.csv(file = paste(path, "gyms.csv", sep=""))
+projcrs <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
+new_gyms <- st_as_sf(x=gyms_addon, 
+                     coords = c("longitude", "latitude"), 
+                     crs = projcrs)
+
+tmap_mode("view")
+tmap_options(check.and.fix = TRUE)
+tm_shape(island) + tm_borders("black") +
+  tm_shape(gym_sf_attr) + tm_dots("black", size = 0.01) +
+  tm_shape(new_gyms) + tm_dots("blue", size = 0.01)
+
+qtm(sportsfac)
+
+
+# Re-import combined Sports Facilities data and export as SHP
+full_gymfac <- read.csv(file = paste(path, "gym_facilities/gym_facilities.csv", sep=""))
+
+projcrs <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
+
+full_gymfac_sf <- st_as_sf(x=full_gymfac, coords = c("Longitude", "Latitude"), crs = projcrs)
+
+full_gymfac_shp <- as_Spatial(st_zm(full_gymfac_sf))
+raster::shapefile(full_gymfac_shp, 
+                  paste(path,
+                        "gym_facilities/gym_facilities", 
+                        sep=""))
+
