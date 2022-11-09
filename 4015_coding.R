@@ -170,7 +170,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01) +
   tm_shape(union_hdb_1k) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2) 
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2) 
 
 sc_sf_as_sp <- as_Spatial(sports_complex_sf)
 sc_in_hdb_1k_count <- poly.counts(sc_sf_as_sp, buff_hdb_1k_sf_as_sp)
@@ -221,7 +221,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01) +
   tm_shape(union_hdb_2k) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2) 
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2) 
 
 sc_in_hdb_2k_count <- poly.counts(sc_sf_as_sp, buff_hdb_2k_sf_as_sp)
 # find the % of hdb inside gym polygon
@@ -268,7 +268,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01) +
   tm_shape(union_hdb_500) + tm_polygons("yellow", alpha = 0.2) +
-  tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2) 
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2) 
 
 sc_in_hdb_500_count <- poly.counts(sc_sf_as_sp, buff_hdb_500_sf_as_sp)
 # find the % of hdb inside gym polygon
@@ -424,7 +424,7 @@ mrt_gym_500 #69.76
 #--------------------------------------------------------------
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union6) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
@@ -439,6 +439,11 @@ mrt_ff_500
 ###############################################################################
 ########################## Monte Carlo & ANN Analysis #########################
 ###############################################################################
+col_fitness <- c('#edf8e9','#c7e9c0','#a1d99b','#74c476','#41ab5d','#238b45','#005a32')
+col_sports <- c('#f2f0f7','#cbc9e2','#9e9ac8','#6a51a3')
+col_gym <- c('#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c')
+
+
 fitness_longlat <- data.frame(st_coordinates(fitness_facilities_sf)) %>%
   rename("Longitude" = "X", "Latitude" = "Y")
 
@@ -748,18 +753,21 @@ tm_shape(island_boundary_sp) + tm_polygons() +
 
 
 # Create an empty grid where n is the total number of cells
-grd              <- as.data.frame(spsample(tr_cord.UTM, "regular", n=50000))
+tr_cord.UTM2 <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
+tr_cord.UTM2$Temperature <- format(round(tr_file$Temperature, 2), nsmall = 2)
+
+grd              <- as.data.frame(spsample(tr_cord.UTM2, "regular", n=50000))
 names(grd)       <- c("X", "Y")
 coordinates(grd) <- c("X", "Y")
 gridded(grd)     <- TRUE  # Create SpatialPixel object
 fullgrid(grd)    <- TRUE  # Create SpatialGrid object
 
 # Add P's projection information to the empty grid
-proj4string(tr_cord.UTM) <- proj4string(tr_cord.UTM) # Temp fix until new proj env is adopted
-proj4string(grd) <- proj4string(tr_cord.UTM)
+proj4string(tr_cord.UTM2) <- proj4string(tr_cord.UTM2) # Temp fix until new proj env is adopted
+proj4string(grd) <- proj4string(tr_cord.UTM2)
 
 # Interpolate the grid cells using a power value of 2 (idp=2.0)
-tr_cord.UTM.idw <- gstat::idw(Temperature ~ 1, tr_cord.UTM, newdata=grd, idp=2.0)
+tr_cord.UTM.idw <- gstat::idw(Temperature ~ 1, tr_cord.UTM2, newdata=grd, idp=2.0)
 
 # Convert to raster object then clip to SG
 r       <- raster(tr_cord.UTM.idw)
