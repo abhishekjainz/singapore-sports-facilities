@@ -20,15 +20,17 @@ path = "data/"
 plot_path = "plots/"
 
 # Read data
-fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
-                   layer = "fitness_facilities")
+# fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
+#                    layer = "fitness_facilities")
+
+fitness_summary <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
+                           layer = "fitness_summarised_points")
 sportsfac <- read_sf(dsn = paste(path, "sports_facilities/", sep = ""), 
                      layer = "sports_facilities")
 gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
                layer = "gym_facilities")
 
-fitness_summary <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
-                           layer = "fitness_summarised_points")
+
 
 qtm(fitness_summary) + qtm(fitness) # Compare full and new fitness layer
 
@@ -71,7 +73,7 @@ sportsfac_coord <- sportsfac %>%
 sportsfac = st_coordinates(st_as_sf(sportsfac_coord)) %>% as.data.frame()
 sportsfac$facility_type = "sports_facility"
 sportsfac_scatter = ggplot(sportsfac, aes(x=X, y=Y)) + 
-  geom_point(color="#E69F00") +
+  geom_point(color="#54278f") +
   theme(plot.margin = margin(t = 20, r = 20, b = 20, l = 20, unit = "pt"))
 sportsfac_scatter
 
@@ -90,7 +92,7 @@ gym_scatter
 # All Facilities
 all_facility <- rbind(fitness_points, sportsfac, gym_points)
 all_facility_scatter = ggplot(all_facility, aes(x=X, y=Y, color=facility_type)) + 
-  geom_point() + scale_colour_manual(values = c("#009E73", "#E69F00", "#0072B2")) +
+  geom_point() + scale_colour_manual(values = c("#009E73", "#54278f", "#0072B2")) +
   geom_smooth(method='lm') + theme(legend.position="bottom") +
   theme(plot.margin = margin(t = 20, r = 20, b = 20, l = 20, unit = "pt"))
 all_facility_scatter
