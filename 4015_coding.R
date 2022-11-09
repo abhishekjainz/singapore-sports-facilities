@@ -17,6 +17,7 @@ library(spatstat)
 library(knitr)
 library(rmapshaper)
 library(ggpubr)
+library(gstat)
 
 install.packages("remotes") 
 remotes::install_github("mtennekes/oldtmaptools")
@@ -161,7 +162,7 @@ gym_in_hdb_1k_count <- poly.counts(gym_sf_as_sp, buff_hdb_1k_sf_as_sp)
 # find the % of gym inside 1k hdb polygon
 perc_gym_hdb_1k =  gym_in_hdb_1k_count/total_gym * 100
 perc_gym_hdb_1k
-print("The percentage of gyms covered within 1km of HDB is 79.25%.")
+print("The percentage of gyms covered within 1km of HDB is 88.30%.")
 
 
 #Buffer starting from HDB to get sports complex counts
@@ -176,7 +177,7 @@ sc_in_hdb_1k_count <- poly.counts(sc_sf_as_sp, buff_hdb_1k_sf_as_sp)
 # find the % of hdb inside gym polygon
 perc_sc_hdb_1k =  sc_in_hdb_1k_count/total_sc * 100
 perc_sc_hdb_1k
-print("The percentage of Sports Complex covered within 1km of HDB is 97.14%.")
+print("The percentage of Sports Complex covered within 1km of HDB is 99.58%.")
 
 #Buffer starting from HDB to get fitness facilities counts
 tm_shape(st_as_sf(island_sf)) +
@@ -212,7 +213,7 @@ gym_in_hdb_2k_count <- poly.counts(gym_sf_as_sp, buff_hdb_2k_sf_as_sp)
 # find the % of gym inside 1k hdb polygon
 perc_gym_hdb_2k =  gym_in_hdb_2k_count/total_gym * 100
 perc_gym_hdb_2k
-print("The percentage of gyms covered within 2km of HDB is 98.74%.")
+print("The percentage of gyms covered within 2km of HDB is 99.78%.")
 
 
 #Buffer starting from HDB to get sports complex counts
@@ -259,7 +260,7 @@ gym_in_hdb_500_count <- poly.counts(gym_sf_as_sp, buff_hdb_500_sf_as_sp)
 # find the % of gym inside 1k hdb polygon
 perc_gym_hdb_500 =  gym_in_hdb_500_count/total_gym * 100
 perc_gym_hdb_500
-print("The percentage of gyms covered within 500m of HDB is 55.35%.")
+print("The percentage of gyms covered within 500m of HDB is 62.03%.")
 
 
 #Buffer starting from HDB to get sports complex counts
@@ -273,7 +274,7 @@ sc_in_hdb_500_count <- poly.counts(sc_sf_as_sp, buff_hdb_500_sf_as_sp)
 # find the % of hdb inside gym polygon
 perc_sc_hdb_500 =  sc_in_hdb_500_count/total_sc * 100
 perc_sc_hdb_500
-print("The percentage of Sports Complex covered within 500 of HDB is 82.86%.")
+print("The percentage of Sports Complex covered within 500 of HDB is 96.64%.")
 
 #Buffer starting from HDB to get fitness facilities counts
 tm_shape(st_as_sf(island_sf)) +
@@ -298,7 +299,7 @@ union4 <- st_union(buff4)
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union4) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2)
 
@@ -310,25 +311,25 @@ sc_in_mrt_count <- poly.counts(sc_sf_as_sp, buffer_mrt_sf_as_sp)
 
 # find the % of sports complex inside MRT 1km buffer polygon
 mrt_sc4 =  sc_in_mrt_count/total_sc * 100
-mrt_sc4 #94.29
+mrt_sc4 #81.09
 
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union4) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
 
 gym_sf_as_sp <- as_Spatial(gym_sf)
 gym_in_mrt_count <- poly.counts(gym_sf_as_sp, buffer_mrt_sf_as_sp)
 mrt_gym5 =  gym_in_mrt_count/total_gym * 100
-mrt_gym5 #93.71
+mrt_gym5 #88.74
 
 
 #--------------------------------------------------------------
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union4) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
@@ -348,7 +349,7 @@ union5 <- st_union(buff5)
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union5) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2)
 
@@ -359,24 +360,24 @@ sc_in_mrt_count_2k <- poly.counts(sc_sf_as_sp, buffer_mrt_sf_as_sp_2k)
 
 # find the % of sports complex inside MRT 1km buffer polygon
 mrt_sc_2k =  sc_in_mrt_count_2k/total_sc * 100
-mrt_sc_2k #100
+mrt_sc_2k #99.58
 
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union5) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
 
 gym_in_mrt_2k <- poly.counts(gym_sf_as_sp, buffer_mrt_sf_as_sp_2k)
 mrt_gym_2k =  gym_in_mrt_2k/total_gym * 100
-mrt_gym_2k #93.71
+mrt_gym_2k #99.12
 
 
 #--------------------------------------------------------------
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union5) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
@@ -386,7 +387,7 @@ ff_in_mrt_2k<- poly.counts(ff_sf_as_sp, buffer_mrt_sf_as_sp_2k)
 # find the % of Fitness Facilities inside MRT buffer polygon
 
 mrt_ff_2k =  ff_in_mrt_2k/total_ff * 100
-mrt_ff_2k #80.77
+mrt_ff_2k #98.34
 
 
 buff6 <- st_buffer(temp4, dist = 500)
@@ -395,7 +396,7 @@ union6 <- st_union(buff6)
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union6) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(sports_complex_sf) + tm_dots("red", size = 0.2)
 
@@ -406,18 +407,18 @@ sc_in_mrt_count_500 <- poly.counts(sc_sf_as_sp, buffer_mrt_sf_as_sp_500)
 
 # find the % of sports complex inside MRT 1km buffer polygon
 mrt_sc_500 =  sc_in_mrt_count_500/total_sc * 100
-mrt_sc_500 #14.29
+mrt_sc_500 #39.08
 
 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
-  tm_shape(mrt_station) + tm_dots("purple", size = 0.03) +
+  tm_shape(mrt_station) + tm_dots("purple", size = 0.2) +
   tm_shape(union6) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
 
 gym_in_mrt_500 <- poly.counts(gym_sf_as_sp, buffer_mrt_sf_as_sp_500)
 mrt_gym_500 =  gym_in_mrt_500/total_gym * 100
-mrt_gym_500 #80.50
+mrt_gym_500 #69.76
 
 
 #--------------------------------------------------------------
@@ -720,9 +721,6 @@ tr_file = read.csv(tr_csv)
 
 names(tr_file)
 
-#island_boundary -> Spatial Polygon
-#need convert tr_sf to spatial points df
-
 tr_cord.dec = SpatialPoints(cbind(tr_file$Longitude, tr_file$Latitude), proj4string = CRS("+proj=longlat"))
 
 tr_cord.UTM <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
@@ -736,4 +734,68 @@ tm_shape(island_boundary_sp) + tm_polygons() +
   tm_dots(col="Temperature", palette = "YlOrRd",
           title="Sampled Temperature", size=0.7) +
   tm_text("Temperature", xmod=.5, size = 0.7) +
+  tm_legend(show = FALSE)
+
+
+
+
+
+
+
+
+
+
+
+
+# Create an empty grid where n is the total number of cells
+grd              <- as.data.frame(spsample(tr_cord.UTM, "regular", n=50000))
+names(grd)       <- c("X", "Y")
+coordinates(grd) <- c("X", "Y")
+gridded(grd)     <- TRUE  # Create SpatialPixel object
+fullgrid(grd)    <- TRUE  # Create SpatialGrid object
+
+# Add P's projection information to the empty grid
+proj4string(tr_cord.UTM) <- proj4string(tr_cord.UTM) # Temp fix until new proj env is adopted
+proj4string(grd) <- proj4string(tr_cord.UTM)
+
+# Interpolate the grid cells using a power value of 2 (idp=2.0)
+tr_cord.UTM.idw <- gstat::idw(Temperature ~ 1, tr_cord.UTM, newdata=grd, idp=2.0)
+
+# Convert to raster object then clip to SG
+r       <- raster(tr_cord.UTM.idw)
+r.m     <- mask(r, island_boundary_sp)
+
+# Plot
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = "YlOrRd",
+            title="Predicted Temperature") + 
+  tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
   tm_legend(legend.outside=TRUE)
+
+
+
+
+
+
+
+
+
+
+
+
+#start of kriging
+
+f.1 <- as.formula(Temperature ~ X + Y) 
+var.smpl <- variogram(f.1, tr_cord.UTM, cloud = FALSE, cutoff=1000000, width=89900)
+
+
+
+
+
+
+
+
+
+
+
+
