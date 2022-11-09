@@ -15,6 +15,8 @@ library(GISTools)
 library(leaflet)
 library(spatstat)
 library(knitr)
+library(rmapshaper)
+library(ggpubr)
 
 install.packages("remotes") 
 remotes::install_github("mtennekes/oldtmaptools")
@@ -120,11 +122,12 @@ tm_shape(st_as_sf(island_sf)) +
 mrt_station <- read_sf(dsn = paste(path, "mrt_station/", sep = ""), 
                        layer = "MRTLRTStnPtt")
 
+#fitness facilities
 fitness_facilities_sf <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
                                             layer = "fitness_summarised_points")
 
 
-#fitness facilities
+
 temp5 <- st_as_sf(fitness_facilities_sf)
 st_crs(temp5) <- 4326
 temp5 <- st_transform(temp5, crs = 7801)
@@ -465,7 +468,6 @@ gym_ann.p <- mean(nndist(gym_ppp, k=1))
 gym_ann.p
 
 #Sports_Complex ANN
-library(tidyverse)
 #process the point data here
 sports_complex_sf_ap <- read_sf(dsn = paste(path, "sports_facilities_points/", sep = ""), 
                              layer = "sports_facilities_points")
@@ -538,7 +540,7 @@ for (i in 1:n){
 }
 
 #plotting on map
-plot(rand.p, pch=16, main=NULL, cols=rgb(0,0,0,0.5))
+plot(rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
 
 hist(sc_ann.r, main=NULL, las=1, breaks=40, col="bisque", xlim=range(sc_ann.p, sc_ann.r))
 abline(v=sc_ann.p, col="blue")
@@ -552,7 +554,7 @@ for (i in 1:n2){
 }
 
 #plotting on map
-plot(gym_rand.p, pch=16, main=NULL, cols=rgb(0,0,0,0.5))
+plot(gym_rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
 
 hist(gym_ann.r, main=NULL, las=1, breaks=40, col="bisque", xlim=range(gym_ann.p, gym_ann.r))
 abline(v=gym_ann.p, col="blue")
@@ -567,7 +569,7 @@ for (i in 1:n3){
 }
 
 #plotting on map
-plot(ff_rand.p, pch=16, main=NULL, cols=rgb(0,0,0,0.5))
+plot(ff_rand.p, pch=16, main=NULL, cols=rgb(0,0.5,0.5,1))
 
 hist(ff_ann.r, main=NULL, las=1, breaks=100, col="bisque", xlim=range(ff_ann.p, ff_ann.r))
 abline(v=ff_ann.p, col="blue")
@@ -631,3 +633,114 @@ PPM6 <- ppm(gym_ppp ~ hdb_pop)
 PPM6
 
 anova(PPM6, test="Chi") #P = 0.02633
+
+
+
+
+
+
+
+###############################################################################
+##################### Local Density and Global Density ########################
+###############################################################################
+###ppp : sc_ppp and the two others
+boundary = as.owin(island_boundary_sp)
+plot(boundary)
+
+sc_ppp = sc_ppp[boundary]
+
+K1 <- density(sc_ppp) # Using the default bandwidth
+plot(K1, main=NULL, las=1, win=island_boundary_sp)
+contour(K1, add=TRUE)
+
+
+##For gyms
+gym_ppp1 = gym_ppp[boundary]
+
+K2 <- density(gym_ppp1) # Using the default bandwidth
+plot(K2, main=NULL, las=1)
+contour(K2, add=TRUE)
+
+
+##For fitness facilities
+ff_ppp1 = ff_ppp[boundary]
+
+K3 <- density(ff_ppp1) # Using the default bandwidth
+plot(K3, main=NULL, las=1)
+contour(K3, add=TRUE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+path = "data/"
+plot_path = "plots/"
+
+# Read data
+fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
+                   layer = "fitness_summarised_points")
+sportsfac <- read_sf(dsn = paste(path, "sports_facilities_points/", sep = ""), 
+                     layer = "sports_facilities_points")
+gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
+               layer = "gym_facilities")
+
+island <- read_sf(dsn = paste(path, "land_boundary/intersection_boundary", 
+                              sep = ""), layer = "island_intersect")
+
+q = as.data.frame(st_intersection(island_sf, fitness_facilities_sf))
+
+tmap_mode("view")
+qtm(island) + qtm(fitness)
+
+fitness_count <- as.data.frame(st_intersects(island, fitness)) 
+
+df <- fitness_count %>%
+  group_by(row.id) %>% 
+  summarise(total_fitness = n())
+
+area_id = df$row.id
+
+fitness_planarea <- list()
+
+for (i in area_id) {
+  fitness_planarea <- append(fitness_planarea, island$PLN_AREA_N[i])
+}
+
+
+
+island$Fitness_Density <- island$FITNESS_COUNT/island$TOTAL_AREA
+
+
+## Density Plot based on Land Area 
+plot_fitness_density <- tm_shape(st_as_sf(island)) +
+  tm_fill("Fitness_Density", title = "Fitness Equipment Density") + 
+  tm_borders('black') + 
+  tm_layout(
+    legend.title.size = 1,
+    legend.text.size = 0.8,
+    legend.position = c("right", "bottom"),
+    legend.width = -0.3,
+    legend.bg.color = "white",
+    legend.bg.alpha = 1)
+
+plot_fitness_density
+# Save output as PNG
+tmap_save(plot_fitness_density, 
+          filename = paste(path,"plots/fitness_density.png", sep=""))
