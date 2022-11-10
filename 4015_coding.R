@@ -823,8 +823,23 @@ r.m <- mask(r, island_boundary_sp)
 tm_shape(r.m) + 
   tm_raster(n=10,palette = inv_RdBu,
             title="Predicted Temperature") + 
-  tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
-  tm_legend(legend.outside=TRUE)
+  tm_shape(tr_cord.UTM2) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE) +
+  tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
+
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = inv_RdBu,
+            title="Predicted Temperature") + 
+  tm_shape(tr_cord.UTM2) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE) +
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2)
+
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = inv_RdBu,
+            title="Predicted Temperature") + 
+  tm_shape(tr_cord.UTM2) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE) +
+  tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
 
 
@@ -898,5 +913,5 @@ r.m3 <- mask(r3, island_boundary_sp)
 tm_shape(r.m3) + 
   tm_raster(n=10,palette = "RdBu",
             title="Predicted Rainfall") + 
-  tm_shape(rfcord.UTM) + tm_dots(size=0.2) +
+  tm_shape(rf_cord.UTM2) + tm_dots(size=0.2) +
   tm_legend(legend.outside=TRUE)
