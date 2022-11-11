@@ -34,9 +34,18 @@ names(hdb_file)
 
 hdb_sf = st_as_sf(hdb_file, coords = c("LONGITUDE", "LATITUDE"), crs = 4326)
 
-#Bring the sf for islands
+#Load the sf for islands
 island_sf <- read_sf(dsn = paste(path, "land_boundary/intersection_boundary/", sep = ""), 
                 layer = "island_intersect")
+
+#Load the sf for sports complex
+sports_complex_sf <- read_sf(dsn = paste(path, "sports_facilities/", sep = ""), 
+                             layer = "sports_facilities")
+
+#Load the sf for gyms
+gym_sf <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
+                  layer = "gym_facilities")
+
 
 #view the hdb points on data
 tm_shape(st_as_sf(island_sf)) +
@@ -77,9 +86,6 @@ tm_shape(st_as_sf(island_sf)) +
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01)
   
 
-#Bring the sf for gyms & doing dissolved buffer
-gym_sf <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
-                     layer = "gym_facilities")
 
 temp2 <- st_as_sf(gym_sf)
 st_crs(temp2) <- 4326
@@ -95,9 +101,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_shape(gym_sf) + tm_dots("blue", size = 0.05) + 
   tm_shape(union2) + tm_polygons("yellow", alpha = 0.2)
   
-#Bring the sf for sports complex & doing buffer
-sports_complex_sf <- read_sf(dsn = paste(path, "sports_facilities/", sep = ""), 
-                  layer = "sports_facilities")
+
 
 #Buffer starting from Sports Complex
 temp3 <- st_as_sf(sports_complex_sf)
