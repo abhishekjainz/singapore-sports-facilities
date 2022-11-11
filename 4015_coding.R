@@ -119,11 +119,11 @@ tm_shape(st_as_sf(island_sf)) +
   tm_shape(union3) + tm_polygons("yellow", alpha = 0.2) +
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01)
 
-# MRT Stations
+#load MRT Stations data
 mrt_station <- read_sf(dsn = paste(path, "mrt_station/", sep = ""), 
                        layer = "MRTLRTStnPtt")
 
-#fitness facilities
+#load fitness facilities data
 fitness_facilities_sf <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
                                             layer = "fitness_summarised_points")
 
@@ -143,7 +143,7 @@ tm_shape(st_as_sf(island_sf)) +
   tm_shape(hdb_sf) + tm_dots("black", size = 0.01)
 
 
-##################### Varying HDB and MRT buffer size ########################
+########################## Points inside HDB Buffers ##########################
 total_hdb = nrow(hdb_sf)
 total_sc = nrow(sports_complex_sf)
 total_ff = nrow(fitness_facilities_sf)
@@ -291,12 +291,15 @@ print("The percentage of Fitness Facilities covered within 500m of HDB is 53.11%
 
 
 
-############################## Points inside buffer ##########################
+########################## Points inside MRT Buffers ##########################
+#creating buffer of 1km around mrt
 temp4 <- st_as_sf(mrt_station)
 buff4 <- st_buffer(temp4, dist = 1000)
 buff4 <- st_transform(buff4, crs = 4326)
 union4 <- st_union(buff4)
 
+
+#Plotting Sports Complex on MRT with 1km buffer
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -308,12 +311,12 @@ buffer_mrt_sf_as_sp <- as_Spatial(union4)
 sc_sf_as_sp <- as_Spatial(sports_complex_sf)
 
 sc_in_mrt_count <- poly.counts(sc_sf_as_sp, buffer_mrt_sf_as_sp)
-
 # find the % of sports complex inside MRT 1km buffer polygon
 mrt_sc4 =  sc_in_mrt_count/total_sc * 100
 mrt_sc4 #81.09
 
 
+#Plotting Gyms on MRT with 1km buffer
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -326,7 +329,7 @@ mrt_gym5 =  gym_in_mrt_count/total_gym * 100
 mrt_gym5 #88.74
 
 
-#--------------------------------------------------------------
+#Plotting Fitness Facilities on MRT with 1km buffer
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("purple", size = 0.1) +
@@ -334,19 +337,18 @@ tm_shape(st_as_sf(island_sf)) +
   tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
 ff_sf_as_sp <- as_Spatial(fitness_facilities_sf)
-
 ff_in_mrt_count <- poly.counts(ff_sf_as_sp, buffer_mrt_sf_as_sp)
 
 # find the % of Fitness Facilities inside MRT buffer polygon
-
 mrt_ff6 =  ff_in_mrt_count/total_ff * 100
 mrt_ff6 #80.77
 
-
+#creating buffer of 2km around mrt
 buff5 <- st_buffer(temp4, dist = 2000)
 buff5 <- st_transform(buff5, crs = 4326)
 union5 <- st_union(buff5)
 
+#Plotting sports complexes on MRT with 2km buffer 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -355,14 +357,13 @@ tm_shape(st_as_sf(island_sf)) +
 
 #count the number of sports complex points in the MRT buffer polygon
 buffer_mrt_sf_as_sp_2k <- as_Spatial(union5)
-
 sc_in_mrt_count_2k <- poly.counts(sc_sf_as_sp, buffer_mrt_sf_as_sp_2k)
 
 # find the % of sports complex inside MRT 1km buffer polygon
 mrt_sc_2k =  sc_in_mrt_count_2k/total_sc * 100
 mrt_sc_2k #99.58
 
-
+#Plotting gyms on MRT with 2km buffer 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -373,8 +374,7 @@ gym_in_mrt_2k <- poly.counts(gym_sf_as_sp, buffer_mrt_sf_as_sp_2k)
 mrt_gym_2k =  gym_in_mrt_2k/total_gym * 100
 mrt_gym_2k #99.12
 
-
-#--------------------------------------------------------------
+#Plotting Fitness Facilities on MRT with 2km buffer 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -390,10 +390,13 @@ mrt_ff_2k =  ff_in_mrt_2k/total_ff * 100
 mrt_ff_2k #98.34
 
 
+#creating buffer of 500m around mrt
 buff6 <- st_buffer(temp4, dist = 500)
 buff6 <- st_transform(buff6, crs = 4326)
 union6 <- st_union(buff6)
 
+
+#Plotting sports complexes on MRT with 500m buffer 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -410,6 +413,7 @@ mrt_sc_500 =  sc_in_mrt_count_500/total_sc * 100
 mrt_sc_500 #39.08
 
 
+#Plotting gyms on MRT with 500m buffer 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -421,7 +425,7 @@ mrt_gym_500 =  gym_in_mrt_500/total_gym * 100
 mrt_gym_500 #69.76
 
 
-#--------------------------------------------------------------
+#Plotting fitness facilities on MRT with 500m buffer 
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(mrt_station) + tm_dots("red", size = 0.1) +
@@ -432,7 +436,6 @@ tm_shape(st_as_sf(island_sf)) +
 ff_in_mrt_500<- poly.counts(ff_sf_as_sp, buffer_mrt_sf_as_sp_500)
 
 # find the % of Fitness Facilities inside MRT buffer polygon
-
 mrt_ff_500 =  ff_in_mrt_500/total_ff * 100
 mrt_ff_500
 
@@ -443,7 +446,7 @@ col_fitness <- c('#edf8e9','#c7e9c0','#a1d99b','#74c476','#41ab5d','#238b45','#0
 col_sports <- c('#f2f0f7','#cbc9e2','#9e9ac8','#6a51a3')
 col_gym <- c('#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c')
 
-
+#Updating fitness facilities data with latitude and longitude by transforming the geometry
 fitness_longlat <- data.frame(st_coordinates(fitness_facilities_sf)) %>%
   rename("Longitude" = "X", "Latitude" = "Y")
 
@@ -619,7 +622,7 @@ p_ff
 ###############################################################################
 ########################## poisson point process model ########################
 ###############################################################################
-
+#Convert the hdb points as SpatialPoints to be used in the poisson point process model
 hdb_cord.dec = SpatialPoints(cbind(hdb_file$LONGITUDE, hdb_file$LATITUDE), proj4string = CRS("+proj=longlat"))
 
 hdb_cord.UTM <- spTransform(hdb_cord.dec, CRS("+init=epsg:32748"))
@@ -627,10 +630,6 @@ hdb_cord.UTM <- spTransform(hdb_cord.dec, CRS("+init=epsg:32748"))
 hdb_ppp = as.ppp.SpatialPoints(hdb_cord.UTM)
 
 hdb_pop = as.im(hdb_ppp)
-
-
-kable(sstable, digits = 3)
-
 
 #sports facilities and hdb:referencing population
 PPM1 <- ppm(sc_ppp ~ hdb_pop )
@@ -678,7 +677,8 @@ anova(PPM6, test="Chi") #P = 0.3711
 ###############################################################################
 ##################### Local Density and Global Density ########################
 ###############################################################################
-###ppp : sc_ppp and the two others
+
+##Performing KDE operations on the three different facilities
 boundary = as.owin(island_boundary_sp)
 plot(boundary)
 
@@ -705,41 +705,33 @@ plot(K3, main=NULL, las=1)
 contour(K3, add=TRUE)
 
 
-##quadrat
+##Performing Quadrat density for the three different facilities
+#Sports complex
 Q <- quadratcount(sc_ppp, nx= 10, ny=7)
-
 plot(sc_ppp, pch=20, cols="grey70", main=NULL)  # Plot points
 plot(Q, add=TRUE)  # Add quadrat grid
-
 # Compute the density for each quadrat
 Q.d <- intensity(Q)
-
 # Plot the density
 plot(intensity(Q, image=TRUE), main=NULL, las=1)  # Plot density raster
 plot(sc_ppp, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
 
-##quadrat
+#Gyms
 Q2 <- quadratcount(gym_ppp1, nx= 20, ny=10)
-
 plot(gym_ppp1, pch=20, cols="grey70", main=NULL)  # Plot points
 plot(Q2, add=TRUE)  # Add quadrat grid
-
 # Compute the density for each quadrat
 Q2.d <- intensity(Q2)
-
 # Plot the density
 plot(intensity(Q2, image=TRUE), main=NULL, las=1)  # Plot density raster
 plot(gym_ppp, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
 
-##quadrat
+#Fitness Facilities
 Q3 <- quadratcount(ff_ppp1, nx= 20, ny=10)
-
 plot(ff_ppp1, pch=20, cols="grey70", main=NULL)  # Plot points
 plot(Q3, add=TRUE)  # Add quadrat grid
-
 # Compute the density for each quadrat
 Q3.d <- intensity(Q3)
-
 # Plot the density
 plot(intensity(Q3, image=TRUE), main=NULL, las=1)  # Plot density raster
 plot(ff_ppp1, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
@@ -749,22 +741,23 @@ plot(ff_ppp1, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
 ############################### Interpolation #################################
 ###############################################################################
 #temperature_rainfall_data
+#load the scraped temperature and rainfall data
 tr_file_path = "temp_rain.csv"
 tr_csv <- file.path(getwd(), paste(path, tr_file_path, sep=""))
 tr_file = read.csv(tr_csv)
 
 names(tr_file)
 
+#changing the datafile into SpatialPointDataFrame
 tr_cord.dec = SpatialPoints(cbind(tr_file$Longitude, tr_file$Latitude), proj4string = CRS("+proj=longlat"))
-
 tr_cord.UTM <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
-
 tr_cord.UTM@bbox <- island_boundary@bbox
-
 tr_cord.UTM$Temperature <- format(round(tr_file$Temperature, 2), nsmall = 2)
 
+#Creating a new palette as we want to use red for higher temperature and blue for lower temperature
 inv_RdBu = c("#2166AC", "#4393C3","#92C5DE", "#D1E5F0", "#FDDBC7", "#F4A582", "#D6604D", "#B2182B")
 
+#plot the points on singapore map
 tm_shape(island_boundary_sp) + tm_polygons() +
   tm_shape(tr_cord.UTM) +
   tm_dots(col="Temperature", palette = inv_RdBu,
@@ -819,18 +812,36 @@ dat.1st <- SpatialGridDataFrame(grd, data.frame(var1.pred = predict(lm.1, newdat
 r   <- raster(dat.1st)
 r.m <- mask(r, island_boundary_sp)
 
-# Plot the map
+# Plot the interpolation map with gym facilities
 tm_shape(r.m) + 
   tm_raster(n=10,palette = inv_RdBu,
             title="Predicted Temperature") + 
-  tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
-  tm_legend(legend.outside=TRUE)
+  tm_shape(tr_cord.UTM2) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE) +
+  tm_shape(gym_sf) + tm_dots("blue", size = 0.2)
+
+# Plot the interpolation map with sports complex
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = inv_RdBu,
+            title="Predicted Temperature") + 
+  tm_shape(tr_cord.UTM2) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE) +
+  tm_shape(sports_complex_sf) + tm_dots("purple", size = 0.2)
+
+
+# Plot the interpolation map with fitness facilities
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = inv_RdBu,
+            title="Predicted Temperature") + 
+  tm_shape(tr_cord.UTM2) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE) +
+  tm_shape(fitness_facilities_sf) + tm_dots("green", size = 0.2)
 
 
 
 
 ############################################################################
-
+########Performing the same interpolation techniques for rainfall
 rf_cord.UTM <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
 
 rf_cord.UTM@bbox <- island_boundary@bbox
@@ -898,5 +909,5 @@ r.m3 <- mask(r3, island_boundary_sp)
 tm_shape(r.m3) + 
   tm_raster(n=10,palette = "RdBu",
             title="Predicted Rainfall") + 
-  tm_shape(rfcord.UTM) + tm_dots(size=0.2) +
+  tm_shape(rf_cord.UTM2) + tm_dots(size=0.2) +
   tm_legend(legend.outside=TRUE)
