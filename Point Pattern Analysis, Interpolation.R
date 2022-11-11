@@ -288,69 +288,6 @@ anova(PPM6, test="Chi") #P = 0.3711
 
 
 ###############################################################################
-##################### Local Density and Global Density ########################
-###############################################################################
-
-##Performing KDE operations on the three different facilities
-boundary = as.owin(island_boundary_sp)
-plot(boundary)
-
-sc_ppp = sc_ppp[boundary]
-
-K1 <- density(sc_ppp, palette = col_sports) # Using the default bandwidth
-plot(K1, main=NULL, las=1, win=island_boundary_sp, palette = col_sports)
-contour(K1, add=TRUE)
-
-
-##For gyms
-gym_ppp1 = gym_ppp[boundary]
-
-K2 <- density(gym_ppp1) # Using the default bandwidth
-plot(K2, main=NULL, las=1)
-contour(K2, add=TRUE)
-
-
-##For fitness facilities
-ff_ppp1 = ff_ppp[boundary]
-
-K3 <- density(ff_ppp1) # Using the default bandwidth
-plot(K3, main=NULL, las=1)
-contour(K3, add=TRUE)
-
-
-##Performing Quadrat density for the three different facilities
-#Sports complex
-Q <- quadratcount(sc_ppp, nx= 10, ny=7)
-plot(sc_ppp, pch=20, cols="grey70", main=NULL)  # Plot points
-plot(Q, add=TRUE)  # Add quadrat grid
-# Compute the density for each quadrat
-Q.d <- intensity(Q)
-# Plot the density
-plot(intensity(Q, image=TRUE), main=NULL, las=1)  # Plot density raster
-plot(sc_ppp, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
-
-#Gyms
-Q2 <- quadratcount(gym_ppp1, nx= 20, ny=10)
-plot(gym_ppp1, pch=20, cols="grey70", main=NULL)  # Plot points
-plot(Q2, add=TRUE)  # Add quadrat grid
-# Compute the density for each quadrat
-Q2.d <- intensity(Q2)
-# Plot the density
-plot(intensity(Q2, image=TRUE), main=NULL, las=1)  # Plot density raster
-plot(gym_ppp, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
-
-#Fitness Facilities
-Q3 <- quadratcount(ff_ppp1, nx= 20, ny=10)
-plot(ff_ppp1, pch=20, cols="grey70", main=NULL)  # Plot points
-plot(Q3, add=TRUE)  # Add quadrat grid
-# Compute the density for each quadrat
-Q3.d <- intensity(Q3)
-# Plot the density
-plot(intensity(Q3, image=TRUE), main=NULL, las=1)  # Plot density raster
-plot(ff_ppp1, pch=20, cex=0.6, col=rgb(0,0,0,.5), add=TRUE)  # Add points
-
-
-###############################################################################
 ############################### Interpolation #################################
 ###############################################################################
 #temperature_rainfall_data
