@@ -222,11 +222,8 @@ dus_sportsfac_sf <- read_sf(dus_sportsfac_kml)
 dus_sportsfac_sf
 
 # Layers with SHP files
-sportsfield_path = 'original_data/sportsfieldssg/sportsfields-sg-shp/'
 dusschool_sportsfac_path = 'original_data/dus-schools-sports-facilities/dus-schools-sports-facilities-shp/'
 
-sportsfield_sf <- read_sf(dsn = paste(path, sportsfield_path, sep=""), 
-                     layer = "PLAYSG")
 dusschool_sportsfac_sf <- read_sf(dsn = paste(path, dusschool_sportsfac_path, sep=""), 
                                layer = "DUS_School_Sports_Facilities")
 
