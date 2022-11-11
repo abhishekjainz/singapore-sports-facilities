@@ -908,3 +908,60 @@ tm_shape(r.m3) +
             title="Predicted Rainfall") + 
   tm_shape(rf_cord.UTM2) + tm_dots(size=0.2) +
   tm_legend(legend.outside=TRUE)
+
+
+
+
+################################################################################
+######################## Interpolation for participation########################
+################################################################################
+s_file_path = "sports_participation.csv"
+s_csv <- file.path(getwd(), paste(path, s_file_path, sep=""))
+s_file = read.csv(s_csv)
+
+names(s_file)
+
+s_cord.dec = SpatialPoints(cbind(s_file$Longitude, s_file$Latitude), proj4string = CRS("+proj=longlat"))
+
+s_cord.UTM <- spTransform(s_cord.dec, CRS("+init=epsg:32748"))
+
+s_cord.UTM@bbox <- island_boundary@bbox
+
+s_cord.UTM$Participation <- format(round(s_file$Participation, 2), nsmall = 2)
+
+inv_RdBu = c("#2166AC", "#4393C3","#92C5DE", "#D1E5F0", "#FDDBC7", "#F4A582", "#D6604D", "#B2182B")
+
+tm_shape(island_boundary_sp) + tm_polygons() +
+  tm_shape(s_cord.UTM) +
+  tm_dots(col="Participation",palette = inv_RdBu,
+          title="Sampled Participation", size=0.7) +
+  tm_text("Participation", xmod=.5, size = 0.7) +
+  tm_legend(show = FALSE)
+
+# Create an empty grid where n is the total number of cells
+s_cord.UTM2 <- spTransform(s_cord.dec, CRS("+init=epsg:32748"))
+s_cord.UTM2$Temperature <- format(round(s_file$Participation, 2), nsmall = 2)
+
+grd              <- as.data.frame(spsample(s_cord.UTM2, "regular", n=50000))
+names(grd)       <- c("X", "Y")
+coordinates(grd) <- c("X", "Y")
+gridded(grd)     <- TRUE  # Create SpatialPixel object
+fullgrid(grd)    <- TRUE  # Create SpatialGrid object
+
+# Add P's projection information to the empty grid
+proj4string(s_cord.UTM2) <- proj4string(s_cord.UTM2) # Temp fix until new proj env is adopted
+proj4string(grd) <- proj4string(s_cord.UTM2)
+
+# Interpolate the grid cells using a power value of 2 (idp=2.0)
+s_cord.UTM.idw <- gstat::idw(s_file$Participation ~ 1, s_cord.UTM2, newdata=grd, idp=2.0)
+
+# Convert to raster object then clip to SG
+r       <- raster(s_cord.UTM.idw)
+r.m     <- mask(r, island_boundary_sp)
+
+# Plot
+tm_shape(r.m) + 
+  tm_raster(n=10,palette = inv_RdBu,
+            title="Predicted Participation") + 
+  tm_shape(s_cord.UTM) + tm_dots(size=0.2) +
+  tm_legend(legend.outside=TRUE)
