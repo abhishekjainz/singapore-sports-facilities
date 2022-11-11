@@ -43,12 +43,6 @@ tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 
   tm_shape(hdb_sf) + tm_dots(size = 0.01)
 
-#
-#island_file_path = "intersection_boundary/island_intersect/island_intersect.shp"
-#island_shp <- file.path(getwd(), paste(path, island_file_path, sep=""))
-#islands_sf = read_sf(island_shp)
-
-
 ### Creating buffer for HDB, 500m, & make sure all same crs
 temp <- st_as_sf(hdb_sf)
 st_crs(temp) <- 4326
@@ -144,10 +138,13 @@ tm_shape(st_as_sf(island_sf)) +
 
 
 ########################## Points inside HDB Buffers ##########################
+#taking the total counts
 total_hdb = nrow(hdb_sf)
 total_sc = nrow(sports_complex_sf)
 total_ff = nrow(fitness_facilities_sf)
 total_gym = nrow(gym_sf)
+
+
 #Buffer starting from HDB to get gym counts
 tm_shape(st_as_sf(island_sf)) +
   tm_borders("black") + tm_fill('white') + 

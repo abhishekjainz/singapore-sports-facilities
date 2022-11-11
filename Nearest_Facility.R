@@ -1,5 +1,4 @@
 
-install.packages("sf")
 library(sf)
 library(ggmap)
 library(maptools)
@@ -26,6 +25,7 @@ plot_path = "plots/"
 #####################
 fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
                    layer = "fitness_summarised_points")
+
 sportsfac <- read_sf(dsn = paste(path, "sports_facilities/", sep = ""), 
                      layer = "sports_facilities")
 gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""), 
@@ -178,18 +178,22 @@ projcrs <- "+proj=longlat +init=epsg:4326 +datum=WGS84 +no_defs +ellps=WGS84 +to
 island_bound <- st_as_sf(x=island_coords, coords = c("X", "Y"), crs = projcrs)
 
 
+island_bound_new <- as(st_geometry(island_bound$geometry), "Spatial")
+island_bound_sp_new= spTransform(island_bound_new, CRS("+init=epsg:32748"))
+
+
 island_coords
 
-w <- as.owin(island)
+#w <- as.owin(island)
 
 island_boundary <- as(island_bound, "Spatial")
 island_boundary_sp= spTransform(island_boundary, CRS("+init=epsg:32748"))
 island_boundary_sp= spTransform(island_boundary, CRS("+init=epsg:4326"))
 island_sf_new = island[-c(44,53, 20, 51, 52, 45,11, 27,9, 46, 21, 42, 38),]
 
-island_boundary_new <- as(st_geometry(island_sf_new$geometry), "Spatial")
+island_bound_new <- as(st_geometry(island_sf_new$geometry), "Spatial")
 # island_boundary_sp_new= spTransform(island_boundary_new, CRS("+init=epsg:32748"))
-island_boundary_sp_new= spTransform(island_boundary_new, CRS("+init=epsg:4326"))
+island_bound_sp_new = spTransform(island_bound_new, CRS("+init=epsg:4326"))
 
 total_gym = nrow(gym)
 
@@ -198,7 +202,7 @@ n2     <- 500L
 hdb_to_gym.r <- vector(length = n2) 
 
 for (i in 1:n2){
-  gym_rand.p <- rpoint(n=total_gym, win=island_boundary)
+  gym_rand.p <- rpoint(n=total_gym, win=island_bound_sp_new )
   gym_rand.p <- st_as_sf(gym_rand.p, crs = projcrs)
   curr_nearest_gym <- st_nearest_feature(hdb_sf, gym_rand.p)
   curr_dist_gym = st_distance(hdb_sf, gym[nearest_gym,], by_element=TRUE)
