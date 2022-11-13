@@ -152,6 +152,11 @@ raster::shapefile(island_shp,
                         "land_boundary/intersection_boundary/island_intersect", 
                         sep=""))
 
+tmap_mode("plot")
+tmap_options(check.and.fix = TRUE)
+qtm(planbound_sf_attr)
+qtm(subzone_sf_attr)
+qtm(island)
 
 ###########################
 ##### FITNESS CORNERS #####
@@ -206,6 +211,14 @@ raster::shapefile(fitness_shp,
                   paste(path,
                         "fitness_facilities/fitness_facilities", 
                         sep=""), overwrite=TRUE)
+
+new_fitness <- read_sf(dsn = paste(path, "fitness_facilities/", sep=""), 
+                                  layer = "fitness_summarised_points")
+
+fitness_export <- new_fitness %>%
+  st_drop_geometry()
+
+write.csv(fitness_export, paste(path,"fitness_facilities/fitness_facilities.csv",sep = ""))
 
 #############################
 ##### SPORTS FACILITIES #####

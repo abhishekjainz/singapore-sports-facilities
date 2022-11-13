@@ -32,7 +32,12 @@ gym <- read_sf(dsn = paste(path, "gym_facilities/", sep = ""),
 
 
 
-qtm(fitness_summary) + qtm(fitness) # Compare full and new fitness layer
+tm_shape(fitness_summary) + tm_dots(col="black") +
+  tm_shape(fitness_sf) + tm_dots(col="red") + 
+  tm_add_legend("fill",
+                labels = c("Before", "After"),
+                col = c("Red", "Black"),
+                title = "Fitness Points") +# Compare full and new fitness layer
 
 ###################################
 ##### FREQUENCY OF FACILITIES #####
