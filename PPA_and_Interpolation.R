@@ -310,13 +310,6 @@ s_cord.UTM$Participation <- format(round(s_file$Participation.Rate, 2), nsmall =
 
 inv_RdBu = c("#2166AC", "#4393C3","#92C5DE", "#D1E5F0", "#FDDBC7", "#F4A582", "#D6604D", "#B2182B")
 
-tm_shape(island_boundary_sp) + tm_polygons() +
-  tm_shape(s_cord.UTM) +
-  tm_dots(col="Participation", palette = inv_RdBu,
-          title="Sampled Participation", size=0.7) +
-  tm_text("Participation", xmod=.5, size = 0.7) +
-  tm_legend(show = FALSE)
-
 
 ### Density Plot for Participation Rate
 part_sf <- s_file %>% 
@@ -334,10 +327,6 @@ tm_shape(st_as_sf(part_sf)) + tm_borders("black") +
           palette = rev(inv_RdBu), 
           border.alpha = 0.01, 
           title = "Participation Rate") +
-  # tm_dots(col="Participation", palette = inv_RdBu,
-  #         title="Sampled Participation", size=0.7) +
-  # tm_text("PLN_AREA_N", xmod=.8, size = 0.4) +
-  # tm_legend(show = TRUE) 
   tm_layout(legend.width = -0.2) +
   tm_shape(st_as_sf(part_top5)) + tm_borders() +
   tm_text("PLN_AREA_N", size=0.5, style = "pretty") 
