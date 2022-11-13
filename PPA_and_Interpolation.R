@@ -287,66 +287,6 @@ anova(PPM6, test="Chi") #P = 0.3711
 #which means that the fitness facilities distribution is not a function of hdb density
 
 
-###############################################################################
-############################### Interpolation #################################
-###############################################################################
-#temperature_rainfall_data
-#load the scraped temperature and rainfall data
-tr_file_path = "scraped_data/temp_rain.csv"
-tr_csv <- file.path(getwd(), paste(path, tr_file_path, sep=""))
-tr_file = read.csv(tr_csv)
-
-names(tr_file)
-
-#changing the datafile into SpatialPointDataFrame
-tr_cord.dec = SpatialPoints(cbind(tr_file$Longitude, tr_file$Latitude), proj4string = CRS("+proj=longlat"))
-tr_cord.UTM <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
-tr_cord.UTM@bbox <- island_boundary@bbox
-tr_cord.UTM$Temperature <- format(round(tr_file$Temperature, 2), nsmall = 2)
-
-#Creating a new palette as we want to use red for higher temperature and blue for lower temperature
-inv_RdBu = c("#2166AC", "#4393C3","#92C5DE", "#D1E5F0", "#FDDBC7", "#F4A582", "#D6604D", "#B2182B")
-
-#plot the points on singapore map
-tm_shape(island_boundary_sp) + tm_polygons() +
-  tm_shape(tr_cord.UTM) +
-  tm_dots(col="Temperature", palette = inv_RdBu,
-          title="Sampled Temperature", size=0.7) +
-  tm_text("Temperature", xmod=.5, size = 0.7) +
-  tm_legend(show = FALSE)
-
-# Create an empty grid where n is the total number of cells
-tr_cord.UTM2 <- spTransform(tr_cord.dec, CRS("+init=epsg:32748"))
-tr_cord.UTM2$Temperature <- format(round(tr_file$Temperature, 2), nsmall = 2)
-
-grd              <- as.data.frame(spsample(tr_cord.UTM2, "regular", n=50000))
-names(grd)       <- c("X", "Y")
-coordinates(grd) <- c("X", "Y")
-gridded(grd)     <- TRUE  # Create SpatialPixel object
-fullgrid(grd)    <- TRUE  # Create SpatialGrid object
-
-# Add P's projection information to the empty grid
-proj4string(tr_cord.UTM2) <- proj4string(tr_cord.UTM2) # Temp fix until new proj env is adopted
-proj4string(grd) <- proj4string(tr_cord.UTM2)
-
-# Interpolate the grid cells using a power value of 2 (idp=2.0)
-tr_cord.UTM.idw <- gstat::idw(Temperature ~ 1, tr_cord.UTM2, newdata=grd, idp=2.0)
-
-# Convert to raster object then clip to SG
-r       <- raster(tr_cord.UTM.idw)
-r.m     <- mask(r, island_boundary_sp)
-
-# Plot
-tm_shape(r.m) + 
-  tm_raster(n=10,palette = inv_RdBu,
-            title="Predicted Temperature") + 
-  tm_shape(tr_cord.UTM) + tm_dots(size=0.2) +
-  tm_legend(legend.outside=TRUE)
-
-
-
-
-
 ################################################################################
 ######################## Interpolation for participation########################
 ################################################################################
