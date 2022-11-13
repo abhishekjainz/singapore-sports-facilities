@@ -121,8 +121,6 @@ mrt_station <- read_sf(dsn = paste(path, "mrt_station/", sep = ""),
 fitness_facilities_sf <- read_sf(dsn = paste(path, "fitness_facilities/", sep = ""), 
                                             layer = "fitness_summarised_points")
 
-
-
 temp5 <- st_as_sf(fitness_facilities_sf)
 st_crs(temp5) <- 4326
 temp5 <- st_transform(temp5, crs = 7801)
