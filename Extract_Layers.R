@@ -446,7 +446,7 @@ write.csv(export5, paste(path,"gym_facilities/gym_facilities.csv",sep = ""))
 
 
 ### NEW GYM INFO
-gyms_addon <- read.csv(file = paste(path, "gyms.csv", sep=""))
+gyms_addon <- read.csv(file = paste(path, "/scraped_data/gyms_scraped.csv", sep=""))
 projcrs <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
 new_gyms <- st_as_sf(x=gyms_addon, 
                      coords = c("longitude", "latitude"), 
@@ -461,7 +461,7 @@ tm_shape(island) + tm_borders("black") +
 qtm(sportsfac)
 
 
-# Re-import combined Sports Facilities data and export as SHP
+# Re-import combined Gym Facilities data and export as SHP
 full_gymfac <- read.csv(file = paste(path, "gym_facilities/gym_facilities.csv", sep=""))
 
 projcrs <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"

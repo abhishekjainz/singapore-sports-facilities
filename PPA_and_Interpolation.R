@@ -292,7 +292,7 @@ anova(PPM6, test="Chi") #P = 0.3711
 ###############################################################################
 #temperature_rainfall_data
 #load the scraped temperature and rainfall data
-tr_file_path = "temp_rain.csv"
+tr_file_path = "scraped_data/temp_rain.csv"
 tr_csv <- file.path(getwd(), paste(path, tr_file_path, sep=""))
 tr_file = read.csv(tr_csv)
 
@@ -354,7 +354,7 @@ tm_shape(r.m) +
 
 
 #Data set loading and tuning
-s_file_path = "sports-participation.csv"
+s_file_path = "scraped_data/sports-participation.csv"
 s_csv <- file.path(getwd(), paste(path, s_file_path, sep=""))
 s_file = read.csv(s_csv)
 
