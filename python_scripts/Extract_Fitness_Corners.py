@@ -150,5 +150,5 @@ temp = temp.drop(labels=["FULL_DICT", "UNIQUE_ROW"], axis=1)
 geometry = [Point(xy) for xy in zip(temp.LONGITUDE, temp.LATITUDE)]
 df = temp.drop(['LONGITUDE', 'LATITUDE'], axis=1)
 gdf = GeoDataFrame(df, crs="EPSG:4326", geometry=geometry)
-gdf.to_file('data/fitness_facilities/fitness_summarised_points.shp')
+gdf.to_file('../data/fitness_facilities/fitness_summarised_points.shp')
 

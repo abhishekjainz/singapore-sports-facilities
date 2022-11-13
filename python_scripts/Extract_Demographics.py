@@ -128,5 +128,5 @@ print("Completed!")
 print(len(population_full[population_full["SEARCHED"] == 0]))
 
 # Convert Dataframe to CSV format
-population_full.to_csv("data/" + 'population_2015_full.csv', index = False)
+population_full.to_csv("../data/" + 'population_2015_full.csv', index = False)
 

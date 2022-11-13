@@ -99,5 +99,5 @@ all_add_town = add_town.drop_duplicates()
 final_hdb = all_add_town.set_index("combined_address").merge(hdb_full, left_index=True, right_on="SEARCHVAL")
 
 # Convert Dataframe to CSV format
-final_hdb.to_csv("data/" + 'hdb_full.csv', index = False)
+final_hdb.to_csv("../data/HDB/" + 'hdb_full.csv', index = False)
 

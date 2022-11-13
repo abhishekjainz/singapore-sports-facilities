@@ -36,5 +36,5 @@ for i in range(nrow):
 print("Completed!")
 
 # Convert Dataframe to CSV format
-school_list.to_csv("data/dus_school_sports_facilities/" + 'dus_school_sports_facilities_updated.csv', index = False)
+school_list.to_csv("../data/" + 'dus_school_sports_facilities_updated.csv', index = False)
 
