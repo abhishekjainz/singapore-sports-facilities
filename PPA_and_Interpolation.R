@@ -372,10 +372,35 @@ inv_RdBu = c("#2166AC", "#4393C3","#92C5DE", "#D1E5F0", "#FDDBC7", "#F4A582", "#
 
 tm_shape(island_boundary_sp) + tm_polygons() +
   tm_shape(s_cord.UTM) +
-  tm_dots(col="Participation",palette = inv_RdBu,
+  tm_dots(col="Participation", palette = inv_RdBu,
           title="Sampled Participation", size=0.7) +
   tm_text("Participation", xmod=.5, size = 0.7) +
   tm_legend(show = FALSE)
+
+
+### Density Plot for Participation Rate
+part_sf <- s_file %>% 
+  dplyr::select(-Latitude, -Longitude) %>% 
+  merge(island_sf, . , by="PLN_AREA_N", all.x = TRUE)
+
+part_top5 <- part_sf %>%
+  arrange(desc(Participation.Rate)) %>%
+  top_n(5, Participation.Rate)
+
+tmap_mode("plot")
+tm_shape(st_as_sf(part_sf)) + tm_borders("black") +
+  tm_fill(col="Participation.Rate",
+          style = "jenks",
+          palette = rev(inv_RdBu), 
+          border.alpha = 0.01, 
+          title = "Participation Rate") +
+  # tm_dots(col="Participation", palette = inv_RdBu,
+  #         title="Sampled Participation", size=0.7) +
+  # tm_text("PLN_AREA_N", xmod=.8, size = 0.4) +
+  # tm_legend(show = TRUE) 
+  tm_layout(legend.width = -0.2) +
+  tm_shape(st_as_sf(part_top5)) + tm_borders() +
+  tm_text("PLN_AREA_N", size=0.5, style = "pretty") 
 
 
 #IDW technique
@@ -404,7 +429,7 @@ r.m     <- mask(r, island_boundary_sp)
 tmap_mode("plot")
 
 result_participation <- tm_shape(r.m) + 
-  tm_raster(n=10,palette = inv_RdBu,
+  tm_raster(n=10,palette = rev(inv_RdBu),
             title="Predicted Participation") + 
   tm_shape(s_cord.UTM) + tm_dots(size=0.01) +
   tm_legend(legend.outside=TRUE)
@@ -455,7 +480,7 @@ RMSE #0.09765187 when n = 15
 IDW.out3 <- vector(length = length(s_cord.UTM))
 
 for (i in 1:length(s_cord.UTM)) {
-  IDW.out3[i] <- idw(Participation ~ 1, s_cord.UTM[-i,], s_cord.UTM[i,], idp=4)$var1.pred
+  IDW.out3[i] <- idw(Participation ~ 1, s_cord.UTM[-i,], s_cord.UTM[i,], idp=1)$var1.pred
 }
 
 OP <- par(pty="s", mar=c(4,3,0,0))
@@ -473,3 +498,11 @@ RMSE #0.07349721 when n = 1
 #0.07888852 n = 2
 #0.08537619 n = 3
 #0.0898234 n = 4
+
+
+# NEW RMSE:
+# 0.0716 when n = 1
+# 0.0772 when n = 2
+# 0.0835 when n = 3
+# 0.0876 when n = 4
+# 0.0945 when n = 15
